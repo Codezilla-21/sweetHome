@@ -17,6 +17,9 @@
 5- User can set appointment and notify the house owner about this appointment.
 
 
+## Database Schema Diagram
+![Schema](https://user-images.githubusercontent.com/81149514/134328713-caf15481-b37f-4d64-8fb5-b506b6464eeb.PNG)
+
 
 
 ## Agreement
