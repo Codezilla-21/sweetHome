@@ -1,7 +1,7 @@
 
 ## Vision
 ### What is the vision for this product? 
-- Finding homes for rent and buying is easier than usual 
+- Finding homes for rent and buy is easier than usual 
 
 ### What pain point does this project solve? 
 - That helps the user to find the house he's looking for, (either to buy or to rent)
@@ -11,10 +11,10 @@
 
 ### Scope (In/Out)
 #### IN - What will your product do
-- easy to get the homes that anyone wants to buy or rent 
+- Facilitating finding homes to buy or rent 
 
 #### OUT - What will your product not do.
-- I can't communicate with him as a chating 
+- Chating 
 
 #### What will your MVP functionality be?
 - The product will allow the user to find all the specifications he wants in the house he wants to buy or rent 
