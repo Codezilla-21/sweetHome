@@ -1,5 +1,24 @@
 # sweetHome
 
+## WireFrames
+![WireFrame](https://user-images.githubusercontent.com/81149514/134324511-3c7be85c-4395-43f4-828b-2c8eb9bc5083.PNG)
+
+## [User Stories](https://trello.com/b/G1rnEnjg/sweet-home)
+
+
+1- User can log in if he's authenticated, if not  he can sign up.
+
+2- User can add House to sell or rent to the application .
+
+3- User can search for the house he wants (through filtering results).
+
+4- User can check the house he wants with its every details , location and images.
+
+5- User can set appointment and notify the house owner about this appointment.
+
+
+
+
 ## Agreement
 
 * Team Members: Victoria AbuZulof - Shada Smadi - Rawan Khasawneh - Ali Shiyyab.
