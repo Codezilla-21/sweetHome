@@ -42,7 +42,7 @@
         android:id="@+id/emailLabel"
         android:layout_width="133dp"
         android:layout_height="53dp"
-        android:text="E-mail"
+        android:text="User"
         android:textColor="#3F51B5"
         android:textSize="29sp"
         app:layout_constraintBottom_toBottomOf="parent"
