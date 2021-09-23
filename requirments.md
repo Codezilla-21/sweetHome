@@ -28,7 +28,7 @@
 - Search 
 - Signin 
 - SignUp
-- Oner can upload images 
+- Owner can upload images 
 
 ## Non Functional Requirements
 - Details 
