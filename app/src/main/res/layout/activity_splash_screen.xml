@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashScreen"
-    android:background= "#8ac9c3">
-
+    android:background= "#bedbe1">
+    //#bedbe1
 
     <ImageView
         android:id="@+id/image"
@@ -36,7 +36,7 @@
         android:text="Sweet House"
         android:textAllCaps="false"
         android:textColor="#402508"
-        android:textSize="22sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
