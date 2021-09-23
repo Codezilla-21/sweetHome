@@ -2,6 +2,7 @@ package com.example.mysweethome;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,9 +20,9 @@ import com.amplifyframework.core.Amplify;
 public class Signup extends AppCompatActivity {
 
         private static final String TAG = "SignUpActivity";
-        private EditText username ;
-        private EditText email ;
-        private EditText password ;
+        private com.google.android.material.textfield.TextInputLayout username ;
+        private com.google.android.material.textfield.TextInputLayout email ;
+        private com.google.android.material.textfield.TextInputLayout password ;
         private Button signUpBtn ;
         private Handler toastHandler ;
 
@@ -29,8 +30,6 @@ public class Signup extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_signup);
-
-
 
             username = findViewById(R.id.username);
             email = findViewById(R.id.emailRegister);
@@ -44,14 +43,14 @@ public class Signup extends AppCompatActivity {
                 public void onClick(View v) {
 
                     AuthSignUpOptions options = AuthSignUpOptions.builder()
-                            .userAttribute(AuthUserAttributeKey.email(), email.getText().toString())
+                            .userAttribute(AuthUserAttributeKey.email(), email.getEditText().toString())
                             .build();
-                    Amplify.Auth.signUp(username.getText().toString(), password.getText().toString(), options,
+                    Amplify.Auth.signUp(username.getEditText().toString(), password.getEditText().toString(), options,
                             result -> {
                                 Log.i("AuthQuickStart", "Result: " + result.toString());
 
                                 Intent goToConfirmation = new Intent(Signup.this, ConfirmSignUp.class);
-                                goToConfirmation.putExtra("Name", username.getText().toString());
+                                goToConfirmation.putExtra("Name", username.getEditText().toString());
                                 startActivity(goToConfirmation);
 
                             },
@@ -60,7 +59,7 @@ public class Signup extends AppCompatActivity {
 
                                 runOnUiThread(new Runnable() {
                                     public void run() {
-                                        final Toast toast = Toast.makeText(getApplicationContext(), "\"USER ALREADY EXIST  OR Password or Username does not match requirements\"", 5000);
+                                        @SuppressLint("WrongConstant") final Toast toast = Toast.makeText(getApplicationContext(), "\"USER ALREADY EXIST  OR Password or Username does not match requirements\"", 5000);
                                         toast.show();
                                     }
                                 });
