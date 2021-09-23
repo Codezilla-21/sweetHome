@@ -29,21 +29,21 @@ public class Signup extends AppCompatActivity {
         private Button signUpBtn ;
         private Handler toastHandler ;
         ImageView imageView;
-        Animation bottom;
+        Animation top;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_signup);
 
-            bottom = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
+            top = AnimationUtils.loadAnimation(this, R.anim.top_animation);
             imageView = findViewById(R.id.imag2);
             username = findViewById(R.id.username);
             email = findViewById(R.id.emailRegister);
             password = findViewById(R.id.passwordRegister);
             signUpBtn = findViewById(R.id.save);
 
-            imageView.setAnimation(bottom);
+            imageView.setAnimation(top);
 
 
             signUpBtn.setOnClickListener(new View.OnClickListener(){

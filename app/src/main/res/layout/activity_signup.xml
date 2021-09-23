@@ -25,7 +25,7 @@
         android:layout_marginTop="-20dp"
         android:fontFamily="@font/architects_daughter"
         android:text="Welcome"
-        android:textColor="#000000"
+        android:textColor="#402508"
         android:textSize="40sp"
         android:textStyle="bold" />
 
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SignUp To Start Your Journey"
-        android:textColor="#000000"
+        android:textColor="#402508"
         android:textColorHint="#000000"
         android:textSize="18sp" />
 
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Full Name"
-            android:textColorHint="#000000">
+            android:textColorHint="#402508">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="UserName"
-            android:textColorHint="#000000"
+            android:textColorHint="#402508"
             app:counterEnabled="true"
             app:counterMaxLength="15">
 
@@ -88,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
-            android:textColorHint="#000000">
+            android:textColorHint="#402508">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -106,7 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="phone No"
-            android:textColorHint="#000000">
+            android:textColorHint="#402508">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -124,7 +124,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
-            android:textColorHint="#000000"
+            android:textColorHint="#402508"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -148,14 +148,14 @@
         android:textColor="#fff"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:backgroundTint="#9f98c3" />
+        app:backgroundTint="#C7B198" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00000000"
         android:text="Already have an account? LogIn"
-        android:textColor="#000000" />
+        android:textColor="#402508" />
 
     </LinearLayout>
 
