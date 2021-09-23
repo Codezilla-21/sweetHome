@@ -55,4 +55,7 @@ dependencies {
     //enable multidex
     implementation 'androidx.multidex:multidex: 2.0.1'
 
+    // authentication
+    implementation 'com.amplifyframework:aws-auth-cognito:1.24.0'
+
 }

@@ -10,6 +10,11 @@
       "StackName": "amplify-sweethome-dev-115935",
       "StackId": "arn:aws:cloudformation:us-east-1:061983991901:stack/amplify-sweethome-dev-115935/af699ff0-1c4c-11ec-8e95-120edf13c247",
       "AmplifyAppId": "dfrlfq055i3ao"
+    },
+    "categories": {
+      "auth": {
+        "sweethomee34edba3": {}
+      }
     }
   }
 }
