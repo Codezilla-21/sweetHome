@@ -41,6 +41,8 @@ public class Login extends AppCompatActivity {
         singInBtn = findViewById(R.id.login);
         singUpBtn = findViewById(R.id.signup);
 
+        Button resetPassword = findViewById(R.id.resetPassword);
+
 
         singUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,16 +68,32 @@ public class Login extends AppCompatActivity {
 
             }
         });
+
+        resetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Amplify.Auth.resetPassword(
+                        email.getText().toString(),
+                        result -> {
+                            Log.i("AuthQuickstart", result.toString());
+                            Intent restPass =  new Intent(Login.this, ResetPassword.class);
+                            startActivity(restPass);
+                        },
+                        error -> Log.e("AuthQuickstart", error.toString())
+                );
+            }
+        });
     }
     void signIn(String username, String password) {
         Amplify.Auth.signIn(
                 username,
                 password,
                 result  -> {
-                    Log.i(TAG, "signIn: worked " + result .toString());
+                    Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
                     Intent goToMain = new Intent(Login.this, MainActivity.class);
                     startActivity(goToMain);
                 },
-                error -> Log.e(TAG, "signIn: failed" + error.toString()));
+                error -> Log.e("AuthQuickstart", error.toString()));
     }
+
 }
