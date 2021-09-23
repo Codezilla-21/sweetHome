@@ -51,6 +51,7 @@ public class Signup extends AppCompatActivity {
                                 Log.i("AuthQuickStart", "Result: " + result.toString());
 
                                 Intent goToConfirmation = new Intent(Signup.this, ConfirmSignUp.class);
+                                goToConfirmation.putExtra("Name", username.getText().toString());
                                 startActivity(goToConfirmation);
 
                             },

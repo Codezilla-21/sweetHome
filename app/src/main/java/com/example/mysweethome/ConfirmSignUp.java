@@ -23,13 +23,15 @@ public class ConfirmSignUp extends AppCompatActivity {
         TextView verificationText = findViewById(R.id.codeVerification);
         Button confirm = findViewById(R.id.confirmation);
 
-         EditText username = findViewById(R.id.username);
+        //EditText username = findViewById(R.id.username);
+        Intent intent = getIntent();
+        String username = intent.getExtras().getString("Name");
 
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Amplify.Auth.confirmSignUp(
-                        username.getText().toString(),
+                        username,
                         code.getText().toString(),
                         result -> {
                             Log.i("AuthQuickstart", result.isSignUpComplete() ? "Confirm signUp succeeded" : "Confirm sign up not complete");

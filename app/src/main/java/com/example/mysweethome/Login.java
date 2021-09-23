@@ -61,7 +61,21 @@ public class Login extends AppCompatActivity {
                         result -> Log.i("AmplifyQuickstart", result.toString()),
                         error -> Log.e("AmplifyQuickstart", error.toString())
                 );
+
+                signIn(email.getText().toString(), password.getText().toString());
+
             }
         });
+    }
+    void signIn(String username, String password) {
+        Amplify.Auth.signIn(
+                username,
+                password,
+                result  -> {
+                    Log.i(TAG, "signIn: worked " + result .toString());
+                    Intent goToMain = new Intent(Login.this, MainActivity.class);
+                    startActivity(goToMain);
+                },
+                error -> Log.e(TAG, "signIn: failed" + error.toString()));
     }
 }
