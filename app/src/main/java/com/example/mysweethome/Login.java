@@ -48,6 +48,8 @@ public class Login extends AppCompatActivity {
                 Intent goToSingUpBtn = new Intent(Login.this, Signup.class);
                 startActivity(goToSingUpBtn);
 
+
+
             }
         });
 
