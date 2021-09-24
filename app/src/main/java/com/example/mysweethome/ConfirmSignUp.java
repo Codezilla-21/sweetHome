@@ -18,7 +18,6 @@ public class ConfirmSignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_sign_up);
-
         EditText code= findViewById(R.id.verification);
         TextView verificationText = findViewById(R.id.codeVerification);
         Button confirm = findViewById(R.id.confirmation);

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.amplifyframework.AmplifyException;
+import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
 
@@ -30,6 +31,7 @@ public class Login extends AppCompatActivity {
 
         try {
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
+            Amplify.addPlugin(new AWSApiPlugin());
             Amplify.configure(getApplicationContext());
             Log.i("MyAmplifyApp", "Initialized Amplify");
         } catch (AmplifyException error) {
@@ -47,9 +49,6 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goToSingUpBtn = new Intent(Login.this, Signup.class);
                 startActivity(goToSingUpBtn);
-
-
-
             }
         });
 
@@ -63,7 +62,6 @@ public class Login extends AppCompatActivity {
                 );
 
                 signIn(email.getText().toString(), password.getText().toString());
-
             }
         });
     }

@@ -1,5 +1,15 @@
-type Todo @model {
+type sweetHouse @model {
   id: ID!
-  name: String!
-  description: String
+  area: String!
+  location: String!
+  numberOfRooms: String!
+  floors: String!
+  price: Int!
+  ageOfBuild: String!
+  pool: Boolean!
+  rentOfSell: String!
+  image: [String!]!
+  balcony:Boolean!
+  moreInfo: String
+  type: String!
 }
