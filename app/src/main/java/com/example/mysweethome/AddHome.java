@@ -74,7 +74,8 @@ public class AddHome extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        String key=titleText.getText().toString();
+       // String key=titleText.getText().toString();
+        String key="titleText.getText().toString()";
         File exampleFile = new File(getApplicationContext().getFilesDir(), "title");
         try {
             InputStream inputStream=getContentResolver().openInputStream(data.getData());
