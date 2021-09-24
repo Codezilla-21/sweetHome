@@ -38,8 +38,8 @@ public class Signup extends AppCompatActivity {
             top = AnimationUtils.loadAnimation(this, R.anim.top_animation);
             imageView = findViewById(R.id.imag2);
             username = findViewById(R.id.username);
-            email = findViewById(R.id.email);
-            password = findViewById(R.id.password);
+            email = findViewById(R.id.emailLabel);
+            password = findViewById(R.id.passwordLabel);
             signUpBtn = findViewById(R.id.save);
             imageView.setAnimation(top);
 
