@@ -1,6 +1,6 @@
 {
     "identityPoolName": "sweethomee34edba3_identitypool_e34edba3",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "sweethe34edba3",
     "userPoolName": "sweethomee34edba3_userpool_e34edba3",
     "autoVerifiedAttributes": [
