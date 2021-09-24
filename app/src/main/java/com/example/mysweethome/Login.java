@@ -7,33 +7,28 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import com.amplifyframework.AmplifyException;
-import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
 
 public class Login extends AppCompatActivity {
 
     private static final String TAG = "SignInActivity";
-    private  com.google.android.material.textfield.TextInputLayout email;
-    private com.google.android.material.textfield.TextInputLayout password;
+    private EditText email;
+    private EditText password;
     private Button singInBtn;
     private Button singUpBtn;
     private Handler handler;
-    Animation top ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         try {
-            Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.configure(getApplicationContext());
             Log.i("MyAmplifyApp", "Initialized Amplify");
@@ -46,18 +41,12 @@ public class Login extends AppCompatActivity {
         singInBtn = findViewById(R.id.login);
         singUpBtn = findViewById(R.id.signup);
 
-        top = AnimationUtils.loadAnimation(this, R.anim.top_animation);
-        ImageView image = findViewById(R.id.imag2);
-        image.setAnimation(top);
 
         singUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent goToSingUpBtn = new Intent(Login.this, Signup.class);
                 startActivity(goToSingUpBtn);
-
-
-
             }
         });
 
@@ -70,8 +59,7 @@ public class Login extends AppCompatActivity {
                         error -> Log.e("AmplifyQuickstart", error.toString())
                 );
 
-                signIn(email.getEditText().toString(), password.getEditText().toString());
-
+                signIn(email.getText().toString(), password.getText().toString());
             }
         });
     }
