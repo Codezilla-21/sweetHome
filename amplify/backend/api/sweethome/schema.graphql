@@ -4,7 +4,7 @@ type sweetHouse @model {
   location: String!
   numberOfRooms: String!
   floors: String!
-  price: String!
+  price: Int!
   ageOfBuild: String!
   pool: Boolean!
   rentOfSell: String!
