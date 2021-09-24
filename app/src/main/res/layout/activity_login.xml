@@ -50,7 +50,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="Username"
             android:textColorHint="#402508">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -63,10 +63,6 @@
                 android:textColorHint="#000000" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordLabel"
