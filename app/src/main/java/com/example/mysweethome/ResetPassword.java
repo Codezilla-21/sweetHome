@@ -23,7 +23,7 @@ public class ResetPassword extends AppCompatActivity {
         setContentView(R.layout.activity_reset_password);
 
         EditText newPassword = findViewById(R.id.reset1);
-        Button submitNewPassword =  findViewById(R.id.resetPassword);
+        Button submitNewPassword =  findViewById(R.id.newPass);
 
 //        AWSMobileClient.getInstance().forgotPassword("username", new Callback<ForgotPasswordResult>() {
 //            @Override
