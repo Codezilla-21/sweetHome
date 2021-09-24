@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="-20dp"
+        android:layout_marginTop="-40dp"
         android:fontFamily="@font/architects_daughter"
         android:text="Welcome"
         android:textColor="#402508"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
                 android:inputType="text"
-                android:textColor="#050404"
+                android:textColor="#000000"
                 android:textColorHint="#000000" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
                 android:inputType="text"
-                android:textColor="#000000"
+                android:textColor="#402508"
                 android:textColorHint="#000000" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -148,13 +148,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#000"
-        android:text="GO"
+        android:text="SignUp"
         android:textColor="#fff"
         android:textSize="16sp"
         android:textStyle="bold"
         app:backgroundTint="#C7B198" />
 
+
     <Button
+        android:id="@+id/loginn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00000000"
