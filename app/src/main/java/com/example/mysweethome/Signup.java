@@ -29,7 +29,7 @@ public class Signup extends AppCompatActivity {
         private Handler toastHandler ;
         ImageView imageView;
         Animation top;
-        Button goLogin;
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -38,21 +38,10 @@ public class Signup extends AppCompatActivity {
             top = AnimationUtils.loadAnimation(this, R.anim.top_animation);
             imageView = findViewById(R.id.imag2);
             username = findViewById(R.id.username);
-            email = findViewById(R.id.email);
-            password = findViewById(R.id.password);
+            email = findViewById(R.id.emailLabel);
+            password = findViewById(R.id.passwordLabel);
             signUpBtn = findViewById(R.id.save);
             imageView.setAnimation(top);
-            goLogin = findViewById(R.id.loginn);
-
-
-            goLogin.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent login = new Intent(Signup.this,Login.class);
-                    startActivity(login);
-                }
-            });
-
 
             signUpBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
