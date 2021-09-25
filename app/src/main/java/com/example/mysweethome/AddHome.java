@@ -64,8 +64,10 @@ public class AddHome extends AppCompatActivity {
             public void onClick(View v) {
                 Intent map = new Intent(AddHome.this, Map.class);
                 startActivity(map);
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(AddHome.this);
-                address = sharedPreferences.getString("Address", "Jordan");
+//                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(AddHome.this);
+//                address = sharedPreferences.getString("Address", "Jordan");
+//                System.out.println("*************ADDRESS FROM ADDHOME*********************");
+//                System.out.println(address);
             }
         });
 
@@ -101,12 +103,7 @@ public class AddHome extends AppCompatActivity {
             }
         });
 
-        EditText area = findViewById(R.id.area);
-        EditText floor= findViewById(R.id.floor);
-        EditText price= findViewById(R.id.price);
-        EditText rooms= findViewById(R.id.numberOfRooms);
-        EditText age= findViewById(R.id.ageOfBuild);
-        EditText info= findViewById(R.id.moreDetails);
+
 
         RadioButton balcony =(RadioButton)  findViewById(R.id.isBalcony);
         RadioButton  pool =(RadioButton)  findViewById(R.id.isPool);
@@ -147,12 +144,22 @@ public class AddHome extends AppCompatActivity {
         addToDatabase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                EditText area = findViewById(R.id.area);
+                EditText floor= findViewById(R.id.floor);
+                EditText price= findViewById(R.id.price);
+                EditText rooms= findViewById(R.id.numberOfRooms);
+                EditText age= findViewById(R.id.ageOfBuild);
+                EditText info= findViewById(R.id.moreDetails);
+
+                System.out.println("************Price: "+ price.getText().toString());
+
                 sweetHouse task = sweetHouse.builder()
                         .area(area.getText().toString())
-                        .location(address)
+                        .location(PreferenceManager.getDefaultSharedPreferences(AddHome.this).getString("Address", "Jordan"))
                         .numberOfRooms(rooms.getText().toString())
                         .floors(floor.getText().toString())
-                        .price(Integer.valueOf(price.getText().toString()))
+                        .price(Integer.parseInt(String.valueOf(price)))
                         .ageOfBuild(age.getText().toString())
                         .pool(poolB)
                         .rentOfSell(rentOrSellST)

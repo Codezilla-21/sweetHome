@@ -99,6 +99,16 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
                                     latLng, 15);
                             mMap.animateCamera(location);
                             mMap.addMarker(markerOptions);
+
+                            SharedPreferences nameShare = PreferenceManager.getDefaultSharedPreferences(Map.this);
+                            SharedPreferences.Editor sharedPrefEdit = nameShare.edit();
+                            sharedPrefEdit.putString("Address",latLng.latitude+"Longitude: "+ latLng.longitude);
+                            sharedPrefEdit.apply();
+                            System.out.println("**************** send data ****************");
+
+                            Intent addHome = new Intent(Map.this, AddHome.class);
+                            startActivity(addHome);
+
                         }
                     });
 
@@ -156,13 +166,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
             System.out.println("Country: "+country);
             System.out.println("Latitude: "+latLng.latitude);
             System.out.println("Longitude: "+latLng.longitude);
-            SharedPreferences nameShare = PreferenceManager.getDefaultSharedPreferences(Map.this);
-            SharedPreferences.Editor sharedPrefEdit = nameShare.edit();
-            sharedPrefEdit.putString("Address",city+", "+country+", "+"Latitude: "+ latLng.latitude+"Longitude: "+ latLng.longitude);
-            sharedPrefEdit.apply();
 
-//            Intent addHome = new Intent(Map.this, AddHome.class);
-//            startActivity(addHome);
             return address;
         } catch (IOException e) {
             e.printStackTrace();
