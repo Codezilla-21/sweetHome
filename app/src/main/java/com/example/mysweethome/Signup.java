@@ -27,6 +27,7 @@ public class Signup extends AppCompatActivity {
         private TextInputEditText password ;
         private Button signUpBtn ;
         private Handler toastHandler ;
+        private Button goToLogin;
         ImageView imageView;
         Animation top;
 
@@ -42,6 +43,7 @@ public class Signup extends AppCompatActivity {
             password = findViewById(R.id.passwordLabel);
             signUpBtn = findViewById(R.id.save);
             imageView.setAnimation(top);
+            goToLogin = findViewById(R.id.loginn);
 
             signUpBtn.setOnClickListener(new View.OnClickListener(){
                 @Override
@@ -69,6 +71,14 @@ public class Signup extends AppCompatActivity {
                                 });
                             }
                     );
+                }
+            });
+
+            goToLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Signup.this, Login.class);
+                    startActivity(intent);
                 }
             });
         }

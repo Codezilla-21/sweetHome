@@ -8,8 +8,11 @@ import android.os.Handler;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
@@ -24,11 +27,15 @@ public class Login extends AppCompatActivity {
     private Button singInBtn;
     private Button singUpBtn;
     private Handler handler;
+    ImageView imageView;
+    Animation top;
 
     @Override
-    protected void onCreate(Bundle savedInstancetate) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        top = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        imageView = findViewById(R.id.imagg);
 
         try {
             Amplify.addPlugin(new AWSS3StoragePlugin());
@@ -44,6 +51,7 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.password);
         singInBtn = findViewById(R.id.login);
         singUpBtn = findViewById(R.id.signup);
+        imageView.setAnimation(top);
 
 
         singUpBtn.setOnClickListener(new View.OnClickListener() {
