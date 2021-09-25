@@ -118,7 +118,7 @@
         android:layout_marginTop="75dp"
         android:textColor="#6A98A1"
         android:textStyle="bold"
-
+        android:fontFamily="@font/architects_daughter"
         />
 
     <ImageView
@@ -146,7 +146,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search thousand's of apartments and houses with HotPads."
+        android:text="Search thousand's of apartments and houses with SweetHome."
         android:layout_marginLeft="0dp"
         android:layout_marginTop="440dp"
         android:textColor="#6A98A1"
