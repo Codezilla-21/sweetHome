@@ -8,11 +8,14 @@ import android.Manifest;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -145,15 +148,21 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
             args.putString("address", address);
             dialogFragment.setArguments(args);
             dialogFragment.show(ft, "dialog");
-//            System.out.println("********************************************************");
-//            System.out.println("********************************************************");
-//            System.out.println("Adress: "+address);
-//            System.out.println("City: "+city);
-//            System.out.println("State: "+state);
-//            System.out.println("Country: "+country);
-//            System.out.println("Latitude: "+latLng.latitude);
-//            System.out.println("Longitude: "+latLng.longitude);
-            
+            System.out.println("********************************************************");
+            System.out.println("********************************************************");
+            System.out.println("Adress: "+address);
+            System.out.println("City: "+city);
+            System.out.println("State: "+state);
+            System.out.println("Country: "+country);
+            System.out.println("Latitude: "+latLng.latitude);
+            System.out.println("Longitude: "+latLng.longitude);
+            SharedPreferences nameShare = PreferenceManager.getDefaultSharedPreferences(Map.this);
+            SharedPreferences.Editor sharedPrefEdit = nameShare.edit();
+            sharedPrefEdit.putString("Address",city+", "+country+", "+"Latitude: "+ latLng.latitude+"Longitude: "+ latLng.longitude);
+            sharedPrefEdit.apply();
+
+//            Intent addHome = new Intent(Map.this, AddHome.class);
+//            startActivity(addHome);
             return address;
         } catch (IOException e) {
             e.printStackTrace();

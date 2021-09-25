@@ -6,17 +6,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 
+import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.sweetHouse;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
@@ -37,6 +42,10 @@ public class AddHome extends AppCompatActivity {
     private static final int PICK_IMAGES_CODE=0;
     int position  = 0;
     int PLACE_PICKER_REQUEST=1;
+    String address;
+    Boolean poolB=false;
+    Boolean balconyB=false;
+    String rentOrSellST="";
 
 
 
@@ -55,15 +64,8 @@ public class AddHome extends AppCompatActivity {
             public void onClick(View v) {
                 Intent map = new Intent(AddHome.this, Map.class);
                 startActivity(map);
-//                System.out.println("***********************Button function   *******************");
-//                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-//                try {
-//                    startActivityForResult(builder.build(AddHome.this),PLACE_PICKER_REQUEST);
-//                } catch (GooglePlayServicesRepairableException e) {
-//                    e.printStackTrace();
-//                } catch (GooglePlayServicesNotAvailableException e) {
-//                    e.printStackTrace();
-//                }
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(AddHome.this);
+                address = sharedPreferences.getString("Address", "Jordan");
             }
         });
 
@@ -96,6 +98,80 @@ public class AddHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pickImagesIntent();
+            }
+        });
+
+        EditText area = findViewById(R.id.area);
+        EditText floor= findViewById(R.id.floor);
+        EditText price= findViewById(R.id.price);
+        EditText rooms= findViewById(R.id.numberOfRooms);
+        EditText age= findViewById(R.id.ageOfBuild);
+        EditText info= findViewById(R.id.moreDetails);
+
+        RadioButton balcony =(RadioButton)  findViewById(R.id.isBalcony);
+        RadioButton  pool =(RadioButton)  findViewById(R.id.isPool);
+        RadioButton  rent =(RadioButton)  findViewById(R.id.addForRent);
+        RadioButton  sell =(RadioButton)  findViewById(R.id.addForSell);
+
+        balcony.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                balconyB=true;
+            }
+        });
+        pool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                poolB=true;
+            }
+        });
+        rent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                rentOrSellST="For Rent";
+            }
+        });
+        sell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                rentOrSellST="For Sell";
+            }
+        });
+
+
+
+
+        Button addToDatabase= findViewById(R.id.addToDatabase);
+        addToDatabase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sweetHouse task = sweetHouse.builder()
+                        .area(area.getText().toString())
+                        .location(address)
+                        .numberOfRooms(rooms.getText().toString())
+                        .floors(floor.getText().toString())
+                        .price(Integer.valueOf(price.getText().toString()))
+                        .ageOfBuild(age.getText().toString())
+                        .pool(poolB)
+                        .rentOfSell(rentOrSellST)
+                        .image(imageUris)
+                        .balcony(balconyB)
+                        .type(selected)
+                        .moreInfo(info.getText().toString())
+                        .build();
+
+
+                Amplify.API.mutate(
+                        ModelMutation.create(task),
+                        result -> Log.i("MyAmplifyApp", "Added successfully"),
+                        error -> Log.e("MyAmplifyApp",  "Error ", error)
+                );
+                //  allTasks.add(task);
+
+                Intent backToMain = new Intent(AddHome.this, MainActivity.class);
+                startActivity(backToMain);
             }
         });
 
@@ -141,24 +217,6 @@ public class AddHome extends AppCompatActivity {
 
         }
 
-//        if(requestCode == PLACE_PICKER_REQUEST){
-//
-//            System.out.println("*****************first if **************");
-//            System.out.println("Result: "+resultCode);
-//            System.out.println("data: "+data);
-//
-//            if (resultCode == RESULT_OK){
-//
-//                System.out.println("*************second if**************");
-//                Place place= PlacePicker.getPlace(data,this);
-//                System.out.println("*******PLACE*************");
-//                System.out.println("Latitude: "+place.getLatLng().latitude);
-//                System.out.println("Longitude: "+place.getLatLng().longitude);
-//                System.out.println("PLACE: "+place);
-//
-//            }
-//
-//        }
 
     }
 
