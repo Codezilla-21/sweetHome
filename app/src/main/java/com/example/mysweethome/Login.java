@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.aws.AWSApiPlugin;
@@ -24,17 +28,22 @@ public class Login extends AppCompatActivity {
     private Button singInBtn;
     private Button singUpBtn;
     private Handler handler;
+    ImageView imageView;
+    Animation top;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        top = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        imageView = findViewById(R.id.imagg);
 
         try {
         //    Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
+            Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());
             Log.i("MyAmplifyApp", "Initialized Amplify");
         } catch (AmplifyException error) {
@@ -45,6 +54,7 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.password);
         singInBtn = findViewById(R.id.login);
         singUpBtn = findViewById(R.id.signup);
+        imageView.setAnimation(top);
 
 
         singUpBtn.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +77,11 @@ public class Login extends AppCompatActivity {
                 signIn(email.getText().toString(), password.getText().toString());
             }
         });
+
+//        Intent intent=new Intent(Login.this,MainActivity.class);
+//        intent.putExtra("userName", (Parcelable) email);
+//
+
     }
     void signIn(String username, String password) {
         Amplify.Auth.signIn(
@@ -75,8 +90,13 @@ public class Login extends AppCompatActivity {
                 result  -> {
                     Log.i(TAG, "signIn: worked " + result .toString());
                     Intent goToMain = new Intent(Login.this, MainActivity.class);
+                    goToMain.putExtra("userName",email.getText().toString());
                     startActivity(goToMain);
                 },
                 error -> Log.e(TAG, "signIn: failed" + error.toString()));
     }
+
+
+
+
 }
