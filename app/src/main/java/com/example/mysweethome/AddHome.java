@@ -17,6 +17,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.amplifyframework.core.Amplify;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
+//import com.google.android.libraries.places.api.model.Place;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -31,6 +36,7 @@ public class AddHome extends AppCompatActivity {
     private ArrayList<String> imageUris;
     private static final int PICK_IMAGES_CODE=0;
     int position  = 0;
+    int PLACE_PICKER_REQUEST=1;
 
 
 
@@ -43,6 +49,23 @@ public class AddHome extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        Button pickLocation= findViewById(R.id.addLocation);
+        pickLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent map = new Intent(AddHome.this, Map.class);
+                startActivity(map);
+//                System.out.println("***********************Button function   *******************");
+//                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+//                try {
+//                    startActivityForResult(builder.build(AddHome.this),PLACE_PICKER_REQUEST);
+//                } catch (GooglePlayServicesRepairableException e) {
+//                    e.printStackTrace();
+//                } catch (GooglePlayServicesNotAvailableException e) {
+//                    e.printStackTrace();
+//                }
+            }
+        });
 
         Spinner spinner = findViewById(R.id.type);
         ArrayList<String> arrayList = new ArrayList<>();
@@ -92,6 +115,7 @@ public class AddHome extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PICK_IMAGES_CODE){
+            System.out.println("Result: "+ resultCode);
             if (resultCode == Activity.RESULT_OK){
 
                 if (data.getClipData() != null){
@@ -104,7 +128,7 @@ public class AddHome extends AppCompatActivity {
                        // System.out.println("------------------IF FOR----------------"+image);
                     }
 
-                 //   System.out.println("------------------IF----------------"+imageUris);
+                    System.out.println("------------------IF----------------"+imageUris);
                 }else{
                     // for single image
                     Uri image = data.getData();
@@ -116,6 +140,29 @@ public class AddHome extends AppCompatActivity {
             }
 
         }
+
+//        if(requestCode == PLACE_PICKER_REQUEST){
+//
+//            System.out.println("*****************first if **************");
+//            System.out.println("Result: "+resultCode);
+//            System.out.println("data: "+data);
+//
+//            if (resultCode == RESULT_OK){
+//
+//                System.out.println("*************second if**************");
+//                Place place= PlacePicker.getPlace(data,this);
+//                System.out.println("*******PLACE*************");
+//                System.out.println("Latitude: "+place.getLatLng().latitude);
+//                System.out.println("Longitude: "+place.getLatLng().longitude);
+//                System.out.println("PLACE: "+place);
+//
+//            }
+//
+//        }
+
     }
+
+
+
 
 }
