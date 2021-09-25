@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.amplifyframework.AmplifyException;
-import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
@@ -31,7 +31,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         try {
-            Amplify.addPlugin(new AWSApiPlugin());
+            Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());
@@ -66,6 +66,11 @@ public class Login extends AppCompatActivity {
                 signIn(email.getText().toString(), password.getText().toString());
             }
         });
+
+//        Intent intent=new Intent(Login.this,MainActivity.class);
+//        intent.putExtra("userName", (Parcelable) email);
+//
+
     }
     void signIn(String username, String password) {
         Amplify.Auth.signIn(
@@ -74,8 +79,13 @@ public class Login extends AppCompatActivity {
                 result  -> {
                     Log.i(TAG, "signIn: worked " + result .toString());
                     Intent goToMain = new Intent(Login.this, MainActivity.class);
+                    goToMain.putExtra("userName",email.getText().toString());
                     startActivity(goToMain);
                 },
                 error -> Log.e(TAG, "signIn: failed" + error.toString()));
     }
+
+
+
+
 }

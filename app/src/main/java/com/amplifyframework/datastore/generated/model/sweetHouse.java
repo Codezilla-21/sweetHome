@@ -1,6 +1,5 @@
 package com.amplifyframework.datastore.generated.model;
 
-import com.amplifyframework.core.model.annotations.BelongsTo;
 import com.amplifyframework.core.model.temporal.Temporal;
 
 import java.util.List;
@@ -39,7 +38,7 @@ public final class sweetHouse implements Model {
   private final @ModelField(targetType="String", isRequired = true) String location;
   private final @ModelField(targetType="String", isRequired = true) String numberOfRooms;
   private final @ModelField(targetType="String", isRequired = true) String floors;
-  private final @ModelField(targetType="String", isRequired = true) String price;
+  private final @ModelField(targetType="Int", isRequired = true) Integer price;
   private final @ModelField(targetType="String", isRequired = true) String ageOfBuild;
   private final @ModelField(targetType="Boolean", isRequired = true) Boolean pool;
   private final @ModelField(targetType="String", isRequired = true) String rentOfSell;
@@ -69,7 +68,7 @@ public final class sweetHouse implements Model {
       return floors;
   }
   
-  public String getPrice() {
+  public Integer getPrice() {
       return price;
   }
   
@@ -109,7 +108,7 @@ public final class sweetHouse implements Model {
       return updatedAt;
   }
   
-  private sweetHouse(String id, String area, String location, String numberOfRooms, String floors, String price, String ageOfBuild, Boolean pool, String rentOfSell, List<String> image, Boolean balcony, String moreInfo, String type) {
+  private sweetHouse(String id, String area, String location, String numberOfRooms, String floors, Integer price, String ageOfBuild, Boolean pool, String rentOfSell, List<String> image, Boolean balcony, String moreInfo, String type) {
     this.id = id;
     this.area = area;
     this.location = location;
@@ -272,7 +271,7 @@ public final class sweetHouse implements Model {
   
 
   public interface PriceStep {
-    AgeOfBuildStep price(String price);
+    AgeOfBuildStep price(Integer price);
   }
   
 
@@ -319,7 +318,7 @@ public final class sweetHouse implements Model {
     private String location;
     private String numberOfRooms;
     private String floors;
-    private String price;
+    private Integer price;
     private String ageOfBuild;
     private Boolean pool;
     private String rentOfSell;
@@ -376,7 +375,7 @@ public final class sweetHouse implements Model {
     }
     
     @Override
-     public AgeOfBuildStep price(String price) {
+     public AgeOfBuildStep price(Integer price) {
         Objects.requireNonNull(price);
         this.price = price;
         return this;
@@ -442,7 +441,7 @@ public final class sweetHouse implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String area, String location, String numberOfRooms, String floors, String price, String ageOfBuild, Boolean pool, String rentOfSell, List<String> image, Boolean balcony, String moreInfo, String type) {
+    private CopyOfBuilder(String id, String area, String location, String numberOfRooms, String floors, Integer price, String ageOfBuild, Boolean pool, String rentOfSell, List<String> image, Boolean balcony, String moreInfo, String type) {
       super.id(id);
       super.area(area)
         .location(location)
@@ -479,7 +478,7 @@ public final class sweetHouse implements Model {
     }
     
     @Override
-     public CopyOfBuilder price(String price) {
+     public CopyOfBuilder price(Integer price) {
       return (CopyOfBuilder) super.price(price);
     }
     
