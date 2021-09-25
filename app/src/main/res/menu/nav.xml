@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fontFamily="@font/architects_daughter">
 
 <item android:id="@+id/Home"
     android:title="Home"
     app:showAsAction="ifRoom"
-    android:icon="@drawable/ic_home_24"/>
+    android:icon="@drawable/ic_home_24"
+   />
 
 
     <item android:id="@+id/Account"
         android:title="Profile"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_baseline_account_circle_24"/>
+        android:icon="@drawable/ic_baseline_account_circle_24"
+    />
 
 <!--    <item android:id="@+id/holder"-->
 <!--        android:title=""-->
@@ -21,13 +24,15 @@
     <item android:id="@+id/Information"
         android:title="Information"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_baseline_info_24"/>
+        android:icon="@drawable/ic_baseline_info_24"
+      />
 
 
     <item android:id="@+id/Search"
         android:title="Search"
         app:showAsAction="ifRoom"
         android:icon="@drawable/search"
+
        />
 
 

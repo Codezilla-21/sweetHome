@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -65,6 +66,11 @@ public class Login extends AppCompatActivity {
                 signIn(email.getText().toString(), password.getText().toString());
             }
         });
+
+//        Intent intent=new Intent(Login.this,MainActivity.class);
+//        intent.putExtra("userName", (Parcelable) email);
+//
+
     }
     void signIn(String username, String password) {
         Amplify.Auth.signIn(
@@ -73,8 +79,13 @@ public class Login extends AppCompatActivity {
                 result  -> {
                     Log.i(TAG, "signIn: worked " + result .toString());
                     Intent goToMain = new Intent(Login.this, MainActivity.class);
+                    goToMain.putExtra("userName",email.getText().toString());
                     startActivity(goToMain);
                 },
                 error -> Log.e(TAG, "signIn: failed" + error.toString()));
     }
+
+
+
+
 }
