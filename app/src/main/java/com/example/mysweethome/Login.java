@@ -31,6 +31,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         try {
+            Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());
