@@ -26,7 +26,7 @@ public class Login extends AppCompatActivity {
     private Handler handler;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstancetate) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
