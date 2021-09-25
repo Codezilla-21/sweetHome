@@ -73,16 +73,8 @@ public class AddHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pickImagesIntent();
-           //     Intent pickFile=new Intent(Intent.EXTRA_ALLOW_MULTIPLE);
-//                @SuppressLint("IntentReset") Intent pickFile = new Intent(Intent.ACTION_GET_CONTENT);
-//                pickFile.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-//                pickFile.setType("*/*");
-//                pickFile=Intent.createChooser(pickFile,"Pick a Photo");
-//                startActivityForResult(pickFile,5050);
             }
         });
-
-        System.out.println("*********************************"+imageUris);
 
     }
 
@@ -92,7 +84,7 @@ public class AddHome extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent,"Select Images"), PICK_IMAGES_CODE);
-        System.out.println("---------------PICK-------------------"+imageUris);
+      //  System.out.println("---------------PICK-------------------"+imageUris);
     }
 
     @Override
@@ -100,24 +92,19 @@ public class AddHome extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PICK_IMAGES_CODE){
-
-            System.out.println("1111111111111111111111111");
-            System.out.println("1111111111111111111111111");
             if (resultCode == Activity.RESULT_OK){
 
-                System.out.println("22222222222222222222222222222");
                 if (data.getClipData() != null){
 
-                    System.out.println("33333333333333333333333333333333");
                     int pickedImagesNumber= data.getClipData().getItemCount();
                     for (int i = 0; i <pickedImagesNumber ; i++) {
 
                         Uri image = data.getClipData().getItemAt(i).getUri();
                         imageUris.add(image.toString());
-                        System.out.println("------------------IF FOR----------------"+image);
+                       // System.out.println("------------------IF FOR----------------"+image);
                     }
 
-                    System.out.println("------------------IF----------------"+imageUris);
+                 //   System.out.println("------------------IF----------------"+imageUris);
                 }else{
                     // for single image
                     Uri image = data.getData();
@@ -130,32 +117,5 @@ public class AddHome extends AppCompatActivity {
 
         }
     }
-    //    @Override
-//        protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//            super.onActivityResult(requestCode, resultCode, data);
-//            // String key=titleText.getText().toString();
-//            String key="titleText.getText().toString()";
-//            File exampleFile = new File(getApplicationContext().getFilesDir(), "images");
-//            try {
-//                InputStream inputStream=getContentResolver().openInputStream(data.getData());
-//                OutputStream outputStream=new FileOutputStream(exampleFile);
-//                byte[]buf=new byte[1024];
-//                int len;
-//                while ((len=inputStream.read(buf))>0){
-//                    outputStream.write(buf,0,len);
-//                }
-//                inputStream.close();
-//                outputStream.close();
-//
-//            } catch (Exception exception) {
-//                Log.e("MyAmplifyApp", "Upload failed", exception);
-//            }
-//
-//            Amplify.Storage.uploadFile(
-//                key,
-//                exampleFile,
-//                result -> Log.i("MyAmplifyApp", "Successfully uploaded: " + result.getKey()),
-//                storageFailure -> Log.e("MyAmplifyApp", "Upload failed", storageFailure)
-//        );
-//    }
+
 }
