@@ -36,6 +36,7 @@
             android:padding="5dp"
             >
             <ImageView
+                android:id="@+id/logButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/logout"
@@ -52,9 +53,15 @@
             android:text="LogOut"
             android:textColor="#FF453019"
             android:textStyle="bold"
-            android:textSize="15sp">
+            android:textSize="15sp"
+            android:fontFamily="@font/architects_daughter">
 
         </TextView>
+
+
+
+
+
     </RelativeLayout>
 
 
@@ -62,12 +69,11 @@
         android:id="@+id/profile_image"
         android:layout_width="60dp"
         android:layout_height="70dp"
-        android:src="@drawable/profile"
-        app:civ_border_color="#FF000000"
-        app:civ_border_width="2dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="4dp"
-        />
+        android:src="@drawable/profile"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -76,7 +82,8 @@
         android:layout_gravity="bottom"
         android:background="#C7B198"
         app:fabCradleMargin="10dp"
-        app:fabCradleRoundedCornerRadius="50dp">
+        app:fabCradleRoundedCornerRadius="50dp"
+     >
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavView"
@@ -88,7 +95,6 @@
             app:itemTextColor="#453019"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/nav"
-
             />
 
 
@@ -104,7 +110,51 @@
 
         />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="75dp"
+        android:textColor="#6A98A1"
+        android:textStyle="bold"
 
+        />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="450dp"
+        android:layout_marginTop="55dp"
+        app:srcCompat="@drawable/shatha_s_villaa" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="520dp"
+        android:text="Discover a place you'll love to live."
+        android:textColor="#6A98A1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:fontFamily="@font/architects_daughter"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search thousand's of apartments and houses with HotPads."
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="440dp"
+        android:textColor="#6A98A1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/architects_daughter"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
