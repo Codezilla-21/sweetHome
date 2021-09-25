@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.core.Amplify;
@@ -45,18 +46,30 @@ public class AddHome extends AppCompatActivity {
     String address;
     Boolean poolB=false;
     Boolean balconyB=false;
+    EditText area;
+    EditText floor;
+    EditText price;
+    EditText rooms;
+    EditText age;
+    EditText info;
     String rentOrSellST="";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_home);
+
     }
     @Override
     protected void onStart() {
         super.onStart();
+
+        area = findViewById(R.id.area);
+        floor= findViewById(R.id.floor);
+        price= findViewById(R.id.price);
+        rooms= findViewById(R.id.numberOfRooms);
+        age= findViewById(R.id.ageOfBuild);
+        info= findViewById(R.id.moreDetails);
 
         Button pickLocation= findViewById(R.id.addLocation);
         pickLocation.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +117,6 @@ public class AddHome extends AppCompatActivity {
         });
 
 
-
         RadioButton balcony =(RadioButton)  findViewById(R.id.isBalcony);
         RadioButton  pool =(RadioButton)  findViewById(R.id.isPool);
         RadioButton  rent =(RadioButton)  findViewById(R.id.addForRent);
@@ -145,21 +157,17 @@ public class AddHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                EditText area = findViewById(R.id.area);
-                EditText floor= findViewById(R.id.floor);
-                EditText price= findViewById(R.id.price);
-                EditText rooms= findViewById(R.id.numberOfRooms);
-                EditText age= findViewById(R.id.ageOfBuild);
-                EditText info= findViewById(R.id.moreDetails);
+
 
                 System.out.println("************Price: "+ price.getText().toString());
+                System.out.println("************Area: "+ area.getText().toString());
 
                 sweetHouse task = sweetHouse.builder()
                         .area(area.getText().toString())
                         .location(PreferenceManager.getDefaultSharedPreferences(AddHome.this).getString("Address", "Jordan"))
                         .numberOfRooms(rooms.getText().toString())
                         .floors(floor.getText().toString())
-                        .price(Integer.parseInt(String.valueOf(price)))
+                        .price(Integer.parseInt(price.getText().toString()))
                         .ageOfBuild(age.getText().toString())
                         .pool(poolB)
                         .rentOfSell(rentOrSellST)
@@ -217,14 +225,11 @@ public class AddHome extends AppCompatActivity {
                     Uri image = data.getData();
                     imageUris.add(image.toString());
 
-
                 }
 
             }
 
         }
-
-
     }
 
 
