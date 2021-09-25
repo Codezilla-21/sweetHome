@@ -21,7 +21,7 @@ public class ConfirmSignUp extends AppCompatActivity {
 
         EditText code= findViewById(R.id.verification);
         TextView verificationText = findViewById(R.id.codeVerification);
-        Button confirm = findViewById(R.id.confirmation);
+        TextView confirm = findViewById(R.id.confirmation);
 
         //EditText username = findViewById(R.id.username);
         Intent intent = getIntent();

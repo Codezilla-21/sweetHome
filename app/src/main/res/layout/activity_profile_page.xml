@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".profilePage">
 
-    >
 
     <RelativeLayout
         android:layout_width="120dp"
@@ -17,14 +16,14 @@
         android:layout_marginTop="9dp">
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/log_out"
-        android:layout_margin="3dp"
-        app:tint="#fff"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/log_out"
+            android:layout_margin="3dp"
+            app:tint="#fff"
 
-        />
+            />
 
         <RelativeLayout
             android:layout_width="50dp"
@@ -57,20 +56,52 @@
             android:fontFamily="@font/architects_daughter">
 
         </TextView>
-
-
-
-
-
     </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/log_out"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="300dp">
+
+        <TextView
+            android:id="@+id/updateProfile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Update Profile Image"
+            android:textColor="#FF453019"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:fontFamily="@font/architects_daughter">
+
+        </TextView>
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="242dp"
+        android:textColor="#6A98A1"
+        android:textStyle="bold"
+        android:fontFamily="@font/architects_daughter"
+        />
 
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
-        android:layout_width="60dp"
-        android:layout_height="70dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="120dp"
         android:src="@drawable/profile"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp" />
@@ -83,7 +114,7 @@
         android:background="#C7B198"
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="50dp"
-     >
+        >
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavView"
@@ -110,52 +141,12 @@
 
         />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="75dp"
-        android:textColor="#6A98A1"
-        android:textStyle="bold"
-        android:fontFamily="@font/architects_daughter"
-        />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="450dp"
-        android:layout_marginTop="55dp"
-        app:srcCompat="@drawable/shatha_s_villaa" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="520dp"
-        android:text="Discover a place you'll love to live."
-        android:textColor="#6A98A1"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:fontFamily="@font/architects_daughter"
-        android:gravity="center_horizontal" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search thousand's of apartments and houses with SweetHome."
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="440dp"
-        android:textColor="#6A98A1"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/architects_daughter"
-        android:textAlignment="center"
-        android:gravity="center_horizontal"
-        />
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/floatingActionButton2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:clickable="true"-->
+<!--        app:srcCompat="@drawable/ic_launcher_foreground" />-->
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
