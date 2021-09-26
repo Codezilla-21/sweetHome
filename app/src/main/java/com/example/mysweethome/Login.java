@@ -99,7 +99,4 @@ public class Login extends AppCompatActivity {
                 },
                 error -> Log.e(TAG, "signIn: failed" + error.toString()));
     }
-
-
-
 }

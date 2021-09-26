@@ -12,4 +12,5 @@ type sweetHouse @model {
   balcony:Boolean!
   moreInfo: String
   type: String!
+  email:String!
 }

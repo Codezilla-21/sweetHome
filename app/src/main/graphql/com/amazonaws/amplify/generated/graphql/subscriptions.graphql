@@ -14,6 +14,7 @@ subscription OnCreateSweetHouse {
     balcony
     moreInfo
     type
+    email
     createdAt
     updatedAt
   }
@@ -33,6 +34,7 @@ subscription OnUpdateSweetHouse {
     balcony
     moreInfo
     type
+    email
     createdAt
     updatedAt
   }
@@ -52,6 +54,7 @@ subscription OnDeleteSweetHouse {
     balcony
     moreInfo
     type
+    email
     createdAt
     updatedAt
   }
