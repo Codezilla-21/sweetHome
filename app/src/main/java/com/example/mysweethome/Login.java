@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.aws.AWSApiPlugin;
@@ -30,6 +31,7 @@ public class Login extends AppCompatActivity {
     private Handler handler;
     ImageView imageView;
     Animation top;
+    TextView forgetPasswords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,7 @@ public class Login extends AppCompatActivity {
         singInBtn = findViewById(R.id.login);
         singUpBtn = findViewById(R.id.signup);
         imageView.setAnimation(top);
+        forgetPasswords = findViewById(R.id.forgetPassword);
 
 
         singUpBtn.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +84,13 @@ public class Login extends AppCompatActivity {
 //        Intent intent=new Intent(Login.this,MainActivity.class);
 //        intent.putExtra("userName", (Parcelable) email);
 //
+        forgetPasswords.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              Intent intent = new Intent(Login.this, ForgetPassword.class);
+              startActivity(intent);
+            }
+        });
 
     }
     void signIn(String username, String password) {
@@ -95,6 +105,9 @@ public class Login extends AppCompatActivity {
                 },
                 error -> Log.e(TAG, "signIn: failed" + error.toString()));
     }
+
+
+
 
 
 
