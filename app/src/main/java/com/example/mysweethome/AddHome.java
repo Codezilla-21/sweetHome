@@ -21,7 +21,9 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.amazonaws.mobileconnectors.cognitoauth.Auth;
 import com.amplifyframework.api.graphql.model.ModelMutation;
+import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.sweetHouse;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -58,6 +60,8 @@ public class AddHome extends AppCompatActivity {
     EditText info;
     String rentOrSellST="";
   //  Boolean temp = false;
+    String getEmail;
+    String getUsersInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +69,17 @@ public class AddHome extends AppCompatActivity {
         setContentView(R.layout.activity_add_home);
 
         imageUris=  new ArrayList<>();
+
+        Amplify.Auth.
+        Amplify.Auth.fetchAuthSession(
+                result -> {
+                    Log.i("AmplifyQuickstart", result.toString());
+
+                },
+                error -> Log.e("AmplifyQuickstart", error.toString())
+        );
+
+
     }
     @Override
     protected void onStart() {
@@ -187,6 +202,7 @@ public class AddHome extends AppCompatActivity {
                         .image(imageUris)
                         .balcony(balconyB)
                         .type(selected)
+                        .email("kjlksdfds")
                         .moreInfo(info.getText().toString())
                         .build();
 
@@ -196,7 +212,7 @@ public class AddHome extends AppCompatActivity {
                         result -> Log.i("MyAmplifyApp", "Added successfully"),
                         error -> Log.e("MyAmplifyApp",  "Error ", error)
                 );
-                //  allTasks.add(task);
+
 
                 Intent backToMain = new Intent(AddHome.this, MainActivity.class);
                 startActivity(backToMain);
