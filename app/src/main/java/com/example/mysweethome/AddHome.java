@@ -53,6 +53,7 @@ public class AddHome extends AppCompatActivity {
     EditText age;
     EditText info;
     String rentOrSellST="";
+    String fromLocation="false";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,10 +78,7 @@ public class AddHome extends AppCompatActivity {
             public void onClick(View v) {
                 Intent map = new Intent(AddHome.this, Map.class);
                 startActivity(map);
-//                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(AddHome.this);
-//                address = sharedPreferences.getString("Address", "Jordan");
-//                System.out.println("*************ADDRESS FROM ADDHOME*********************");
-//                System.out.println(address);
+
             }
         });
 
@@ -233,6 +231,24 @@ public class AddHome extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(AddHome.this);
+        fromLocation = sharedPreferences.getString("Boolean", "false");
+        System.out.println("*************BOOLEAN FROM OUTER FUNCTION ADDHOME*********************: "+fromLocation);
+        System.out.println(fromLocation);
+
+        if (fromLocation.equals("true")){
+
+            SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(AddHome.this);
+            address = sharedPreferences2.getString("Address", "Jordan");
+            System.out.println("*************ADDRESS FROM ADDHOME INSIDE IF*********************: "+address);
+            System.out.println(address);
+        }
+    }
 
 
 }

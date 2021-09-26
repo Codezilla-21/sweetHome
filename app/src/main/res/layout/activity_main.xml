@@ -158,18 +158,27 @@
         />
 
 
-
     <Button
         android:id="@+id/addHome"
-        android:layout_width="wrap_content"
+        android:layout_width="159dp"
         android:layout_height="wrap_content"
         android:text="Add"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="550dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.279" />
+
+    <Button
+        android:id="@+id/sendEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="550dp"
+        android:text="Button" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -16,6 +16,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
 import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -39,6 +40,8 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
     private final static int PLACE_PICKER_REQUEST = 999;
     private final static int LOCATION_REQUEST_CODE = 23;
 
+    Button save;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +56,8 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
                     LOCATION_REQUEST_CODE);
         }
+
+        save= findViewById(R.id.saveAddress);
     }
 
 
@@ -99,23 +104,34 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
                                     latLng, 15);
                             mMap.animateCamera(location);
                             mMap.addMarker(markerOptions);
+                            save.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    SharedPreferences nameShare = PreferenceManager.getDefaultSharedPreferences(Map.this);
+                                    SharedPreferences.Editor sharedPrefEdit = nameShare.edit();
+                                    sharedPrefEdit.putString("Address",latLng.latitude+"Longitude: "+ latLng.longitude);
+                                    SharedPreferences bool = PreferenceManager.getDefaultSharedPreferences(Map.this);
+                                    SharedPreferences.Editor sharedPrefEdit2 = bool.edit();
+                                    sharedPrefEdit2.putString("Boolean","true");
+                                    sharedPrefEdit.apply();
 
-                            SharedPreferences nameShare = PreferenceManager.getDefaultSharedPreferences(Map.this);
-                            SharedPreferences.Editor sharedPrefEdit = nameShare.edit();
-                            sharedPrefEdit.putString("Address",latLng.latitude+"Longitude: "+ latLng.longitude);
-                            sharedPrefEdit.apply();
-                            System.out.println("**************** send data ****************");
+//                                    Intent intentMap= new Intent(v.getContext(),Map.class);
+//
+//                                    intentMap.putExtra("Address",latLng.latitude+"Longitude: "+ latLng.longitude);
+//                                    intentMap.putExtra("Boolean","true");
+                                    System.out.println("**************** send data ****************");
 
-                            Intent addHome = new Intent(Map.this, AddHome.class);
-                            startActivity(addHome);
+                                    Intent addHome = new Intent(Map.this, AddHome.class);
+                                    startActivity(addHome);
+                                }
+                            });
 
                         }
                     });
 
 
                 } else {
-                    // permission denied, boo! Disable the
-                    // functionality that depends on this permission.
+                    System.out.println("PERMISSION FOR LOCATION ACCESS DENIED");
                 }
                 return;
             }
