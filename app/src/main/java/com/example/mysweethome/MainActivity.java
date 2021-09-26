@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        // move this to home details
+        // move this to home details to recyclerview
         Button sendEmail = findViewById(R.id.sendEmail);
         sendEmail.setOnClickListener(new View.OnClickListener() {
             @Override

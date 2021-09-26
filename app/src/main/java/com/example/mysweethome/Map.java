@@ -41,25 +41,88 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
     private final static int LOCATION_REQUEST_CODE = 23;
 
     Button save;
+    String addressSaving;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
+//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+//                .findFragmentById(R.id.map);
+//        mapFragment.getMapAsync(this);
+//        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION)
+//                != PackageManager.PERMISSION_GRANTED) {
+//
+//            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
+//                    LOCATION_REQUEST_CODE);
+//        }
 
-            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
-                    LOCATION_REQUEST_CODE);
+        try {
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.map);
+            mapFragment.getMapAsync(this);
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
+                        LOCATION_REQUEST_CODE);
+            }
+            System.out.println("**************************TRY****************");
+        } catch (Exception e) {
+            System.out.println("----------------------------------------");
+            System.out.println("----------------------------------------");
+            e.printStackTrace();
         }
 
-        save= findViewById(R.id.saveAddress);
+        save = findViewById(R.id.saveAddress);
+        System.out.println("*********************ONCREATE MAP*******************");
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences nameShare = PreferenceManager.getDefaultSharedPreferences(Map.this);
+                SharedPreferences.Editor sharedPrefEdit = nameShare.edit();
+                sharedPrefEdit.putString("Address", addressSaving);
+                SharedPreferences bool = PreferenceManager.getDefaultSharedPreferences(Map.this);
+                SharedPreferences.Editor sharedPrefEdit2 = bool.edit();
+                sharedPrefEdit.apply();
+
+                Intent addHome = new Intent(Map.this, AddHome.class);
+                startActivity(addHome);
+            }
+        });
+
+
+
+
+
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+
+
+//        save.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                SharedPreferences nameShare = PreferenceManager.getDefaultSharedPreferences(Map.this);
+//                SharedPreferences.Editor sharedPrefEdit = nameShare.edit();
+//                sharedPrefEdit.putString("Address",addressSaving);
+//                SharedPreferences bool = PreferenceManager.getDefaultSharedPreferences(Map.this);
+//                SharedPreferences.Editor sharedPrefEdit2 = bool.edit();
+//                sharedPrefEdit.apply();
+//
+//                Intent addHome = new Intent(Map.this, AddHome.class);
+//                startActivity(addHome);
+//            }
+//        });
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -78,7 +141,8 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
                         //                                          int[] grantResults)
                         // to handle the case where the user grants the permission. See the documentation
                         // for ActivityCompat#requestPermissions for more details.
-                        return;
+                        ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
+                                LOCATION_REQUEST_CODE);
                     }
                     mMap.setMyLocationEnabled(true);
                     mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
@@ -104,34 +168,14 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
                                     latLng, 15);
                             mMap.animateCamera(location);
                             mMap.addMarker(markerOptions);
-                            save.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    SharedPreferences nameShare = PreferenceManager.getDefaultSharedPreferences(Map.this);
-                                    SharedPreferences.Editor sharedPrefEdit = nameShare.edit();
-                                    sharedPrefEdit.putString("Address",latLng.latitude+"Longitude: "+ latLng.longitude);
-                                    SharedPreferences bool = PreferenceManager.getDefaultSharedPreferences(Map.this);
-                                    SharedPreferences.Editor sharedPrefEdit2 = bool.edit();
-                                    sharedPrefEdit2.putString("Boolean","true");
-                                    sharedPrefEdit.apply();
-
-//                                    Intent intentMap= new Intent(v.getContext(),Map.class);
-//
-//                                    intentMap.putExtra("Address",latLng.latitude+"Longitude: "+ latLng.longitude);
-//                                    intentMap.putExtra("Boolean","true");
-                                    System.out.println("**************** send data ****************");
-
-                                    Intent addHome = new Intent(Map.this, AddHome.class);
-                                    startActivity(addHome);
-                                }
-                            });
 
                         }
                     });
-
+                    System.out.println("*********************ONREQUEST MAP*******************");
 
                 } else {
                     System.out.println("PERMISSION FOR LOCATION ACCESS DENIED");
+                    System.out.println("*********************REQUEST DENIED MAP*******************");
                 }
                 return;
             }
@@ -183,6 +227,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
             System.out.println("Latitude: "+latLng.latitude);
             System.out.println("Longitude: "+latLng.longitude);
 
+            addressSaving="Adress: "+address+"City: "+city+"State: "+state+"Country: "+country+"Latitude: "+latLng.latitude+"Longitude: "+latLng.longitude;
             return address;
         } catch (IOException e) {
             e.printStackTrace();
