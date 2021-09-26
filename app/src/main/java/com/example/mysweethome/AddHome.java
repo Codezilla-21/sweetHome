@@ -21,6 +21,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobileconnectors.cognitoauth.Auth;
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
@@ -59,6 +60,7 @@ public class AddHome extends AppCompatActivity {
     EditText age;
     EditText info;
     String rentOrSellST="";
+    EditText emailContacting;
   //  Boolean temp = false;
     String getEmail;
     String getUsersInfo;
@@ -69,16 +71,6 @@ public class AddHome extends AppCompatActivity {
         setContentView(R.layout.activity_add_home);
 
         imageUris=  new ArrayList<>();
-
-        Amplify.Auth.
-        Amplify.Auth.fetchAuthSession(
-                result -> {
-                    Log.i("AmplifyQuickstart", result.toString());
-
-                },
-                error -> Log.e("AmplifyQuickstart", error.toString())
-        );
-
 
     }
     @Override
@@ -106,6 +98,7 @@ public class AddHome extends AppCompatActivity {
         rooms= findViewById(R.id.numberOfRooms);
         age= findViewById(R.id.ageOfBuild);
         info= findViewById(R.id.moreDetails);
+        emailContacting= findViewById(R.id.emailContact);
 
 
         Spinner spinner = findViewById(R.id.type);
@@ -202,7 +195,7 @@ public class AddHome extends AppCompatActivity {
                         .image(imageUris)
                         .balcony(balconyB)
                         .type(selected)
-                        .email("kjlksdfds")
+                        .email(emailContacting.getText().toString())
                         .moreInfo(info.getText().toString())
                         .build();
 

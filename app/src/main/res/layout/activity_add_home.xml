@@ -8,19 +8,20 @@
 
     <EditText
         android:id="@+id/numberOfRooms"
-        android:layout_width="181dp"
-        android:layout_height="42dp"
+        android:layout_width="65dp"
+        android:layout_height="33dp"
         android:layout_marginStart="109dp"
         android:layout_marginEnd="93dp"
         android:ems="10"
         android:inputType="number"
+        android:text="NumberOfRooms"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.904" />
+        app:layout_constraintVertical_bias="0.395" />
 
     <Spinner
         android:id="@+id/type"
@@ -43,13 +44,14 @@
         android:autoText="false"
         android:ems="10"
         android:inputType="number"
+        android:text="Price"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.227" />
+        app:layout_constraintVertical_bias="0.226" />
 
     <EditText
         android:id="@+id/area"
@@ -59,6 +61,7 @@
         android:layout_marginEnd="93dp"
         android:ems="10"
         android:inputType="number"
+        android:text="Area"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,12 +72,13 @@
 
     <EditText
         android:id="@+id/floor"
-        android:layout_width="181dp"
-        android:layout_height="42dp"
+        android:layout_width="67dp"
+        android:layout_height="40dp"
         android:layout_marginStart="109dp"
         android:layout_marginEnd="93dp"
         android:ems="10"
         android:inputType="number"
+        android:text="NumberOfFloor"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,6 +93,7 @@
         android:layout_height="72dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:text="MoreInformation"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,6 +110,7 @@
         android:layout_marginEnd="93dp"
         android:ems="10"
         android:inputType="number"
+        android:text="AgeOfBuilding"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -197,84 +203,22 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numberOfRooms"
-        app:layout_constraintVertical_bias="0.706" />
+        app:layout_constraintVertical_bias="0.957" />
 
-    <TextView
-        android:id="@+id/textView5"
+    <EditText
+        android:id="@+id/emailContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="price"
-        app:layout_constraintBottom_toTopOf="@+id/area"
-        app:layout_constraintEnd_toStartOf="@+id/price"
-        app:layout_constraintHorizontal_bias="0.595"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Contacting Email"
+        app:layout_constraintBottom_toTopOf="@+id/addToDatabase"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/type"
-        app:layout_constraintVertical_bias="0.585" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Area"
-        app:layout_constraintBottom_toTopOf="@+id/floor"
-        app:layout_constraintEnd_toStartOf="@+id/area"
-        app:layout_constraintHorizontal_bias="0.569"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.472" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Floor(s)"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
-        app:layout_constraintEnd_toStartOf="@+id/floor"
-        app:layout_constraintHorizontal_bias="0.606"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:layout_constraintVertical_bias="0.652" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Age"
-        app:layout_constraintBottom_toTopOf="@+id/moreDetails"
-        app:layout_constraintEnd_toStartOf="@+id/ageOfBuild"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup3"
-        app:layout_constraintVertical_bias="0.758" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Add Details"
-        app:layout_constraintBottom_toTopOf="@+id/numberOfRooms"
-        app:layout_constraintEnd_toStartOf="@+id/moreDetails"
-        app:layout_constraintHorizontal_bias="0.909"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.518" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rooms"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/numberOfRooms"
-        app:layout_constraintHorizontal_bias="0.531"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.503" />
+        app:layout_constraintTop_toBottomOf="@+id/moreDetails" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
