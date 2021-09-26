@@ -17,10 +17,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobileconnectors.cognitoauth.Auth;
 import com.amplifyframework.api.graphql.model.ModelMutation;
+import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.sweetHouse;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -38,11 +42,14 @@ import java.util.ArrayList;
 public class AddHome extends AppCompatActivity {
 
     private String selected;
-   // private EditText titleText;
+    int counter = 0;
+    // private EditText titleText;
     private ArrayList<String> imageUris;
     private static final int PICK_IMAGES_CODE=0;
     int position  = 0;
     int PLACE_PICKER_REQUEST=1;
+    RadioGroup radioGroup2;
+    RadioGroup radioGroup3;
     String address;
     Boolean poolB=false;
     Boolean balconyB=false;
@@ -53,16 +60,37 @@ public class AddHome extends AppCompatActivity {
     EditText age;
     EditText info;
     String rentOrSellST="";
+    EditText emailContacting;
+  //  Boolean temp = false;
+    String getEmail;
+    String getUsersInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_home);
 
+        imageUris=  new ArrayList<>();
+
     }
     @Override
     protected void onStart() {
         super.onStart();
+
+
+
+        Button pickLocation= findViewById(R.id.addLocation);
+        pickLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent map = new Intent(AddHome.this, Map.class);
+
+
+
+                startActivity(map);
+            }
+        });
 
         area = findViewById(R.id.area);
         floor= findViewById(R.id.floor);
@@ -70,19 +98,8 @@ public class AddHome extends AppCompatActivity {
         rooms= findViewById(R.id.numberOfRooms);
         age= findViewById(R.id.ageOfBuild);
         info= findViewById(R.id.moreDetails);
+        emailContacting= findViewById(R.id.emailContact);
 
-        Button pickLocation= findViewById(R.id.addLocation);
-        pickLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent map = new Intent(AddHome.this, Map.class);
-                startActivity(map);
-//                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(AddHome.this);
-//                address = sharedPreferences.getString("Address", "Jordan");
-//                System.out.println("*************ADDRESS FROM ADDHOME*********************");
-//                System.out.println(address);
-            }
-        });
 
         Spinner spinner = findViewById(R.id.type);
         ArrayList<String> arrayList = new ArrayList<>();
@@ -106,7 +123,7 @@ public class AddHome extends AppCompatActivity {
             }
         });
 
-        imageUris= new ArrayList<>();
+
 
         Button upload=findViewById(R.id.upload);
         upload.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +132,6 @@ public class AddHome extends AppCompatActivity {
                 pickImagesIntent();
             }
         });
-
 
         RadioButton balcony =(RadioButton)  findViewById(R.id.isBalcony);
         RadioButton  pool =(RadioButton)  findViewById(R.id.isPool);
@@ -148,8 +164,15 @@ public class AddHome extends AppCompatActivity {
                 rentOrSellST="For Sell";
             }
         });
-
-
+//        temp = pickLocation.isSelected();
+//        if (temp!=false){
+//            price.setVisibility(View.VISIBLE);
+//            area.setVisibility(View.VISIBLE);
+//            floor.setVisibility(View.VISIBLE);
+//            rooms.setVisibility(View.VISIBLE);
+//            age.setVisibility(View.VISIBLE);
+//            info.setVisibility(View.VISIBLE);
+//        }
 
 
         Button addToDatabase= findViewById(R.id.addToDatabase);
@@ -157,12 +180,10 @@ public class AddHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(AddHome.this);
+                address = sharedPreferences2.getString("Address", "Jordan");
 
-
-                System.out.println("************Price: "+ price.getText().toString());
-                System.out.println("************Area: "+ area.getText().toString());
-
-                sweetHouse task = sweetHouse.builder()
+                sweetHouse house = sweetHouse.builder()
                         .area(area.getText().toString())
                         .location(PreferenceManager.getDefaultSharedPreferences(AddHome.this).getString("Address", "Jordan"))
                         .numberOfRooms(rooms.getText().toString())
@@ -174,16 +195,17 @@ public class AddHome extends AppCompatActivity {
                         .image(imageUris)
                         .balcony(balconyB)
                         .type(selected)
+                        .email(emailContacting.getText().toString())
                         .moreInfo(info.getText().toString())
                         .build();
 
 
                 Amplify.API.mutate(
-                        ModelMutation.create(task),
+                        ModelMutation.create(house),
                         result -> Log.i("MyAmplifyApp", "Added successfully"),
                         error -> Log.e("MyAmplifyApp",  "Error ", error)
                 );
-                //  allTasks.add(task);
+
 
                 Intent backToMain = new Intent(AddHome.this, MainActivity.class);
                 startActivity(backToMain);
@@ -198,12 +220,13 @@ public class AddHome extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent,"Select Images"), PICK_IMAGES_CODE);
-      //  System.out.println("---------------PICK-------------------"+imageUris);
+        //  System.out.println("---------------PICK-------------------"+imageUris);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
 
         if (requestCode == PICK_IMAGES_CODE){
             System.out.println("Result: "+ resultCode);
@@ -216,7 +239,7 @@ public class AddHome extends AppCompatActivity {
 
                         Uri image = data.getClipData().getItemAt(i).getUri();
                         imageUris.add(image.toString());
-                       // System.out.println("------------------IF FOR----------------"+image);
+                        // System.out.println("------------------IF FOR----------------"+image);
                     }
 
                     System.out.println("------------------IF----------------"+imageUris);
@@ -224,15 +247,8 @@ public class AddHome extends AppCompatActivity {
                     // for single image
                     Uri image = data.getData();
                     imageUris.add(image.toString());
-
                 }
-
             }
-
         }
     }
-
-
-
-
 }

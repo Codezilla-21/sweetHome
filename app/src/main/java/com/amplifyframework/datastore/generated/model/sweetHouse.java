@@ -33,6 +33,7 @@ public final class sweetHouse implements Model {
   public static final QueryField BALCONY = field("sweetHouse", "balcony");
   public static final QueryField MORE_INFO = field("sweetHouse", "moreInfo");
   public static final QueryField TYPE = field("sweetHouse", "type");
+  public static final QueryField EMAIL = field("sweetHouse", "email");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String area;
   private final @ModelField(targetType="String", isRequired = true) String location;
@@ -46,6 +47,7 @@ public final class sweetHouse implements Model {
   private final @ModelField(targetType="Boolean", isRequired = true) Boolean balcony;
   private final @ModelField(targetType="String") String moreInfo;
   private final @ModelField(targetType="String", isRequired = true) String type;
+  private final @ModelField(targetType="String", isRequired = true) String email;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
@@ -100,6 +102,10 @@ public final class sweetHouse implements Model {
       return type;
   }
   
+  public String getEmail() {
+      return email;
+  }
+  
   public Temporal.DateTime getCreatedAt() {
       return createdAt;
   }
@@ -108,7 +114,7 @@ public final class sweetHouse implements Model {
       return updatedAt;
   }
   
-  private sweetHouse(String id, String area, String location, String numberOfRooms, String floors, Integer price, String ageOfBuild, Boolean pool, String rentOfSell, List<String> image, Boolean balcony, String moreInfo, String type) {
+  private sweetHouse(String id, String area, String location, String numberOfRooms, String floors, Integer price, String ageOfBuild, Boolean pool, String rentOfSell, List<String> image, Boolean balcony, String moreInfo, String type, String email) {
     this.id = id;
     this.area = area;
     this.location = location;
@@ -122,6 +128,7 @@ public final class sweetHouse implements Model {
     this.balcony = balcony;
     this.moreInfo = moreInfo;
     this.type = type;
+    this.email = email;
   }
   
   @Override
@@ -145,6 +152,7 @@ public final class sweetHouse implements Model {
               ObjectsCompat.equals(getBalcony(), sweetHouse.getBalcony()) &&
               ObjectsCompat.equals(getMoreInfo(), sweetHouse.getMoreInfo()) &&
               ObjectsCompat.equals(getType(), sweetHouse.getType()) &&
+              ObjectsCompat.equals(getEmail(), sweetHouse.getEmail()) &&
               ObjectsCompat.equals(getCreatedAt(), sweetHouse.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), sweetHouse.getUpdatedAt());
       }
@@ -166,6 +174,7 @@ public final class sweetHouse implements Model {
       .append(getBalcony())
       .append(getMoreInfo())
       .append(getType())
+      .append(getEmail())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -189,6 +198,7 @@ public final class sweetHouse implements Model {
       .append("balcony=" + String.valueOf(getBalcony()) + ", ")
       .append("moreInfo=" + String.valueOf(getMoreInfo()) + ", ")
       .append("type=" + String.valueOf(getType()) + ", ")
+      .append("email=" + String.valueOf(getEmail()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -231,6 +241,7 @@ public final class sweetHouse implements Model {
       null,
       null,
       null,
+      null,
       null
     );
   }
@@ -248,7 +259,8 @@ public final class sweetHouse implements Model {
       image,
       balcony,
       moreInfo,
-      type);
+      type,
+      email);
   }
   public interface AreaStep {
     LocationStep area(String area);
@@ -301,7 +313,12 @@ public final class sweetHouse implements Model {
   
 
   public interface TypeStep {
-    BuildStep type(String type);
+    EmailStep type(String type);
+  }
+  
+
+  public interface EmailStep {
+    BuildStep email(String email);
   }
   
 
@@ -312,7 +329,7 @@ public final class sweetHouse implements Model {
   }
   
 
-  public static class Builder implements AreaStep, LocationStep, NumberOfRoomsStep, FloorsStep, PriceStep, AgeOfBuildStep, PoolStep, RentOfSellStep, ImageStep, BalconyStep, TypeStep, BuildStep {
+  public static class Builder implements AreaStep, LocationStep, NumberOfRoomsStep, FloorsStep, PriceStep, AgeOfBuildStep, PoolStep, RentOfSellStep, ImageStep, BalconyStep, TypeStep, EmailStep, BuildStep {
     private String id;
     private String area;
     private String location;
@@ -325,6 +342,7 @@ public final class sweetHouse implements Model {
     private List<String> image;
     private Boolean balcony;
     private String type;
+    private String email;
     private String moreInfo;
     @Override
      public sweetHouse build() {
@@ -343,7 +361,8 @@ public final class sweetHouse implements Model {
           image,
           balcony,
           moreInfo,
-          type);
+          type,
+          email);
     }
     
     @Override
@@ -417,9 +436,16 @@ public final class sweetHouse implements Model {
     }
     
     @Override
-     public BuildStep type(String type) {
+     public EmailStep type(String type) {
         Objects.requireNonNull(type);
         this.type = type;
+        return this;
+    }
+    
+    @Override
+     public BuildStep email(String email) {
+        Objects.requireNonNull(email);
+        this.email = email;
         return this;
     }
     
@@ -441,7 +467,7 @@ public final class sweetHouse implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String area, String location, String numberOfRooms, String floors, Integer price, String ageOfBuild, Boolean pool, String rentOfSell, List<String> image, Boolean balcony, String moreInfo, String type) {
+    private CopyOfBuilder(String id, String area, String location, String numberOfRooms, String floors, Integer price, String ageOfBuild, Boolean pool, String rentOfSell, List<String> image, Boolean balcony, String moreInfo, String type, String email) {
       super.id(id);
       super.area(area)
         .location(location)
@@ -454,6 +480,7 @@ public final class sweetHouse implements Model {
         .image(image)
         .balcony(balcony)
         .type(type)
+        .email(email)
         .moreInfo(moreInfo);
     }
     
@@ -510,6 +537,11 @@ public final class sweetHouse implements Model {
     @Override
      public CopyOfBuilder type(String type) {
       return (CopyOfBuilder) super.type(type);
+    }
+    
+    @Override
+     public CopyOfBuilder email(String email) {
+      return (CopyOfBuilder) super.email(email);
     }
     
     @Override
