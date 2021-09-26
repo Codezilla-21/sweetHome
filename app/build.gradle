@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.mysweethome"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -57,8 +57,25 @@ dependencies {
 
     // authentication
     implementation 'com.amplifyframework:aws-auth-cognito:1.24.0'
+
     implementation group: 'com.google.android.material', name: 'material', version: '1.1.0-alpha05'
-// graph ql
+
     implementation 'com.amplifyframework:core:1.27.0'
     implementation 'com.amplifyframework:aws-api:1.27.0'
+
+// s3
+    implementation 'com.amplifyframework:aws-storage-s3:1.27.0'
+    implementation 'com.amplifyframework:aws-auth-cognito:1.27.0'
+
+
+    // location picker
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
+    implementation 'com.google.android.gms:play-services-places:16.1.0'
+
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //image picker
+    implementation 'com.github.dhaval2404:imagepicker:2.1'
+
 }

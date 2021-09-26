@@ -3,13 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_add_home.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_confirm_sign_up.xml" value="0.11503623188405797" />
+        <entry key="app/src/main/res/layout/activity_add_home.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_confirm_sign_up.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_forget_password.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.11503623188405797" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.11503623188405797" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_map.xml" value="0.16510416666666666" />
+        <entry key="app/src/main/res/layout/activity_profile_page.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/activity_spinner_class.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.11503623188405797" />
+        <entry key="app/src/main/res/layout/custom_confirm_address.xml" value="0.16510416666666666" />
       </map>
     </option>
   </component>
