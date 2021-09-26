@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -46,5 +48,16 @@ public class homeDetails extends AppCompatActivity {
 //        this.startActivity(intent);
 //        Bundle bundle = getIntent().getExtras();
 //        ArrayList<Model1> arraylist = bundle.getParcelableArrayList("VAR1");
+
+
+        Button sendEmail = findViewById(R.id.sendEmail);
+        sendEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToEmail =new Intent(homeDetails.this,SendEmail.class);
+                goToEmail.putExtra("Email",email);
+                startActivity(goToEmail);
+            }
+        });
     }
 }

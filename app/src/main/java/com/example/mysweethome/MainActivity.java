@@ -70,15 +70,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        // move this to home details to recyclerview
-        Button sendEmail = findViewById(R.id.sendEmail);
-        sendEmail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goToEmail =new Intent(MainActivity.this,SendEmail.class);
-                startActivity(goToEmail);
-            }
-        });
+
 
     }
 }

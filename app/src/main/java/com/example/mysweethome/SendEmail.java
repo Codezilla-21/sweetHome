@@ -12,7 +12,9 @@ import android.widget.EditText;
 public class SendEmail extends AppCompatActivity {
 
     EditText editTextTo,editTextSubject,editTextMessage;
+   // EditText editTextSubject,editTextMessage;
     Button send;
+    String ownerEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,17 +26,20 @@ public class SendEmail extends AppCompatActivity {
 
         send=(Button)findViewById(R.id.button1);
 
+        ownerEmail= getIntent().getStringExtra("Email");
+
+
         send.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View arg0) {
-                String to=editTextTo.getText().toString();
+                editTextTo.setText(ownerEmail);
                 String subject=editTextSubject.getText().toString();
                 String message=editTextMessage.getText().toString();
 
 
                 Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{ to});
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{ ownerEmail});
                 email.putExtra(Intent.EXTRA_SUBJECT, subject);
                 email.putExtra(Intent.EXTRA_TEXT, message);
 
