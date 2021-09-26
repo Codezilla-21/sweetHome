@@ -31,4 +31,26 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="370dp"
         android:text="Email Owner" />
+
+    <TextView
+        android:id="@+id/Information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="440dp"
+        android:text="Information" />
+    <TextView
+        android:id="@+id/rentSell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="500dp"
+        android:text="Details" />
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="530dp"
+        android:text="Details" />
 </RelativeLayout>

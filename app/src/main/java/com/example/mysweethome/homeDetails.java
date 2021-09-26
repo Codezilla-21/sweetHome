@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
 import java.util.ArrayList;
@@ -46,6 +47,25 @@ public class homeDetails extends AppCompatActivity {
         String extras = intent.getExtras().getString("PoolBalcony");
         String info = intent.getExtras().getString("Info");
         String email = intent.getExtras().getString("Email");
+
+        TextView infoText = findViewById(R.id.Information);
+        if (type.equals("Villa") || type.equals("Apartment")){
+            infoText.setText("Price: "+price+" - "+area+"m^2 - "+room+ " room - "+ floor+" floor(s) - "+"Age of building : "
+                    +age+" year(s) - "+info);
+        }else if (type.equals("Flat")){
+            infoText.setText("Price: "+price+" - "+area+"m^2 - "+room+ " room - "+"Age of building : "
+                    +age+" year(s) - "+info);
+        }
+
+        TextView rS = findViewById(R.id.rentSell);
+        if (rentOrSell.equals("Sell")){
+            rS.setText("For Sell - " + extras);
+        }else{
+            rS.setText("For Rent - "+extras);
+        }
+
+        TextView address = findViewById(R.id.address);
+        address.setText(Location);
 
 
         ImageSwitcher imgSwitch = findViewById(R.id.imagesSwitcher);
@@ -91,10 +111,6 @@ public class homeDetails extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
         //check this example, this is how you will pass arraylist of strings (images)
 //        Intent intent=new Intent(getApplicationContext(),NewActivity2 .class);
 //        Bundle bundle = new Bundle();
