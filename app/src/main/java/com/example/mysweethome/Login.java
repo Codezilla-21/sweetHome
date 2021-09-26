@@ -13,8 +13,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.Callback;
+import com.amazonaws.services.cognitoidentityprovider.model.ForgotPasswordResult;
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
@@ -31,7 +33,6 @@ public class Login extends AppCompatActivity {
     private Handler handler;
     ImageView imageView;
     Animation top;
-    TextView forgetPasswords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +42,11 @@ public class Login extends AppCompatActivity {
         imageView = findViewById(R.id.imagg);
 
         try {
-        //    Amplify.addPlugin(new AWSDataStorePlugin());
+            //    Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
-            Amplify.addPlugin(new AWSS3StoragePlugin());
+            Amplify.addPlugin(new AWSApiPlugin());
             Amplify.configure(getApplicationContext());
             Log.i("MyAmplifyApp", "Initialized Amplify");
         } catch (AmplifyException error) {
@@ -57,7 +58,6 @@ public class Login extends AppCompatActivity {
         singInBtn = findViewById(R.id.login);
         singUpBtn = findViewById(R.id.signup);
         imageView.setAnimation(top);
-        forgetPasswords = findViewById(R.id.forgetPassword);
 
 
         singUpBtn.setOnClickListener(new View.OnClickListener() {
@@ -84,32 +84,19 @@ public class Login extends AppCompatActivity {
 //        Intent intent=new Intent(Login.this,MainActivity.class);
 //        intent.putExtra("userName", (Parcelable) email);
 //
-        forgetPasswords.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              Intent intent = new Intent(Login.this, ForgetPassword.class);
-              startActivity(intent);
-            }
-        });
 
     }
+
     void signIn(String username, String password) {
         Amplify.Auth.signIn(
                 username,
                 password,
-                result  -> {
-                    Log.i(TAG, "signIn: worked " + result .toString());
+                result -> {
+                    Log.i(TAG, "signIn: worked " + result.toString());
                     Intent goToMain = new Intent(Login.this, MainActivity.class);
-                    goToMain.putExtra("userName",email.getText().toString());
+                    goToMain.putExtra("userName", email.getText().toString());
                     startActivity(goToMain);
                 },
                 error -> Log.e(TAG, "signIn: failed" + error.toString()));
     }
-
-
-
-
-
-
-
 }

@@ -4,88 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#9C27B0"
     tools:context=".AddHome">
 
     <EditText
         android:id="@+id/numberOfRooms"
-        android:layout_width="65dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="109dp"
-        android:layout_marginEnd="93dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="NumberOfRooms"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.395" />
-
-    <Spinner
-        android:id="@+id/type"
-        android:layout_width="289dp"
-        android:layout_height="37dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.401"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.135" />
-
-    <EditText
-        android:id="@+id/price"
         android:layout_width="181dp"
         android:layout_height="42dp"
         android:layout_marginStart="109dp"
+        android:layout_marginLeft="109dp"
         android:layout_marginEnd="93dp"
-        android:autoText="false"
+        android:layout_marginRight="93dp"
         android:ems="10"
         android:inputType="number"
-        android:text="Price"
-        android:visibility="visible"
+        android:text="Number Of Rooms"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.226" />
+        app:layout_constraintVertical_bias="0.722" />
+
+    <Spinner
+        android:id="@+id/type"
+        android:layout_width="289dp"
+        android:layout_height="37dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <EditText
+        android:id="@+id/price"
+        android:layout_width="181dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="93dp"
+        android:autoText="false"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Price"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.644"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.432" />
 
     <EditText
         android:id="@+id/area"
         android:layout_width="181dp"
         android:layout_height="42dp"
         android:layout_marginStart="109dp"
+        android:layout_marginLeft="109dp"
         android:layout_marginEnd="93dp"
+        android:layout_marginRight="93dp"
         android:ems="10"
         android:inputType="number"
         android:text="Area"
-        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.316" />
+        app:layout_constraintVertical_bias="0.171" />
 
     <EditText
         android:id="@+id/floor"
-        android:layout_width="67dp"
-        android:layout_height="40dp"
+        android:layout_width="181dp"
+        android:layout_height="42dp"
         android:layout_marginStart="109dp"
+        android:layout_marginLeft="109dp"
         android:layout_marginEnd="93dp"
+        android:layout_marginRight="93dp"
         android:ems="10"
         android:inputType="number"
-        android:text="NumberOfFloor"
-        android:visibility="visible"
+        android:text="Floor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.399" />
+        app:layout_constraintVertical_bias="0.242" />
 
     <EditText
         android:id="@+id/moreDetails"
@@ -93,44 +92,42 @@
         android:layout_height="72dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="MoreInformation"
-        android:visibility="visible"
+        android:text="More Details"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.753"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.81" />
+        app:layout_constraintVertical_bias="0.629" />
 
     <EditText
         android:id="@+id/ageOfBuild"
         android:layout_width="181dp"
         android:layout_height="42dp"
         android:layout_marginStart="109dp"
+        android:layout_marginLeft="109dp"
         android:layout_marginEnd="93dp"
+        android:layout_marginRight="93dp"
         android:ems="10"
         android:inputType="number"
-        android:text="AgeOfBuilding"
-        android:visibility="visible"
+        android:text="Age Of Build"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.687" />
+        app:layout_constraintVertical_bias="0.523" />
 
     <RadioGroup
-        android:id="@+id/radioGroup3"
         android:layout_width="178dp"
         android:layout_height="59dp"
         android:layout_marginEnd="40dp"
-        android:visibility="visible"
+        android:layout_marginRight="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.715"
+        app:layout_constraintHorizontal_bias="0.191"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587">
+        app:layout_constraintVertical_bias="0.436">
 
         <RadioButton
             android:id="@+id/addForRent"
@@ -149,25 +146,26 @@
         android:id="@+id/radioGroup"
         android:layout_width="178dp"
         android:layout_height="59dp"
+        android:layout_marginEnd="196dp"
+        android:layout_marginRight="196dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.483">
-
-
-        <RadioButton
-            android:id="@+id/isPool"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:text="Pool" />
+        app:layout_constraintVertical_bias="0.33">
 
         <RadioButton
             android:id="@+id/isBalcony"
             android:layout_width="match_parent"
             android:layout_height="25dp"
             android:text="Balcony" />
+
+        <RadioButton
+            android:id="@+id/isPool"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Pool" />
     </RadioGroup>
 
     <Button
@@ -177,47 +175,31 @@
         android:text="Add Location"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintHorizontal_bias="0.811"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045" />
+        app:layout_constraintVertical_bias="0.828" />
 
     <Button
         android:id="@+id/upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Image"
-        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.795"
+        app:layout_constraintEnd_toStartOf="@+id/addLocation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057" />
+        app:layout_constraintVertical_bias="0.828" />
 
     <Button
         android:id="@+id/addToDatabase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add"
-        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numberOfRooms"
-        app:layout_constraintVertical_bias="0.957" />
-
-    <EditText
-        android:id="@+id/emailContact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Contacting Email"
-        app:layout_constraintBottom_toTopOf="@+id/addToDatabase"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/moreDetails" />
-
+        app:layout_constraintVertical_bias="0.706" />
 </androidx.constraintlayout.widget.ConstraintLayout>
