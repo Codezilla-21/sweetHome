@@ -96,6 +96,11 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:backgroundTint="#C7B198" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forget Password"
+        android:id="@+id/forgetPassword"/>
 
     <Button
         android:id="@+id/signup"
