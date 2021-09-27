@@ -17,14 +17,14 @@ public class ForgetPassword extends AppCompatActivity {
 //    EditText etEmail;
 //
 //
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_forget_password);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_forget_password);
 //        viewInitializations();
-//
-//
-//    }
+
+
+    }
 //
 //    void viewInitializations() {
 //        etEmail = findViewById(R.id.et_email);

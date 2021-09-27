@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,48 +9,120 @@
     <ImageSwitcher
         android:id="@+id/imagesSwitcher"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        />
-    <Button
-        android:id="@+id/imgPrevious"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Previous"
-        android:layout_below="@+id/imagesSwitcher"/>
-    <Button
-        android:id="@+id/imgNext"
-        android:layout_alignParentEnd="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        android:layout_below="@+id/imagesSwitcher"/>
-    <Button
-        android:id="@+id/sendEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="370dp"
-        android:text="Email Owner" />
+        android:layout_height="300dp" />
+
+<!--    <Button-->
+<!--        android:id="@+id/imgPrevious"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Previous"-->
+<!--        android:layout_marginLeft="5dp"-->
+<!--        android:layout_marginTop="310dp"-->
+<!--        android:layout_below="@+id/imagesSwitcher"/>-->
+<!--    <Button-->
+<!--        android:id="@+id/imgNext"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Next"-->
+<!--        android:layout_marginLeft="300dp"-->
+<!--        android:layout_marginTop="310dp"-->
+<!--        android:layout_below="@+id/imagesSwitcher"/>-->
+
 
     <TextView
         android:id="@+id/Information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="140dp"
         android:layout_marginTop="440dp"
-        android:text="Information" />
+        android:text="Information"
+        android:textColor="#FF453019"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/architects_daughter"/>
+
     <TextView
         android:id="@+id/rentSell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="140dp"
         android:layout_marginTop="500dp"
-        android:text="Details" />
+        android:textColor="#FF453019"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/architects_daughter"
+        android:text="Rent or Sell" />
+
     <TextView
         android:id="@+id/address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="530dp"
-        android:text="Details" />
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="550dp"
+        android:fontFamily="@font/architects_daughter"
+        android:text="Address"
+        android:textColor="#FF453019"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+
+
+  <RelativeLayout
+    android:id="@+id/relativeLayout1"
+    android:layout_width="120dp"
+    android:layout_height="50dp"
+    android:layout_centerInParent="true"
+    android:layout_marginLeft="250dp"
+    android:layout_marginTop="660dp"
+    android:background="@drawable/log_out"
+    >
+
+
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="3dp"
+    android:src="@drawable/log_out"
+    app:tint="#fff"
+    />
+
+<TextView
+    android:id="@+id/sendEmail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fontFamily="@font/architects_daughter"
+    android:paddingTop="10dp"
+    android:text="Email Owner "
+    android:textAlignment="center"
+    android:textColor="#FF453019"
+    android:textSize="18sp"
+    android:textStyle="bold" />
+
+
 </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imgNext"
+        android:layout_width="91dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="310dp"
+        android:layout_marginLeft="300dp"
+        android:paddingRight="-70dp"
+        android:paddingTop="-100dp"
+        android:src="@drawable/navigate_next">
+
+    </ImageView>
+    <ImageView
+        android:id="@+id/imgPrevious"
+        android:layout_width="91dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="310dp"
+        android:layout_marginRight="300dp"
+        android:paddingLeft="-70dp"
+        android:paddingTop="-100dp"
+        android:src="@drawable/navigate_before">
+
+    </ImageView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
