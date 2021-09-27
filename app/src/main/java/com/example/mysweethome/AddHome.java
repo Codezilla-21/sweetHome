@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -35,6 +36,7 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 //import com.google.android.libraries.places.api.model.Place;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -62,9 +64,7 @@ public class AddHome extends AppCompatActivity {
     EditText info;
     String rentOrSellST="";
     EditText emailContacting;
-  //  Boolean temp = false;
-    String getEmail;
-    String getUsersInfo;
+  String currentUserId;
 
     Boolean isImages;
 
@@ -74,6 +74,19 @@ public class AddHome extends AppCompatActivity {
         setContentView(R.layout.activity_add_home);
 
         imageUris=  new ArrayList<>();
+
+
+        Amplify.Auth.fetchAuthSession(
+
+                result -> {
+                    if (result.isSignedIn()){
+                      currentUserId= Amplify.Auth.getCurrentUser().getUserId();
+                    }
+                    Log.i("AmplifyQuickstart", result.toString());
+
+                },
+                error -> Log.e("AmplifyQuickstart", error.toString())
+        );
 
     }
     @SuppressLint("WrongViewCast")
@@ -178,40 +191,39 @@ public class AddHome extends AppCompatActivity {
                 SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(AddHome.this);
                 address = sharedPreferences2.getString("Address", "Jordan");
 
-                try{
-                    if (isImages){
-                        sweetHouse house = sweetHouse.builder()
-                                .area(area.getText().toString())
-                                .location(PreferenceManager.getDefaultSharedPreferences(AddHome.this).getString("Address", "Jordan"))
-                                .numberOfRooms(rooms.getText().toString())
-                                .floors(floor.getText().toString())
-                                .price(Integer.parseInt(price.getText().toString()))
-                                .ageOfBuild(age.getText().toString())
-                                .pool(poolB)
-                                .rentOfSell(rentOrSellST)
-                                .image(imageUris)
-                                .balcony(balconyB)
-                                .type(selected)
-                                .email(emailContacting.getText().toString())
-                                .moreInfo(info.getText().toString())
-                                .build();
+                if(currentUserId != null){
+                    try{
+                        if (isImages){
+                            sweetHouse house = sweetHouse.builder()
+                                    .area(area.getText().toString())
+                                    .location(PreferenceManager.getDefaultSharedPreferences(AddHome.this).getString("Address", "Jordan"))
+                                    .numberOfRooms(rooms.getText().toString())
+                                    .floors(floor.getText().toString())
+                                    .price(Integer.parseInt(price.getText().toString()))
+                                    .ageOfBuild(age.getText().toString())
+                                    .pool(poolB)
+                                    .rentOfSell(rentOrSellST)
+                                    .image(imageUris)
+                                    .balcony(balconyB)
+                                    .type(selected)
+                                    .email(emailContacting.getText().toString())
+                                    .userId(currentUserId)
+                                    .moreInfo(info.getText().toString())
+                                    .build();
 
-                        Amplify.API.mutate(
-                                ModelMutation.create(house),
-                                result -> Log.i("MyAmplifyApp", "Added successfully"),
-                                error -> Log.e("MyAmplifyApp",  "Error ", error)
-                        );
+                            Amplify.API.mutate(
+                                    ModelMutation.create(house),
+                                    result -> Log.i("MyAmplifyApp", "Added successfully"),
+                                    error -> Log.e("MyAmplifyApp",  "Error ", error)
+                            );
+
+                        }
+
+                    }catch(Exception e ){
+
+                        Toast.makeText(AddHome.this, "Please Pick Location First And Fill Required Information And Add Some Images", Toast.LENGTH_LONG).show();
                     }
-
-                }catch(Exception e ){
-
-                    Toast.makeText(AddHome.this, "Please Pick Location First And Fill Required Information And Add Some Images", Toast.LENGTH_LONG).show();
                 }
-
-
-
-
-
                 Intent backToMain = new Intent(AddHome.this, MainActivity.class);
                 startActivity(backToMain);
             }
@@ -243,7 +255,31 @@ public class AddHome extends AppCompatActivity {
                     for (int i = 0; i <pickedImagesNumber ; i++) {
 
                         Uri image = data.getClipData().getItemAt(i).getUri();
+                        String imageString = image.toString();
                         imageUris.add(image.toString());
+                        try {
+                            InputStream exampleInputStream = getContentResolver().openInputStream(image);
+                            Amplify.Storage.uploadInputStream(
+                                    imageString,
+                                    exampleInputStream,
+                                    result -> {
+//                                        Amplify.Storage.downloadFile(
+//                                                imageString,
+//                                                new File(getApplicationContext().getFilesDir() + "/Example Key.jpg"),
+//                                                result2 -> {
+//                                                    circleImageView.setImageBitmap(BitmapFactory.decodeFile(result2.getFile().getPath()));
+//                                                    Log.i("MyAmplifyApp", "Successfully downloaded: " + result2.getFile().getName());
+//                                                },
+//                                                error -> Log.e("MyAmplifyApp", "Download Failure", error)
+//                                        );
+                                        Log.i("MyAmplifyApp", "Successfully uploaded: " + result.getKey());
+                                    },
+                                    storageFailure -> Log.e("MyAmplifyApp", "Upload failed", storageFailure)
+                                    //circleImageView
+                            );
+                        } catch (FileNotFoundException error) {
+                            Log.e("MyAmplifyApp", "Could not find file to open for input stream.", error);
+                        }
                         // System.out.println("------------------IF FOR----------------"+image);
                     }
 

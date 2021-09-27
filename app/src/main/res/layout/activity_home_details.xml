@@ -6,11 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".homeDetails">
 
-    <ImageSwitcher
-        android:id="@+id/imagesSwitcher"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        />
     <Button
         android:id="@+id/imgPrevious"
         android:layout_width="wrap_content"
@@ -53,4 +48,10 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="530dp"
         android:text="Details" />
+
+    <ImageView
+        android:id="@+id/imagesSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="292dp"
+        app:srcCompat="@drawable/homesweet" />
 </RelativeLayout>

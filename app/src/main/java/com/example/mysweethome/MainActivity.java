@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     String extras;
 
 
+
     ImageView imageView ;
     BottomNavigationItemView bottom;
 
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 result -> {
                     if (result.isSignedIn()){
                         extras= Amplify.Auth.getCurrentUser().getUsername();
+
                         TextView userName = findViewById(R.id.textView2);
                         userName.setText(extras);
                     }
@@ -134,36 +136,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
 
-        RecyclerView allDataFromAWS = findViewById(R.id.recyclerOwner);
-        Handler handler = new Handler(Looper.getMainLooper(),
-                new Handler.Callback() {
-                    @Override
-                    public boolean handleMessage(@NonNull Message msg) {
-                        allDataFromAWS.getAdapter().notifyDataSetChanged();
-                        return false;
-                    }
-                });
 
-        List<sweetHouse> allData = new ArrayList<>();
-        allDataFromAWS.setLayoutManager(new LinearLayoutManager(this));
-        allDataFromAWS.setAdapter(new ViewAdapter((ArrayList<sweetHouse>) allData));
-
-
-        Amplify.API.query(
-                ModelQuery.list(sweetHouse.class),
-                response -> {
-                    System.out.println(response.toString());
-//TODO: ADD CONDITION TO GET THE DATA ADDED  BY CURRENT USER
-                    for (sweetHouse house : response.getData().getItems()) {
-                        allData.add(house);
-                        System.out.println("based on id ----------------: "+house);
-                    }
-
-                    handler.sendEmptyMessage(1);
-                    Log.i("MyAmplifyApp", "Out of Loop!");
-
-                },
-                error -> Log.e("MyAmplifyApp", "Query failure", error)
-        );
     }
 }

@@ -9,20 +9,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="172dp">
-
-        <Button
-            android:id="@+id/remove"
-            android:layout_width="75dp"
-            android:layout_height="34dp"
-            android:text="Remove"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.687"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.884" />
-
         <Button
             android:id="@+id/seeMore"
             android:layout_width="75dp"

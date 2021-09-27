@@ -1,8 +1,11 @@
 package com.example.mysweethome;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +13,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.sweetHouse;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.HomeViewHolder> {
@@ -22,8 +27,8 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.HomeViewHolder
     private ArrayList<sweetHouse> houses = new ArrayList<>();
     public static ArrayList imagesArray = new ArrayList();
 
-    public ViewAdapter(ArrayList<sweetHouse> sweetHouseTaksts) {
-        this.houses = sweetHouseTaksts;
+    public ViewAdapter(ArrayList<sweetHouse> sweetHouses) {
+        this.houses = sweetHouses;
     }
 
     public static class HomeViewHolder extends RecyclerView.ViewHolder {
@@ -39,14 +44,11 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.HomeViewHolder
                 intent.putExtra("Price", sweet.getPrice());
                 //Location
                 intent.putExtra("Address", sweet.getLocation());
-                //Bundle of Images
-                Bundle bundle = new Bundle();
 
                 for (String s : sweet.getImage()) {
                     imagesArray.add(s);
                 }
-                bundle.putParcelableArrayList("Images", imagesArray);
-                intent.putExtras(bundle);
+                intent.putStringArrayListExtra("Images", imagesArray);
 
 
                 intent.putExtra("Area", sweet.getArea());
@@ -89,14 +91,26 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.HomeViewHolder
     public void onBindViewHolder(@NonNull ViewAdapter.HomeViewHolder holder, int position) {
         holder.sweet = houses.get(position);
 
+
+
         TextView priceTextView = holder.itemView.findViewById(R.id.priceTextView);
         TextView addressTextView = holder.itemView.findViewById(R.id.addressTextView);
         ImageView itemImageView = holder.itemView.findViewById(R.id.itemImageView);
-
-        priceTextView.setText(holder.sweet.getPrice());
+        priceTextView.setText(holder.sweet.getPrice().toString());
         addressTextView.setText(holder.sweet.getLocation());
-        itemImageView.setImageURI(Uri.parse(imagesArray.get(0).toString()));
 
+        //TODO: HANDLE VIEWING IMAGES FROM S3 IN FRAGMENT
+//        Amplify.Storage.downloadFile(
+//                holder.sweet.getImage().get(0),
+//                new File(getApplicationContext().getFilesDir() + "/Example Key.jpg"),
+//                result2 -> {
+//                    itemImageView.setImageBitmap(BitmapFactory.decodeFile(result2.getFile().getPath()));
+//                    Log.i("MyAmplifyApp", "Successfully downloaded: " + result2.getFile().getName());
+//                },
+//                error -> Log.e("MyAmplifyApp", "Download Failure", error)
+//        );
+
+      //  itemImageView.setImageBitmap((Bitmap) imagesArray.get(0));
 
     }
 
