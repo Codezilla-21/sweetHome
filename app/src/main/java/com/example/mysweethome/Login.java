@@ -43,7 +43,6 @@ public class Login extends AppCompatActivity {
         try {
             //    Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.addPlugin(new AWSApiPlugin());
-            Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());

@@ -17,7 +17,7 @@ public class SendEmail extends AppCompatActivity {
     TextView send;
 
    // EditText editTextSubject,editTextMessage;
-    Button send;
+//    Button send;
 
     String ownerEmail;
 

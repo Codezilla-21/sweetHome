@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
+import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
@@ -77,7 +78,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        String extras = getIntent().getStringExtra("userName");
+       // String extras = getIntent().getStringExtra("userName");
+       String extras= Amplify.Auth.getCurrentUser().getUsername();
+
         TextView userName = findViewById(R.id.textView2);
         if (extras != null){
             userName.setText(extras);
