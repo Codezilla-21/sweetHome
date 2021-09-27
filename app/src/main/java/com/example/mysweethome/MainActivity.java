@@ -16,9 +16,11 @@ import android.widget.TextView;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
+import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button addHome = findViewById(R.id.addHome);
+        FloatingActionButton addHome = findViewById(R.id.addHome);
         addHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,10 +51,31 @@ public class MainActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goTOSignIn =new Intent(MainActivity.this,Login.class);
-                startActivity(goTOSignIn);
+                Amplify.Auth.signOut(
+                        AuthSignOutOptions.builder().globalSignOut(true).build(),
+                        () -> {
+                            Amplify.Auth.fetchAuthSession(
+                                    result -> {
+                                        if (!result.isSignedIn()){
+                                            Intent goToLogin = new Intent(MainActivity.this, Login.class);
+                                            startActivity(goToLogin);
+                                        }
+                                        Log.i("AmplifyQuickstart", result.toString());
+
+                                    },
+                                    error -> Log.e("AmplifyQuickstart", error.toString())
+                            );
+
+                            Log.i("AuthQuickstart", "Signed out globally");
+                        },
+                        error -> Log.e("AuthQuickstart", error.toString())
+                );
+
+//                Intent goTOSignIn =new Intent(MainActivity.this,Login.class);
+//                startActivity(goTOSignIn);
             }
         });
+
 
         String extras = getIntent().getStringExtra("userName");
         TextView userName = findViewById(R.id.textView2);
@@ -68,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
 
 
