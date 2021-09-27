@@ -95,6 +95,7 @@ public class profilePage extends AppCompatActivity {
                         },
                         error -> Log.e("AuthQuickstart", error.toString())
                 );
+
             }
         });
 

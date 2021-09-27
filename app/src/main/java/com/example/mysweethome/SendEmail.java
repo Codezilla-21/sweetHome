@@ -8,14 +8,19 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class SendEmail extends AppCompatActivity {
 
     EditText editTextTo,editTextSubject,editTextMessage;
+
+    TextView send;
+
    // EditText editTextSubject,editTextMessage;
     Button send;
 
     String ownerEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +32,7 @@ public class SendEmail extends AppCompatActivity {
         editTextSubject=(EditText)findViewById(R.id.editText2);
         editTextMessage=(EditText)findViewById(R.id.editText3);
 
-        send=(Button)findViewById(R.id.button1);
+        send=(TextView) findViewById(R.id.button1);
 
 
 
