@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,10 @@ import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class profilePage extends AppCompatActivity {
@@ -28,10 +33,11 @@ public class profilePage extends AppCompatActivity {
     TextView textView;
     TextView textView1;
     ImageView imageView;
-    CircleImageView circleImageView;
+    ImageView circleImageView;
     BottomNavigationItemView bottom;
+    String extras;
+    Uri uri;
 //    FloatingActionButton floatingActionButton;
-
 
 
     @Override
@@ -42,14 +48,30 @@ public class profilePage extends AppCompatActivity {
 
         textView = findViewById(R.id.textView3);
         textView1 = findViewById(R.id.updateProfile);
-//        floatingActionButton = findViewById(R.id.floatingActionButton2);
-        String extras = getIntent().getStringExtra("userName");
-        if (extras != null){
+        extras = getIntent().getStringExtra("userName");
+        textView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFileFromDevice();
+            }
+        });
+
+        if (extras != null) {
             textView.setText(extras);
+            Amplify.Storage.downloadFile(
+                    extras,
+                    new File(getApplicationContext().getFilesDir() + "/Example Key.jpg"),
+                    result2 ->{
+                        circleImageView.setImageBitmap(BitmapFactory.decodeFile(result2.getFile().getPath()));
+                        Log.i("MyAmplifyApp", "Successfully downloaded: " + result2.getFile().getName());
+                    },
+                    error -> Log.e("MyAmplifyApp",  "Download Failure", error)
+            );
         }
 
+
         circleImageView = findViewById(R.id.profile_image);
-        imageView=findViewById(R.id.logButton);
+        imageView = findViewById(R.id.logButton);
         imageView.setClickable(true);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +95,6 @@ public class profilePage extends AppCompatActivity {
                         },
                         error -> Log.e("AuthQuickstart", error.toString())
                 );
-
             }
         });
 
@@ -93,27 +114,53 @@ public class profilePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(profilePage.this, profilePage.class);
-                intent.putExtra("userName",extras.toString());
+                intent.putExtra("userName", extras.toString());
                 startActivity(intent);
             }
         });
 
+    }
 
+    private void uploadInputStream() {
+        if (uri != null) {
+            try {
+                InputStream exampleInputStream = getContentResolver().openInputStream(uri);
+                Amplify.Storage.uploadInputStream(
+                        extras,
+                        exampleInputStream,
+                        result -> {
+                            Amplify.Storage.downloadFile(
+                                    extras,
+                                    new File(getApplicationContext().getFilesDir() + "/Example Key.jpg"),
+                                    result2 ->{
+                                        circleImageView.setImageBitmap(BitmapFactory.decodeFile(result2.getFile().getPath()));
+                                        Log.i("MyAmplifyApp", "Successfully downloaded: " + result2.getFile().getName());
+                                    },
+                                    error -> Log.e("MyAmplifyApp",  "Download Failure", error)
+                            );
+                            Log.i("MyAmplifyApp", "Successfully uploaded: " + result.getKey());
+                        },
+                        storageFailure -> Log.e("MyAmplifyApp", "Upload failed", storageFailure)
+                        //circleImageView
+                );
+            } catch (FileNotFoundException error) {
+                Log.e("MyAmplifyApp", "Could not find file to open for input stream.", error);
+            }
+        }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK) {
-            //Image Uri will not be null for RESULT_OK
-            Uri uri = data.getData();
+        uri = data.getData();
+        uploadInputStream();
+    }
 
-            // Use Uri object instead of File to avoid storage permissions
-            circleImageView.setImageURI(uri);
-        } else if (resultCode == ImagePicker.RESULT_ERROR) {
-            Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show();
-        }
+    private void getFileFromDevice() {
+        Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
+        chooseFile.setType("*/*");
+        chooseFile = Intent.createChooser(chooseFile, "Choose File!");
+        startActivityForResult(chooseFile, 2048);
+
     }
 }
