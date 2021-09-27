@@ -227,7 +227,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
             System.out.println("Latitude: "+latLng.latitude);
             System.out.println("Longitude: "+latLng.longitude);
 
-            addressSaving="Adress: "+address+"City: "+city+"State: "+state+"Country: "+country+"Latitude: "+latLng.latitude+"Longitude: "+latLng.longitude;
+            addressSaving="Adress: "+address+"City: "+city+"State: "+state+"Country: "+country+"Latitude: "+latLng.latitude+" - Longitude: "+latLng.longitude;
             return address;
         } catch (IOException e) {
             e.printStackTrace();

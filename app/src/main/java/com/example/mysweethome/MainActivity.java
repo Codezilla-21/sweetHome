@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
+import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         AuthSignOutOptions.builder().globalSignOut(true).build(),
                         () -> {
                             Amplify.Auth.fetchAuthSession(
+
                                 result -> {
                                     if (!result.isSignedIn()){
                                         Intent goToLogin = new Intent(MainActivity.this, Login.class);
@@ -66,18 +68,19 @@ public class MainActivity extends AppCompatActivity {
                                 error -> Log.e("AmplifyQuickstart", error.toString())
                         );
 
+
                             Log.i("AuthQuickstart", "Signed out globally");
                         },
                         error -> Log.e("AuthQuickstart", error.toString())
                 );
 
-//                Intent goTOSignIn =new Intent(MainActivity.this,Login.class);
-//                startActivity(goTOSignIn);
             }
         });
 
 
-        String extras = getIntent().getStringExtra("userName");
+       // String extras = getIntent().getStringExtra("userName");
+       String extras= Amplify.Auth.getCurrentUser().getUsername();
+
         TextView userName = findViewById(R.id.textView2);
         if (extras != null){
             userName.setText(extras);
@@ -91,8 +94,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
     }
 }

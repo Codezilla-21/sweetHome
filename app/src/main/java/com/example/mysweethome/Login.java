@@ -43,7 +43,6 @@ public class Login extends AppCompatActivity {
         try {
             //    Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.addPlugin(new AWSApiPlugin());
-            Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());
@@ -88,10 +87,6 @@ public class Login extends AppCompatActivity {
                 );
             }
         });
-
-//        Intent intent=new Intent(Login.this,MainActivity.class);
-//        intent.putExtra("userName", (Parcelable) email);
-//
         forgetPasswords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,11 +106,4 @@ public class Login extends AppCompatActivity {
                 },
                 error -> Log.e(TAG, "signIn: failed" + error.toString()));
     }
-
-
-
-
-
-
-
 }
