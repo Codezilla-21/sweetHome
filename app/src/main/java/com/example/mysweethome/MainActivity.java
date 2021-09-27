@@ -26,6 +26,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MainActivity extends AppCompatActivity {
 
 
+    String extras;
+
     ImageView imageView ;
     BottomNavigationItemView bottom;
 
@@ -79,7 +81,17 @@ public class MainActivity extends AppCompatActivity {
 
 
        // String extras = getIntent().getStringExtra("userName");
-       String extras= Amplify.Auth.getCurrentUser().getUsername();
+        Amplify.Auth.fetchAuthSession(
+
+                result -> {
+                    if (result.isSignedIn()){
+                        extras= Amplify.Auth.getCurrentUser().getUsername();
+                    }
+                    Log.i("AmplifyQuickstart", result.toString());
+
+                },
+                error -> Log.e("AmplifyQuickstart", error.toString())
+        );
 
         TextView userName = findViewById(R.id.textView2);
         if (extras != null){
