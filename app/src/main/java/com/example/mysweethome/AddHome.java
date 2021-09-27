@@ -73,6 +73,7 @@ public class AddHome extends AppCompatActivity {
         imageUris=  new ArrayList<>();
 
     }
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onStart() {
         super.onStart();

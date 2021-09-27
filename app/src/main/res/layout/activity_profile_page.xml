@@ -38,7 +38,7 @@
                 android:id="@+id/logButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/logout"
+                android:src="@drawable/power"
                 app:tint="#fff"
                 />
 

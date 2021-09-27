@@ -72,12 +72,20 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                signIn(email.getText().toString(), password.getText().toString());
+
                 Amplify.Auth.fetchAuthSession(
-                        result -> Log.i("AmplifyQuickstart", result.toString()),
+                        result -> {
+                            if (result.isSignedIn()){
+                                Intent goToMain = new Intent(Login.this, MainActivity.class);
+                                goToMain.putExtra("userName",email.getText().toString());
+                                startActivity(goToMain);
+                            }
+                            Log.i("AmplifyQuickstart", result.toString());
+
+                        },
                         error -> Log.e("AmplifyQuickstart", error.toString())
                 );
-
-                signIn(email.getText().toString(), password.getText().toString());
             }
         });
 
@@ -99,9 +107,7 @@ public class Login extends AppCompatActivity {
                 password,
                 result  -> {
                     Log.i(TAG, "signIn: worked " + result .toString());
-                    Intent goToMain = new Intent(Login.this, MainActivity.class);
-                    goToMain.putExtra("userName",email.getText().toString());
-                    startActivity(goToMain);
+
                 },
                 error -> Log.e(TAG, "signIn: failed" + error.toString()));
     }

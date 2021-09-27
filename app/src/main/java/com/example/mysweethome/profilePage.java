@@ -7,11 +7,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amplifyframework.auth.options.AuthSignOutOptions;
+import com.amplifyframework.core.Amplify;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -51,8 +54,26 @@ public class profilePage extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goTOSignIn =new Intent(profilePage.this,Login.class);
-                startActivity(goTOSignIn);
+                Amplify.Auth.signOut(
+                        AuthSignOutOptions.builder().globalSignOut(true).build(),
+                        () -> {
+                            Amplify.Auth.fetchAuthSession(
+                                    result -> {
+                                        if (!result.isSignedIn()){
+                                            Intent goToLogin = new Intent(profilePage.this, Login.class);
+                                            startActivity(goToLogin);
+                                        }
+                                        Log.i("AmplifyQuickstart", result.toString());
+
+                                    },
+                                    error -> Log.e("AmplifyQuickstart", error.toString())
+                            );
+
+                            Log.i("AuthQuickstart", "Signed out globally");
+                        },
+                        error -> Log.e("AuthQuickstart", error.toString())
+                );
+
             }
         });
 
