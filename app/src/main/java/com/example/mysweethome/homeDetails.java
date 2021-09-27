@@ -15,7 +15,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
+import com.amplifyframework.api.graphql.model.ModelMutation;
+import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.sweetHouse;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -25,6 +28,7 @@ public class homeDetails extends AppCompatActivity {
     int position;
     ImageView prevBtn;
     ImageView nextBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,7 @@ public class homeDetails extends AppCompatActivity {
         String extras = intent.getExtras().getString("PoolBalcony");
         String info = intent.getExtras().getString("Info");
         String email = intent.getExtras().getString("Email");
+        String idItem = intent.getExtras().getString("ID");
 
         TextView infoText = findViewById(R.id.Information);
         if (type.equals("Villa") || type.equals("Apartment")){
@@ -129,5 +134,31 @@ public class homeDetails extends AppCompatActivity {
                 startActivity(goToEmail);
             }
         });
+
+        TextView delete= findViewById(R.id.delete);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteFunction(idItem);
+                Intent backToProfile=new Intent(homeDetails.this,profilePage.class);
+                startActivity(backToProfile);
+            }
+        });
+    }
+    private void deleteFunction(String id) {
+        Amplify.API.query(
+                ModelQuery.get(sweetHouse.class, id),
+                response -> {
+                    Log.i("MyAmplifyApp", ((sweetHouse) response.getData()).getId());
+                    Amplify.API.mutate(ModelMutation.delete(response.getData()),
+                            result -> {
+                                Log.i("MyAmplifyApp", "Todo with id: " + result.getData().getId());
+                            },
+                            error -> {
+                                Log.e("MyAmplifyApp", "Create failed", error);
+                            });
+                },
+                error -> Log.e("MyAmplifyApp", error.toString(), error)
+        );
     }
 }
