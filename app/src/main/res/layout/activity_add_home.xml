@@ -78,7 +78,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.678" />
-
+  
     <EditText
         android:id="@+id/ageOfBuild"
         android:layout_width="172dp"
@@ -330,7 +330,3 @@
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-<!--<ScrollView-->

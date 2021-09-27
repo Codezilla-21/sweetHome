@@ -88,10 +88,6 @@ public class Login extends AppCompatActivity {
                 );
             }
         });
-
-//        Intent intent=new Intent(Login.this,MainActivity.class);
-//        intent.putExtra("userName", (Parcelable) email);
-//
         forgetPasswords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,11 +107,4 @@ public class Login extends AppCompatActivity {
                 },
                 error -> Log.e(TAG, "signIn: failed" + error.toString()));
     }
-
-
-
-
-
-
-
 }

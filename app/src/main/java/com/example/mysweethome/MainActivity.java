@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                         AuthSignOutOptions.builder().globalSignOut(true).build(),
                         () -> {
                             Amplify.Auth.fetchAuthSession(
+
                                 result -> {
                                     if (!result.isSignedIn()){
                                         Intent goToLogin = new Intent(MainActivity.this, Login.class);
@@ -66,13 +67,12 @@ public class MainActivity extends AppCompatActivity {
                                 error -> Log.e("AmplifyQuickstart", error.toString())
                         );
 
+
                             Log.i("AuthQuickstart", "Signed out globally");
                         },
                         error -> Log.e("AuthQuickstart", error.toString())
                 );
 
-//                Intent goTOSignIn =new Intent(MainActivity.this,Login.class);
-//                startActivity(goTOSignIn);
             }
         });
 
@@ -91,8 +91,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
     }
 }
