@@ -197,6 +197,7 @@ public class AddHome extends AppCompatActivity {
                         .balcony(balconyB)
                         .type(selected)
                         .email(emailContacting.getText().toString())
+                        .userId("1")
                         .moreInfo(info.getText().toString())
                         .build();
 

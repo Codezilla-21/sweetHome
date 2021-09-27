@@ -13,14 +13,13 @@
         android:textStyle="bold"
         android:fontFamily="@font/architects_daughter"
         android:textColor="#6A98A1"
-        ></TextView>
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Use this location?"-->
-<!--        android:id="@+id/myAddress"-->
-
-<!--        ></TextView>-->
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Use this location?"
+        android:textColor="#6B453019"
+        android:id="@+id/myAddress"/>
     <fragment
         class="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"

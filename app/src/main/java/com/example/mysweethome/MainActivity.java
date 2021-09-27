@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView ;
     BottomNavigationItemView bottom;
     BottomNavigationItemView bottom1;
+    ImageView imageView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         bottom = findViewById(R.id.Account);
         bottom1 = findViewById(R.id.Search);
+        imageView1 = findViewById(R.id.imageView);
         imageView=findViewById(R.id.logButton);
         imageView.setClickable(true);
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -109,11 +111,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        bottom1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-////            public void onClick(View v) {
-////                Intent in = new Intent(MainActivity.this, )
-////            }
-//        });
+        bottom1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(MainActivity.this, DropDown.class);
+                startActivity(in);
+            }
+        });
     }
 }
