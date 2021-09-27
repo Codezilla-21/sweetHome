@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MySweetHome">
+<<<<<<< HEAD
         <activity android:name=".radio"></activity>
+=======
+>>>>>>> 16b68c717be77064393baa005aabac72eafdc56c
         <activity android:name=".homeDetails" />
         <activity android:name=".SendEmail" />
         <activity android:name=".ForgetPassword" />

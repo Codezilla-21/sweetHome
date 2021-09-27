@@ -13,7 +13,7 @@
         android:layout_centerInParent="true"
         android:background="@drawable/log_out"
         android:layout_height="50dp"
-        android:layout_marginLeft="235dp"
+        android:layout_marginLeft="265dp"
         android:layout_marginTop="9dp">
 
 
@@ -39,7 +39,7 @@
                 android:id="@+id/logButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/logout"
+                android:src="@drawable/power"
                 app:tint="#fff"
                 />
 
@@ -49,12 +49,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="50dp"
+            android:fontFamily="@font/architects_daughter"
             android:gravity="center"
             android:text="LogOut"
             android:textColor="#FF453019"
-            android:textStyle="bold"
             android:textSize="15sp"
-            android:fontFamily="@font/architects_daughter">
+            android:textStyle="bold">
 
         </TextView>
 
@@ -159,27 +159,6 @@
         />
 
 
-<!--    <Button-->
-<!--        android:id="@+id/addHome"-->
-<!--        android:layout_width="159dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Add"-->
-<!--        android:layout_marginLeft="15dp"-->
-<!--        android:layout_marginTop="550dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.486"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.279" />-->
-
-    <Button
-        android:id="@+id/sendEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="550dp"
-        android:text="Email" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

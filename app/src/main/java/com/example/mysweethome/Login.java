@@ -41,9 +41,8 @@ public class Login extends AppCompatActivity {
         imageView = findViewById(R.id.imagg);
 
         try {
-        //    Amplify.addPlugin(new AWSDataStorePlugin());
+            //    Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.addPlugin(new AWSApiPlugin());
-            Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());
@@ -72,23 +71,27 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                signIn(email.getText().toString(), password.getText().toString());
+
                 Amplify.Auth.fetchAuthSession(
-                        result -> Log.i("AmplifyQuickstart", result.toString()),
+                        result -> {
+                            if (result.isSignedIn()){
+                                Intent goToMain = new Intent(Login.this, MainActivity.class);
+                                goToMain.putExtra("userName",email.getText().toString());
+                                startActivity(goToMain);
+                            }
+                            Log.i("AmplifyQuickstart", result.toString());
+
+                        },
                         error -> Log.e("AmplifyQuickstart", error.toString())
                 );
-
-                signIn(email.getText().toString(), password.getText().toString());
             }
         });
-
-//        Intent intent=new Intent(Login.this,MainActivity.class);
-//        intent.putExtra("userName", (Parcelable) email);
-//
         forgetPasswords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              Intent intent = new Intent(Login.this, ForgetPassword.class);
-              startActivity(intent);
+                Intent intent = new Intent(Login.this, ForgetPassword.class);
+                startActivity(intent);
             }
         });
 
@@ -99,17 +102,8 @@ public class Login extends AppCompatActivity {
                 password,
                 result  -> {
                     Log.i(TAG, "signIn: worked " + result .toString());
-                    Intent goToMain = new Intent(Login.this, MainActivity.class);
-                    goToMain.putExtra("userName",email.getText().toString());
-                    startActivity(goToMain);
+
                 },
                 error -> Log.e(TAG, "signIn: failed" + error.toString()));
     }
-
-
-
-
-
-
-
 }
