@@ -63,27 +63,27 @@
 
 
 
-    <RelativeLayout
-        android:layout_width="150dp"
-        android:layout_centerInParent="true"
-        android:background="@drawable/log_out"
-        android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="300dp">
+<!--    <RelativeLayout-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:background="@drawable/log_out"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginLeft="30dp"-->
+<!--        android:layout_marginTop="300dp">-->
 
-        <TextView
-            android:id="@+id/updateProfile"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/architects_daughter"
-            android:gravity="center"
-            android:text="Update Profile Image"
-            android:textColor="#FF453019"
-            android:textSize="15sp"
-            android:textStyle="bold">
+<!--        <TextView-->
+<!--            android:id="@+id/updateProfile"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:fontFamily="@font/architects_daughter"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Update Profile Image"-->
+<!--            android:textColor="#FF453019"-->
+<!--            android:textSize="15sp"-->
+<!--            android:textStyle="bold">-->
 
-        </TextView>
-    </RelativeLayout>
+<!--        </TextView>-->
+<!--    </RelativeLayout>-->
 
 
     <TextView
@@ -148,4 +148,42 @@
 
         />
 
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="155dp"
+        android:layout_marginTop="350dp"
+        android:background="@drawable/log_out"
+        >
+
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:src="@drawable/log_out"
+            app:tint="#fff" />
+
+        <TextView
+            android:id="@+id/updateProfile"
+            android:layout_width="164dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/architects_daughter"
+            android:paddingTop="10dp"
+            android:text="Upload Profile Picture"
+            android:textAlignment="center"
+            android:textColor="#FF453019"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
