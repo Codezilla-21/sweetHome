@@ -1,11 +1,17 @@
 package com.example.mysweethome;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ClipData;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,13 +21,18 @@ import android.widget.TextView;
 
 
 import com.amplifyframework.AmplifyException;
+import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.sweetHouse;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -117,5 +128,42 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+
+        RecyclerView allDataFromAWS = findViewById(R.id.recyclerOwner);
+        Handler handler = new Handler(Looper.getMainLooper(),
+                new Handler.Callback() {
+                    @Override
+                    public boolean handleMessage(@NonNull Message msg) {
+                        allDataFromAWS.getAdapter().notifyDataSetChanged();
+                        return false;
+                    }
+                });
+
+        List<sweetHouse> allData = new ArrayList<>();
+        allDataFromAWS.setLayoutManager(new LinearLayoutManager(this));
+        allDataFromAWS.setAdapter(new ViewAdapter((ArrayList<sweetHouse>) allData));
+
+
+        Amplify.API.query(
+                ModelQuery.list(sweetHouse.class),
+                response -> {
+                    System.out.println(response.toString());
+//TODO: ADD CONDITION TO GET THE DATA ADDED  BY CURRENT USER
+                    for (sweetHouse house : response.getData().getItems()) {
+                        allData.add(house);
+                        System.out.println("based on id ----------------: "+house);
+                    }
+
+                    handler.sendEmptyMessage(1);
+                    Log.i("MyAmplifyApp", "Out of Loop!");
+
+                },
+                error -> Log.e("MyAmplifyApp", "Query failure", error)
+        );
     }
 }

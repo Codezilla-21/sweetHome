@@ -164,4 +164,13 @@ public class profilePage extends AppCompatActivity {
         startActivityForResult(chooseFile, 2048);
 
     }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+
+        //recyclerOwner
+
+
+    }
 }

@@ -11,16 +11,29 @@
         android:layout_height="172dp">
 
         <Button
+            android:id="@+id/remove"
+            android:layout_width="75dp"
+            android:layout_height="34dp"
+            android:text="Remove"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.687"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.884" />
+
+        <Button
             android:id="@+id/seeMore"
-            android:layout_width="119dp"
-            android:layout_height="43dp"
+            android:layout_width="75dp"
+            android:layout_height="34dp"
             android:text="See More"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.876"
+            app:layout_constraintHorizontal_bias="0.964"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.875" />
+            app:layout_constraintVertical_bias="0.884" />
 
         <ImageView
             android:id="@+id/itemImageView"
@@ -101,8 +114,10 @@
             android:background="?android:attr/listDivider"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seeMore" />
+            app:layout_constraintTop_toBottomOf="@+id/seeMore"
+            app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

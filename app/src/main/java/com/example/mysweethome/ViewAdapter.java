@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,7 +33,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.HomeViewHolder
         public HomeViewHolder(@NonNull View itemView) {
             super(itemView);
             this.itemView = itemView;
-            itemView.setOnClickListener(View -> {
+            itemView.findViewById(R.id.seeMore).setOnClickListener(View -> {
                 Intent intent = new Intent(View.getContext(), homeDetails.class);
                 //Price
                 intent.putExtra("Price", sweet.getPrice());
@@ -72,6 +73,8 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.HomeViewHolder
 
                 View.getContext().startActivity(intent);
             });
+
+            //TODO: ADD CLICK LISTENER TO THE REMOVE BUTTON THAT IS VISIBLE ONLY IN THE PROFILE ACTIVITY
         }
     }
 
@@ -93,6 +96,8 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.HomeViewHolder
         priceTextView.setText(holder.sweet.getPrice());
         addressTextView.setText(holder.sweet.getLocation());
         itemImageView.setImageURI(Uri.parse(imagesArray.get(0).toString()));
+
+
     }
 
     @Override
