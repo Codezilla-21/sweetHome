@@ -3,9 +3,11 @@ package com.example.mysweethome;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageSwitcher;
@@ -13,6 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
+import com.amplifyframework.core.Amplify;
+
+import java.io.File;
 import java.util.ArrayList;
 
 public class homeDetails extends AppCompatActivity {
@@ -33,9 +38,8 @@ public class homeDetails extends AppCompatActivity {
 
         // getting extras from reccler view
         Intent intent= getIntent();
-        Bundle bundle =  getIntent().getExtras();
 
-        ArrayList<Parcelable> images = bundle.getParcelableArrayList("Images");
+        ArrayList<String > images = intent.getStringArrayListExtra("Images");
         String Location = intent.getExtras().getString("Address");
         String price = intent.getExtras().getString("Price");
         String type = intent.getExtras().getString("Type");
@@ -68,23 +72,17 @@ public class homeDetails extends AppCompatActivity {
         address.setText(Location);
 
 
-        ImageSwitcher imgSwitch = findViewById(R.id.imagesSwitcher);
-        imgSwitch.setFactory(new ViewSwitcher.ViewFactory() {
-            @Override
-            public View makeView() {
-                ImageView imgView =  new ImageView(getApplicationContext());
-                return imgView;
-            }
-        });
+        ImageView imgSwitch = findViewById(R.id.imagesSwitcher);
+        Amplify.Storage.downloadFile(
+                String.valueOf(images.get(0)),
+                new File(getApplicationContext().getFilesDir() + "/Example Key.jpg"),
+                result2 -> {
+                    imgSwitch.setImageBitmap(BitmapFactory.decodeFile(result2.getFile().getPath()));
+                    Log.i("MyAmplifyApp", "Successfully downloaded: " + result2.getFile().getName());
+                },
+                error -> Log.e("MyAmplifyApp", "Download Failure", error)
+        );
 
-
-
-        ArrayList<Uri> imagesUris = new ArrayList();
-        for (Parcelable image : images) {
-            imagesUris.add(Uri.parse(image.toString()));
-
-        }
-        imgSwitch.setImageURI(imagesUris.get(0));
 
         prevBtn = findViewById(R.id.imgPrevious);
         nextBtn = findViewById(R.id.imgNext);
@@ -93,9 +91,17 @@ public class homeDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (position > 0){
+                if ( images.size()>position && position > 0){
                     position--;
-                    imgSwitch.setImageURI(imagesUris.get(position));
+                    Amplify.Storage.downloadFile(
+                            String.valueOf(images.get(position)),
+                            new File(getApplicationContext().getFilesDir() + "/Example Key.jpg"),
+                            result2 -> {
+                                imgSwitch.setImageBitmap(BitmapFactory.decodeFile(result2.getFile().getPath()));
+                                Log.i("MyAmplifyApp", "Successfully downloaded: " + result2.getFile().getName());
+                            },
+                            error -> Log.e("MyAmplifyApp", "Download Failure", error)
+                    );
 
                 }
             }
@@ -105,20 +111,13 @@ public class homeDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (position< images.size()-1){
+                if ( position< images.size()-1){
                     position++;
-                    imgSwitch.setImageURI(imagesUris.get(position));
+
                 }
             }
         });
-        //check this example, this is how you will pass arraylist of strings (images)
-//        Intent intent=new Intent(getApplicationContext(),NewActivity2 .class);
-//        Bundle bundle = new Bundle();
-//        bundle.putParcelableArrayList("VAR1", models1);
-//        intent.putExtras(bundle);
-//        this.startActivity(intent);
-//        Bundle bundle = getIntent().getExtras();
-//        ArrayList<Model1> arraylist = bundle.getParcelableArrayList("VAR1");
+
 
 
        TextView sendEmail = findViewById(R.id.sendEmail);
