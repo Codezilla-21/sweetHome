@@ -41,7 +41,7 @@ public class Login extends AppCompatActivity {
         imageView = findViewById(R.id.imagg);
 
         try {
-        //    Amplify.addPlugin(new AWSDataStorePlugin());
+            //    Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
@@ -87,8 +87,8 @@ public class Login extends AppCompatActivity {
         forgetPasswords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              Intent intent = new Intent(Login.this, ForgetPassword.class);
-              startActivity(intent);
+                Intent intent = new Intent(Login.this, ForgetPassword.class);
+                startActivity(intent);
             }
         });
 
