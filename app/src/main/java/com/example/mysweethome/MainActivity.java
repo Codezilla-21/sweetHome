@@ -47,21 +47,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Amplify.Auth.fetchAuthSession(
-
-                result -> {
-                    if (result.isSignedIn()){
-                        extras= Amplify.Auth.getCurrentUser().getUsername();
-
-                        TextView userName = findViewById(R.id.textView2);
-                        userName.setText(extras);
-                    }
-                    Log.i("AmplifyQuickstart", result.toString());
-
-                },
-                error -> Log.e("AmplifyQuickstart", error.toString())
-        );
+        extras = getIntent().getStringExtra("userName");
+//        Amplify.Auth.fetchAuthSession(
+//
+//                result -> {
+//                    if (result.isSignedIn()){
+//                        extras= Amplify.Auth.getCurrentUser().getUsername();
+//
+//                        TextView userName = findViewById(R.id.textView2);
+//                        userName.setText(extras);
+//                    }
+//                    Log.i("AmplifyQuickstart", result.toString());
+//
+//                },
+//                error -> Log.e("AmplifyQuickstart", error.toString())
+//        );
         FloatingActionButton addHome = findViewById(R.id.addHome);
         addHome.setOnClickListener(new View.OnClickListener() {
             @Override

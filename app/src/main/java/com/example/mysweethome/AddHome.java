@@ -64,7 +64,7 @@ public class AddHome extends AppCompatActivity {
     EditText info;
     String rentOrSellST="";
     EditText emailContacting;
-  String currentUserId;
+    String currentUserId;
 
     Boolean isImages;
 
@@ -80,7 +80,7 @@ public class AddHome extends AppCompatActivity {
 
                 result -> {
                     if (result.isSignedIn()){
-                      currentUserId= Amplify.Auth.getCurrentUser().getUserId();
+                        currentUserId= Amplify.Auth.getCurrentUser().getUserId();
                     }
                     Log.i("AmplifyQuickstart", result.toString());
 
@@ -190,32 +190,6 @@ public class AddHome extends AppCompatActivity {
 
                 SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(AddHome.this);
                 address = sharedPreferences2.getString("Address", "Jordan");
-
-
-                sweetHouse house = sweetHouse.builder()
-                        .area(area.getText().toString())
-                        .location(PreferenceManager.getDefaultSharedPreferences(AddHome.this).getString("Address", "Jordan"))
-                        .numberOfRooms(rooms.getText().toString())
-                        .floors(floor.getText().toString())
-                        .price(Integer.parseInt(price.getText().toString()))
-                        .ageOfBuild(age.getText().toString())
-                        .pool(poolB)
-                        .rentOfSell(rentOrSellST)
-                        .image(imageUris)
-                        .balcony(balconyB)
-                        .type(selected)
-                        .email(emailContacting.getText().toString())
-                        .userId("5")
-                        .moreInfo(info.getText().toString())
-                        .build();
-
-
-                Amplify.API.mutate(
-                        ModelMutation.create(house),
-                        result -> Log.i("MyAmplifyApp", "Added successfully"),
-                        error -> Log.e("MyAmplifyApp",  "Error ", error)
-                );
-
 
                 if(currentUserId != null){
                     try{
