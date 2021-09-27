@@ -191,6 +191,32 @@ public class AddHome extends AppCompatActivity {
                 SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(AddHome.this);
                 address = sharedPreferences2.getString("Address", "Jordan");
 
+
+                sweetHouse house = sweetHouse.builder()
+                        .area(area.getText().toString())
+                        .location(PreferenceManager.getDefaultSharedPreferences(AddHome.this).getString("Address", "Jordan"))
+                        .numberOfRooms(rooms.getText().toString())
+                        .floors(floor.getText().toString())
+                        .price(Integer.parseInt(price.getText().toString()))
+                        .ageOfBuild(age.getText().toString())
+                        .pool(poolB)
+                        .rentOfSell(rentOrSellST)
+                        .image(imageUris)
+                        .balcony(balconyB)
+                        .type(selected)
+                        .email(emailContacting.getText().toString())
+                        .userId("5")
+                        .moreInfo(info.getText().toString())
+                        .build();
+
+
+                Amplify.API.mutate(
+                        ModelMutation.create(house),
+                        result -> Log.i("MyAmplifyApp", "Added successfully"),
+                        error -> Log.e("MyAmplifyApp",  "Error ", error)
+                );
+
+
                 if(currentUserId != null){
                     try{
                         if (isImages){
@@ -224,6 +250,7 @@ public class AddHome extends AppCompatActivity {
                         Toast.makeText(AddHome.this, "Please Pick Location First And Fill Required Information And Add Some Images", Toast.LENGTH_LONG).show();
                     }
                 }
+
                 Intent backToMain = new Intent(AddHome.this, MainActivity.class);
                 startActivity(backToMain);
             }
