@@ -120,7 +120,7 @@ public class homeDetails extends AppCompatActivity {
 
 
 
-       TextView sendEmail = findViewById(R.id.sendEmail);
+        TextView sendEmail = findViewById(R.id.sendEmail);
         sendEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
