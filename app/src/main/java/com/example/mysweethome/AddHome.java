@@ -20,6 +20,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobileconnectors.cognitoauth.Auth;
@@ -64,6 +65,8 @@ public class AddHome extends AppCompatActivity {
   //  Boolean temp = false;
     String getEmail;
     String getUsersInfo;
+
+    Boolean isImages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +134,7 @@ public class AddHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pickImagesIntent();
+                isImages = true;
             }
         });
 
@@ -165,16 +169,6 @@ public class AddHome extends AppCompatActivity {
                 rentOrSellST="For Sell";
             }
         });
-//        temp = pickLocation.isSelected();
-//        if (temp!=false){
-//            price.setVisibility(View.VISIBLE);
-//            area.setVisibility(View.VISIBLE);
-//            floor.setVisibility(View.VISIBLE);
-//            rooms.setVisibility(View.VISIBLE);
-//            age.setVisibility(View.VISIBLE);
-//            info.setVisibility(View.VISIBLE);
-//        }
-
 
         Button addToDatabase= findViewById(R.id.addToDatabase);
         addToDatabase.setOnClickListener(new View.OnClickListener() {
@@ -184,28 +178,38 @@ public class AddHome extends AppCompatActivity {
                 SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(AddHome.this);
                 address = sharedPreferences2.getString("Address", "Jordan");
 
-                sweetHouse house = sweetHouse.builder()
-                        .area(area.getText().toString())
-                        .location(PreferenceManager.getDefaultSharedPreferences(AddHome.this).getString("Address", "Jordan"))
-                        .numberOfRooms(rooms.getText().toString())
-                        .floors(floor.getText().toString())
-                        .price(Integer.parseInt(price.getText().toString()))
-                        .ageOfBuild(age.getText().toString())
-                        .pool(poolB)
-                        .rentOfSell(rentOrSellST)
-                        .image(imageUris)
-                        .balcony(balconyB)
-                        .type(selected)
-                        .email(emailContacting.getText().toString())
-                        .moreInfo(info.getText().toString())
-                        .build();
+                try{
+                    if (isImages){
+                        sweetHouse house = sweetHouse.builder()
+                                .area(area.getText().toString())
+                                .location(PreferenceManager.getDefaultSharedPreferences(AddHome.this).getString("Address", "Jordan"))
+                                .numberOfRooms(rooms.getText().toString())
+                                .floors(floor.getText().toString())
+                                .price(Integer.parseInt(price.getText().toString()))
+                                .ageOfBuild(age.getText().toString())
+                                .pool(poolB)
+                                .rentOfSell(rentOrSellST)
+                                .image(imageUris)
+                                .balcony(balconyB)
+                                .type(selected)
+                                .email(emailContacting.getText().toString())
+                                .moreInfo(info.getText().toString())
+                                .build();
+
+                        Amplify.API.mutate(
+                                ModelMutation.create(house),
+                                result -> Log.i("MyAmplifyApp", "Added successfully"),
+                                error -> Log.e("MyAmplifyApp",  "Error ", error)
+                        );
+                    }
+
+                }catch(Exception e ){
+
+                    Toast.makeText(AddHome.this, "Please Pick Location First And Fill Required Information And Add Some Images", Toast.LENGTH_LONG).show();
+                }
 
 
-                Amplify.API.mutate(
-                        ModelMutation.create(house),
-                        result -> Log.i("MyAmplifyApp", "Added successfully"),
-                        error -> Log.e("MyAmplifyApp",  "Error ", error)
-                );
+
 
 
                 Intent backToMain = new Intent(AddHome.this, MainActivity.class);
