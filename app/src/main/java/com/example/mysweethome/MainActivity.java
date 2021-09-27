@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imageView ;
     BottomNavigationItemView bottom;
+    BottomNavigationItemView bottom1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         navView.setBackground(null);
 
         bottom = findViewById(R.id.Account);
+        bottom1 = findViewById(R.id.Search);
         imageView=findViewById(R.id.logButton);
         imageView.setClickable(true);
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -106,5 +108,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+//        bottom1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+////            public void onClick(View v) {
+////                Intent in = new Intent(MainActivity.this, )
+////            }
+//        });
     }
 }
