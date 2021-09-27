@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     String extras;
 
+
     ImageView imageView ;
     BottomNavigationItemView bottom;
 
@@ -77,9 +78,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
         Amplify.Auth.fetchAuthSession(
 
                 result -> {
@@ -91,8 +89,6 @@ public class MainActivity extends AppCompatActivity {
                 },
                 error -> Log.e("AmplifyQuickstart", error.toString())
         );
-
-
 
 
         TextView userName = findViewById(R.id.textView2);
