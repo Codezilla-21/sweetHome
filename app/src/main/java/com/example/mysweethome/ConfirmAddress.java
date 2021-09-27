@@ -44,8 +44,8 @@ public class ConfirmAddress extends DialogFragment implements
     Double Long;
     String Address;
     TextView myAddress;
-    Button SelectBtn;
-    Button ChangeBtn;
+    TextView SelectBtn;
+    TextView ChangeBtn;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,8 +59,8 @@ public class ConfirmAddress extends DialogFragment implements
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.custom_confirm_address, container, false);
         myAddress=(TextView)v.findViewById(R.id.myAddress);
-        SelectBtn=(Button) v.findViewById(R.id.Select);
-        ChangeBtn=(Button) v.findViewById(R.id.Change);
+        SelectBtn=(TextView) v.findViewById(R.id.selected);
+        ChangeBtn=(TextView) v.findViewById(R.id.Changed);
 
 
 
