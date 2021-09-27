@@ -148,6 +148,15 @@
 
         />
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerOwner"
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        android:layout_marginTop="370dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="120dp"
@@ -186,4 +195,5 @@
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 

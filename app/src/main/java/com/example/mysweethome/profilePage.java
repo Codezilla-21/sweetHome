@@ -1,21 +1,30 @@
 package com.example.mysweethome;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.sweetHouse;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,6 +32,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -37,18 +48,21 @@ public class profilePage extends AppCompatActivity {
     BottomNavigationItemView bottom;
     String extras;
     Uri uri;
+    String currentUserId;
 //    FloatingActionButton floatingActionButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_profile_page);
         bottom = findViewById(R.id.Account);
 
         textView = findViewById(R.id.textView3);
         textView1 = findViewById(R.id.updateProfile);
-        extras = getIntent().getStringExtra("userName");
+
         textView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,16 +70,20 @@ public class profilePage extends AppCompatActivity {
             }
         });
 
+        TextView userName = findViewById(R.id.textView2);
+        extras = getIntent().getStringExtra("userName");
+//        userName.setText(extras);
+
         if (extras != null) {
             textView.setText(extras);
             Amplify.Storage.downloadFile(
                     extras,
                     new File(getApplicationContext().getFilesDir() + "/Example Key.jpg"),
-                    result2 ->{
+                    result2 -> {
                         circleImageView.setImageBitmap(BitmapFactory.decodeFile(result2.getFile().getPath()));
                         Log.i("MyAmplifyApp", "Successfully downloaded: " + result2.getFile().getName());
                     },
-                    error -> Log.e("MyAmplifyApp",  "Download Failure", error)
+                    error -> Log.e("MyAmplifyApp", "Download Failure", error)
             );
         }
 
@@ -81,7 +99,7 @@ public class profilePage extends AppCompatActivity {
                         () -> {
                             Amplify.Auth.fetchAuthSession(
                                     result -> {
-                                        if (!result.isSignedIn()){
+                                        if (!result.isSignedIn()) {
                                             Intent goToLogin = new Intent(profilePage.this, Login.class);
                                             startActivity(goToLogin);
                                         }
@@ -133,11 +151,11 @@ public class profilePage extends AppCompatActivity {
                             Amplify.Storage.downloadFile(
                                     extras,
                                     new File(getApplicationContext().getFilesDir() + "/Example Key.jpg"),
-                                    result2 ->{
+                                    result2 -> {
                                         circleImageView.setImageBitmap(BitmapFactory.decodeFile(result2.getFile().getPath()));
                                         Log.i("MyAmplifyApp", "Successfully downloaded: " + result2.getFile().getName());
                                     },
-                                    error -> Log.e("MyAmplifyApp",  "Download Failure", error)
+                                    error -> Log.e("MyAmplifyApp", "Download Failure", error)
                             );
                             Log.i("MyAmplifyApp", "Successfully uploaded: " + result.getKey());
                         },
@@ -162,6 +180,70 @@ public class profilePage extends AppCompatActivity {
         chooseFile.setType("*/*");
         chooseFile = Intent.createChooser(chooseFile, "Choose File!");
         startActivityForResult(chooseFile, 2048);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Amplify.Auth.fetchAuthSession(
+
+                result -> {
+                    if (result.isSignedIn()) {
+
+                        currentUserId = Amplify.Auth.getCurrentUser().getUserId();
+                        System.out.println("*****************************" + currentUserId);
+
+                    }
+                    Log.i("AmplifyQuickstart", result.toString());
+
+                },
+                error -> Log.e("AmplifyQuickstart", error.toString())
+        );
+
+        RecyclerView allDataFromAWS = findViewById(R.id.recyclerOwner);
+        Handler handler = new Handler(Looper.getMainLooper(),
+                new Handler.Callback() {
+                    @Override
+                    public boolean handleMessage(@NonNull Message msg) {
+                        allDataFromAWS.getAdapter().notifyDataSetChanged();
+                        return false;
+                    }
+                });
+
+        List<sweetHouse> allData = new ArrayList<>();
+        allDataFromAWS.setLayoutManager(new LinearLayoutManager(this));
+        allDataFromAWS.setAdapter(new ViewAdapter((ArrayList<sweetHouse>) allData));
+        try {
+            Amplify.API.query(
+                    ModelQuery.list(sweetHouse.class),
+                    response -> {
+                        System.out.println(response.toString());
+                        for (sweetHouse house : response.getData().getItems()) {
+                            System.out.println("ooooooooooooooooo" + house.getArea());
+                            if (house.getUserId().equals(currentUserId)) {
+                                allData.add(house);
+                                System.out.println("based on id ----------------: " + house);
+                            } else {
+                                System.out.println("*********************NULL**********************");
+                            }
+
+                        }
+
+                        handler.sendEmptyMessage(1);
+                        Log.i("MyAmplifyApp", "Out of Loop!");
+
+                    },
+                    error -> Log.e("MyAmplifyApp", "Query failure", error)
+            );
+        } catch (Exception e) {
+            System.out.println("*******************NO DATA***********************");
+        }
+
+
+        //recyclerOwner
+
 
     }
 }
