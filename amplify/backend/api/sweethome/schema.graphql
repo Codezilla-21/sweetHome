@@ -13,4 +13,5 @@ type sweetHouse @model {
   moreInfo: String
   type: String!
   email:String!
+  userID:String!
 }

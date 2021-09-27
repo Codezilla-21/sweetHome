@@ -18,8 +18,8 @@ import java.util.ArrayList;
 public class homeDetails extends AppCompatActivity {
 
     int position;
-    Button prevBtn;
-    Button nextBtn;
+    ImageView prevBtn;
+    ImageView nextBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,7 +121,7 @@ public class homeDetails extends AppCompatActivity {
 //        ArrayList<Model1> arraylist = bundle.getParcelableArrayList("VAR1");
 
 
-        Button sendEmail = findViewById(R.id.sendEmail);
+       TextView sendEmail = findViewById(R.id.sendEmail);
         sendEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
