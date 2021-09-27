@@ -62,13 +62,17 @@ public class profilePage extends AppCompatActivity {
 
         textView = findViewById(R.id.textView3);
         textView1 = findViewById(R.id.updateProfile);
-        extras = getIntent().getStringExtra("userName");
+
         textView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getFileFromDevice();
             }
         });
+
+        TextView userName = findViewById(R.id.textView2);
+        extras = getIntent().getStringExtra("userName");
+//        userName.setText(extras);
 
         if (extras != null) {
             textView.setText(extras);

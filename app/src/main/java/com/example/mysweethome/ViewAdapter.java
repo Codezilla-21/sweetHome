@@ -95,7 +95,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.HomeViewHolder
 
         TextView priceTextView = holder.itemView.findViewById(R.id.priceTextView);
         TextView addressTextView = holder.itemView.findViewById(R.id.addressTextView);
-        ImageView itemImageView = holder.itemView.findViewById(R.id.itemImageView);
+     //   ImageView itemImageView = holder.itemView.findViewById(R.id.itemImageView);
         priceTextView.setText(holder.sweet.getPrice().toString());
         addressTextView.setText(holder.sweet.getLocation());
 
