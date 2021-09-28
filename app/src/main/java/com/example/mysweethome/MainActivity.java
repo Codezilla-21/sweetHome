@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    ImageView imageView ;
+    BottomNavigationItemView logout;
+    BottomNavigationView home;
+
     BottomNavigationItemView bottom;
 
     @Override
@@ -75,9 +77,28 @@ public class MainActivity extends AppCompatActivity {
         navView.setBackground(null);
 
         bottom = findViewById(R.id.Account);
-        imageView=findViewById(R.id.logButton);
-        imageView.setClickable(true);
-        imageView.setOnClickListener(new View.OnClickListener() {
+
+        bottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, profilePage.class);
+                intent.putExtra("userName",extras.toString());
+                startActivity(intent);
+            }
+        });
+
+        home = findViewById(R.id.Home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        logout=findViewById(R.id.logButton);
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Amplify.Auth.signOut(
@@ -122,20 +143,12 @@ public class MainActivity extends AppCompatActivity {
             userName.setText(extras);
         }
 
-        bottom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, profilePage.class);
-                intent.putExtra("userName",extras.toString());
-                startActivity(intent);
-            }
-        });
-    }
-
-    @Override
-    protected void onStart(){
-        super.onStart();
 
 
-    }
-}
+//    @Override
+//    protected void onStart(){
+//        super.onStart();
+//
+//
+//    }
+}}

@@ -21,21 +21,19 @@
 <!--        app:showAsAction="ifRoom"-->
 <!--        android:enabled="false"/>-->
 
-    <item android:id="@+id/Information"
-        android:title="Information"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_baseline_info_24"
-      />
-
 
     <item android:id="@+id/Search"
         android:title="Search"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_baseline_menu_24"
+        android:icon="@drawable/search"
 
-       />
+        />
 
-
+    <item android:id="@+id/logButton"
+        android:title="Logout"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/power"
+      />
 
 
 

@@ -2,7 +2,6 @@ package com.example.mysweethome;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -31,7 +30,6 @@ public class homeDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_details);
     }
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onStart(){
         super.onStart();
@@ -122,7 +120,7 @@ public class homeDetails extends AppCompatActivity {
 
 
 
-       TextView sendEmail = findViewById(R.id.sendEmail);
+        TextView sendEmail = findViewById(R.id.sendEmail);
         sendEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

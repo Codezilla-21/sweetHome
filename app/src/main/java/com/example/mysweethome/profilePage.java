@@ -43,9 +43,10 @@ public class profilePage extends AppCompatActivity {
 
     TextView textView;
     TextView textView1;
-    ImageView imageView;
+    BottomNavigationItemView logout;
     ImageView circleImageView;
     BottomNavigationItemView bottom;
+    BottomNavigationItemView home;
     String extras;
     Uri uri;
     String currentUserId;
@@ -87,11 +88,30 @@ public class profilePage extends AppCompatActivity {
             );
         }
 
+        home = findViewById(R.id.Home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(profilePage.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        FloatingActionButton addHome = findViewById(R.id.addHome);
+        addHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToAddHome = new Intent(profilePage.this, AddHome.class);
+                startActivity(goToAddHome);
+            }
+        });
+
+
+
 
         circleImageView = findViewById(R.id.profile_image);
-        imageView = findViewById(R.id.logButton);
-        imageView.setClickable(true);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        logout = findViewById(R.id.logButton);
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Amplify.Auth.signOut(

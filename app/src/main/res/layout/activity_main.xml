@@ -8,61 +8,61 @@
 
     >
 
-    <RelativeLayout
-        android:layout_width="120dp"
-        android:layout_centerInParent="true"
-        android:background="@drawable/log_out"
-        android:layout_height="50dp"
-        android:layout_marginLeft="265dp"
-        android:layout_marginTop="9dp">
+<!--    <RelativeLayout-->
+<!--        android:layout_width="120dp"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:background="@drawable/log_out"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginLeft="265dp"-->
+<!--        android:layout_marginTop="9dp">-->
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/log_out"
-        android:layout_margin="3dp"
-        app:tint="#fff"
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:src="@drawable/log_out"-->
+<!--        android:layout_margin="3dp"-->
+<!--        app:tint="#fff"-->
 
-        />
+<!--        />-->
 
-        <RelativeLayout
-            android:layout_width="50dp"
-            android:layout_height="35dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp"
-            android:background="#C7B198"
-            android:padding="5dp"
-            >
-            <ImageView
-                android:id="@+id/logButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/power"
-                app:tint="#fff"
-                />
+<!--        <RelativeLayout-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            android:background="#C7B198"-->
+<!--            android:padding="5dp"-->
+<!--            >-->
+<!--            <ImageView-->
+<!--                android:id="@+id/logButton"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:src="@drawable/power"-->
+<!--                app:tint="#fff"-->
+<!--                />-->
 
-        </RelativeLayout>
+<!--        </RelativeLayout>-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="50dp"
-            android:fontFamily="@font/architects_daughter"
-            android:gravity="center"
-            android:text="LogOut"
-            android:textColor="#FF453019"
-            android:textSize="15sp"
-            android:textStyle="bold">
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginRight="50dp"-->
+<!--            android:fontFamily="@font/architects_daughter"-->
+<!--            android:gravity="center"-->
+<!--            android:text="LogOut"-->
+<!--            android:textColor="#FF453019"-->
+<!--            android:textSize="15sp"-->
+<!--            android:textStyle="bold">-->
 
-        </TextView>
-
-
+<!--        </TextView>-->
 
 
 
-    </RelativeLayout>
+
+
+<!--    </RelativeLayout>-->
 
 
     <de.hdodenhof.circleimageview.CircleImageView
