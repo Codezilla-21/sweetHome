@@ -23,7 +23,7 @@
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/cop3__1_" />
+            app:srcCompat="@drawable/cop3" />
     </LinearLayout>
 
     <EditText
@@ -61,42 +61,42 @@
 
 
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="140dp"
-        android:layout_marginTop="450dp"
-        android:background="@drawable/log_out"
-        >
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="450dp"
+            android:background="@drawable/log_out"
+            >
 
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="3dp"
-            android:src="@drawable/log_out"
-            app:tint="#fff"
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:src="@drawable/log_out"
+                app:tint="#fff"
 
-            />
+                />
 
 
 
-        <TextView
-            android:id="@+id/confirmation"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/architects_daughter"
-            android:text="Confirm"
-            android:textAlignment="center"
-            android:textColor="#44464A"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:paddingTop="10dp"
-            app:layout_anchorGravity="center" />
+            <TextView
+                android:id="@+id/confirmation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/architects_daughter"
+                android:text="Confirm"
+                android:textAlignment="center"
+                android:textColor="#44464A"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                app:layout_anchorGravity="center" />
 
-    </RelativeLayout>
+        </RelativeLayout>
 
 
     </LinearLayout>

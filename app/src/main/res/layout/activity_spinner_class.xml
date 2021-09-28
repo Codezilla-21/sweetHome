@@ -20,6 +20,7 @@
         android:textStyle="bold"
         app:backgroundTint="#239065" />
 
+
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
@@ -78,5 +79,6 @@
         android:textSize="22dp"
         android:textColor="#050505"
         />
+
 
 </RelativeLayout>
