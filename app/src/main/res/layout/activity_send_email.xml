@@ -45,61 +45,61 @@
         />
 
 
-    <RelativeLayout
-        android:layout_width="120dp"
-        android:layout_centerInParent="true"
-        android:background="@drawable/log_out"
-        android:layout_height="50dp"
-        android:layout_marginLeft="265dp"
-        android:layout_marginTop="9dp">
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="120dp"-->
+    <!--        android:layout_centerInParent="true"-->
+    <!--        android:background="@drawable/log_out"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_marginLeft="265dp"-->
+    <!--        android:layout_marginTop="9dp">-->
 
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/log_out"
-            android:layout_margin="3dp"
-            app:tint="#fff"
+    <!--        <ImageView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:src="@drawable/log_out"-->
+    <!--            android:layout_margin="3dp"-->
+    <!--            app:tint="#fff"-->
 
-            />
+    <!--            />-->
 
-        <RelativeLayout
-            android:layout_width="50dp"
-            android:layout_height="35dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp"
-            android:background="#C7B198"
-            android:padding="5dp"
-            >
-            <ImageView
-                android:id="@+id/logButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/power"
-                app:tint="#fff"
-                />
+    <!--        <RelativeLayout-->
+    <!--            android:layout_width="50dp"-->
+    <!--            android:layout_height="35dp"-->
+    <!--            android:layout_centerVertical="true"-->
+    <!--            android:layout_alignParentRight="true"-->
+    <!--            android:layout_marginRight="5dp"-->
+    <!--            android:background="#C7B198"-->
+    <!--            android:padding="5dp"-->
+    <!--            >-->
+    <!--            <ImageView-->
+    <!--                android:id="@+id/logButton"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:src="@drawable/power"-->
+    <!--                app:tint="#fff"-->
+    <!--                />-->
 
-        </RelativeLayout>
+    <!--        </RelativeLayout>-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="50dp"
-            android:fontFamily="@font/architects_daughter"
-            android:gravity="center"
-            android:text="LogOut"
-            android:textColor="#FF453019"
-            android:textSize="15sp"
-            android:textStyle="bold">
+    <!--        <TextView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginRight="50dp"-->
+    <!--            android:fontFamily="@font/architects_daughter"-->
+    <!--            android:gravity="center"-->
+    <!--            android:text="LogOut"-->
+    <!--            android:textColor="#FF453019"-->
+    <!--            android:textSize="15sp"-->
+    <!--            android:textStyle="bold">-->
 
-        </TextView>
-
-
+    <!--        </TextView>-->
 
 
 
-    </RelativeLayout>
+
+
+    <!--    </RelativeLayout>-->
 
     <LinearLayout
         android:layout_width="241dp"
@@ -115,7 +115,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="241dp"
             android:layout_height="wrap_content"
-            android:textColorHint="#59402508">
+            android:textColorHint="#6F44464A">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editText1"
@@ -130,46 +130,46 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usernamelabel"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-        android:layout_width="241dp"
-        android:layout_height="wrap_content"
-        android:textColorHint="#59402508"
-      >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText2"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernamelabel"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="241dp"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:inputType="text"
-            android:textColor="#402508"
-            android:textColorHint="#000000"
-            android:layout_marginBottom="20dp"
-            android:hint="Enter Your Subject "/>
+            android:textColorHint="#6F44464A"
+            >
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText2"
+                android:layout_width="241dp"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:inputType="text"
+                android:textColor="#402508"
+                android:textColorHint="#000000"
+                android:layout_marginBottom="20dp"
+                android:hint="Enter Your Subject "/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Label"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-        android:layout_width="241dp"
-        android:layout_height="wrap_content"
-        android:textColorHint="#59402508">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText3"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Label"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="241dp"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"
-            android:inputType="textEmailAddress"
-            android:textColor="#000000"
-            android:textColorHint="#000000"
-            android:layout_marginBottom="20dp"
-            android:hint="Enter Your Message "/>
+            android:layout_height="wrap_content"
+            android:textColorHint="#6F44464A">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText3"
+                android:layout_width="241dp"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:inputType="textEmailAddress"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:layout_marginBottom="20dp"
+                android:hint="Enter Your Message "/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
@@ -181,7 +181,7 @@
         android:text="Messege"
         android:textSize="25dp"
         android:layout_marginLeft="10dp"
-        android:textColor="#FF453019"
+        android:textColor="#050505"
         android:fontFamily="@font/architects_daughter"/>
 
     <TextView
@@ -192,7 +192,7 @@
         android:text="Subject"
         android:textSize="25dp"
         android:layout_marginLeft="10dp"
-        android:textColor="#FF453019"
+        android:textColor="#050505"
         android:fontFamily="@font/architects_daughter"/>
 
     <TextView
@@ -203,7 +203,7 @@
         android:text="To"
         android:textSize="25dp"
         android:layout_marginLeft="10dp"
-        android:textColor="#FF453019"
+        android:textColor="#050505"
         android:fontFamily="@font/architects_daughter"/>
 
     <RelativeLayout
@@ -245,7 +245,7 @@
         app:layout_anchor="@+id/relativeLayout2"
         app:layout_anchorGravity="center"
         android:fontFamily="@font/architects_daughter"
-        android:textColor="#FF453019"
+        android:textColor="#44464A"
         android:textSize="20sp"
         android:textStyle="bold"
         />
@@ -257,10 +257,10 @@
         android:textSize="25dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="160dp"
-        android:textColor="#6A98A1"
+        android:textColor="#239065"
+        android:textStyle="bold"
         android:fontFamily="@font/architects_daughter"
         android:text="Contact Owner ..." />
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

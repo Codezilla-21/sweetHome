@@ -5,82 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-
     >
-
-    <!--    <RelativeLayout-->
-    <!--        android:layout_width="120dp"-->
-    <!--        android:layout_centerInParent="true"-->
-    <!--        android:background="@drawable/log_out"-->
-    <!--        android:layout_height="50dp"-->
-    <!--        android:layout_marginLeft="265dp"-->
-    <!--        android:layout_marginTop="9dp">-->
-
-
-    <!--    <ImageView-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:src="@drawable/log_out"-->
-    <!--        android:layout_margin="3dp"-->
-    <!--        app:tint="#fff"-->
-
-    <!--        />-->
-
-    <!--        <RelativeLayout-->
-    <!--            android:layout_width="50dp"-->
-    <!--            android:layout_height="35dp"-->
-    <!--            android:layout_centerVertical="true"-->
-    <!--            android:layout_alignParentRight="true"-->
-    <!--            android:layout_marginRight="5dp"-->
-    <!--            android:background="#C7B198"-->
-    <!--            android:padding="5dp"-->
-    <!--            >-->
-    <!--            <ImageView-->
-    <!--                android:id="@+id/logButton"-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="match_parent"-->
-    <!--                android:src="@drawable/power"-->
-    <!--                app:tint="#fff"-->
-    <!--                />-->
-
-    <!--        </RelativeLayout>-->
-
-    <!--        <TextView-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            android:layout_marginRight="50dp"-->
-    <!--            android:fontFamily="@font/architects_daughter"-->
-    <!--            android:gravity="center"-->
-    <!--            android:text="LogOut"-->
-    <!--            android:textColor="#FF453019"-->
-    <!--            android:textSize="15sp"-->
-    <!--            android:textStyle="bold">-->
-
-    <!--        </TextView>-->
-
-
-
-
-
-    <!--    </RelativeLayout>-->
-
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="60dp"
-        android:layout_height="70dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/profile"
-        app:civ_border_color="#FF000000"
-        app:civ_border_width="2dp" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="93dp"
         android:layout_gravity="bottom"
-        android:background="#C7B198"
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="50dp">
 
@@ -90,8 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@android:color/transparent"
-            app:itemIconTint="#C7B198"
-            app:itemTextColor="#453019"
+            app:itemIconTint="#090909"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/nav" />
 
@@ -109,16 +39,6 @@
 
         />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="75dp"
-        android:textColor="#6A98A1"
-        android:textStyle="bold"
-        android:fontFamily="@font/architects_daughter"
-        />
 
     <ImageView
         android:id="@+id/imageView"
@@ -134,7 +54,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="520dp"
         android:text="Discover a place you'll love to live."
-        android:textColor="#6A98A1"
+        android:textColor="#239065"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textAlignment="center"
@@ -148,7 +68,7 @@
         android:text="Search thousand's of apartments and houses with SweetHome."
         android:layout_marginLeft="0dp"
         android:layout_marginTop="440dp"
-        android:textColor="#6A98A1"
+        android:textColor="#239065"
         android:textSize="18sp"
         android:textStyle="bold"
         android:fontFamily="@font/architects_daughter"

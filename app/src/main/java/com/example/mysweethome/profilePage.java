@@ -45,7 +45,6 @@ public class profilePage extends AppCompatActivity {
     TextView textView1;
     ImageView imageView;
     ImageView circleImageView;
-
     BottomNavigationItemView bottom;
     String extras;
     Uri uri;
@@ -56,40 +55,39 @@ public class profilePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_profile_page);
+
         bottom = findViewById(R.id.Account);
 
-        textView = findViewById(R.id.textView3);
-        textView1 = findViewById(R.id.updateProfile);
+//        textView = findViewById(R.id.textView3);
+//        textView1 = findViewById(R.id.updateProfile);
 
-        textView1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getFileFromDevice();
-            }
-        });
+//        textView1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getFileFromDevice();
+//            }
+//        });
+//
+//        TextView userName = findViewById(R.id.textView2);
+//        extras = getIntent().getStringExtra("userName");
+////        userName.setText(extras);
+//
+//        if (extras != null) {
+//            textView.setText(extras);
+//            Amplify.Storage.downloadFile(
+//                    extras,
+//                    new File(getApplicationContext().getFilesDir() + "/Example Key.jpg"),
+//                    result2 -> {
+//                        circleImageView.setImageBitmap(BitmapFactory.decodeFile(result2.getFile().getPath()));
+//                        Log.i("MyAmplifyApp", "Successfully downloaded: " + result2.getFile().getName());
+//                    },
+//                    error -> Log.e("MyAmplifyApp", "Download Failure", error)
+//            );
+//        }
 
-        TextView userName = findViewById(R.id.textView2);
-        extras = getIntent().getStringExtra("userName");
-//        userName.setText(extras);
 
-        if (extras != null) {
-            textView.setText(extras);
-            Amplify.Storage.downloadFile(
-                    extras,
-                    new File(getApplicationContext().getFilesDir() + "/Example Key.jpg"),
-                    result2 -> {
-                        circleImageView.setImageBitmap(BitmapFactory.decodeFile(result2.getFile().getPath()));
-                        Log.i("MyAmplifyApp", "Successfully downloaded: " + result2.getFile().getName());
-                    },
-                    error -> Log.e("MyAmplifyApp", "Download Failure", error)
-            );
-        }
-
-
-        circleImageView = findViewById(R.id.profile_image);
+        // circleImageView = findViewById(R.id.profile_image);
         imageView = findViewById(R.id.logButton);
         imageView.setClickable(true);
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -118,17 +116,17 @@ public class profilePage extends AppCompatActivity {
             }
         });
 
-        textView1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ImagePicker.with(profilePage.this)
-//                        .crop()               //Crop image(Optional), Check Customization for more option
-//                        .compress(1024)        //Final image size will be less than 1 MB(Optional)
-//                        .maxResultSize(1080, 1080)   //Final image resolution will be less than 1080 x 1080(Optional)
-                        .start();
-
-            }
-        });
+//        textView1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ImagePicker.with(profilePage.this)
+////                        .crop()               //Crop image(Optional), Check Customization for more option
+////                        .compress(1024)        //Final image size will be less than 1 MB(Optional)
+////                        .maxResultSize(1080, 1080)   //Final image resolution will be less than 1080 x 1080(Optional)
+//                        .start();
+//
+//            }
+//        });
 
         bottom.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,48 +139,48 @@ public class profilePage extends AppCompatActivity {
 
     }
 
-    private void uploadInputStream() {
-        if (uri != null) {
-            try {
-                InputStream exampleInputStream = getContentResolver().openInputStream(uri);
-                Amplify.Storage.uploadInputStream(
-                        extras,
-                        exampleInputStream,
-                        result -> {
-                            Amplify.Storage.downloadFile(
-                                    extras,
-                                    new File(getApplicationContext().getFilesDir() + "/Example Key.jpg"),
-                                    result2 -> {
-                                        circleImageView.setImageBitmap(BitmapFactory.decodeFile(result2.getFile().getPath()));
-                                        Log.i("MyAmplifyApp", "Successfully downloaded: " + result2.getFile().getName());
-                                    },
-                                    error -> Log.e("MyAmplifyApp", "Download Failure", error)
-                            );
-                            Log.i("MyAmplifyApp", "Successfully uploaded: " + result.getKey());
-                        },
-                        storageFailure -> Log.e("MyAmplifyApp", "Upload failed", storageFailure)
-                        //circleImageView
-                );
-            } catch (FileNotFoundException error) {
-                Log.e("MyAmplifyApp", "Could not find file to open for input stream.", error);
-            }
-        }
-    }
+//    private void uploadInputStream() {
+//        if (uri != null) {
+//            try {
+//                InputStream exampleInputStream = getContentResolver().openInputStream(uri);
+//                Amplify.Storage.uploadInputStream(
+//                        extras,
+//                        exampleInputStream,
+//                        result -> {
+//                            Amplify.Storage.downloadFile(
+//                                    extras,
+//                                    new File(getApplicationContext().getFilesDir() + "/Example Key.jpg"),
+//                                    result2 -> {
+//                                        circleImageView.setImageBitmap(BitmapFactory.decodeFile(result2.getFile().getPath()));
+//                                        Log.i("MyAmplifyApp", "Successfully downloaded: " + result2.getFile().getName());
+//                                    },
+//                                    error -> Log.e("MyAmplifyApp", "Download Failure", error)
+//                            );
+//                            Log.i("MyAmplifyApp", "Successfully uploaded: " + result.getKey());
+//                        },
+//                        storageFailure -> Log.e("MyAmplifyApp", "Upload failed", storageFailure)
+//                        //circleImageView
+//                );
+//            } catch (FileNotFoundException error) {
+//                Log.e("MyAmplifyApp", "Could not find file to open for input stream.", error);
+//            }
+//        }
+//    }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        uri = data.getData();
-        uploadInputStream();
-    }
-
-    private void getFileFromDevice() {
-        Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
-        chooseFile.setType("*/*");
-        chooseFile = Intent.createChooser(chooseFile, "Choose File!");
-        startActivityForResult(chooseFile, 2048);
-
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        uri = data.getData();
+//        uploadInputStream();
+//    }
+//
+//    private void getFileFromDevice() {
+//        Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
+//        chooseFile.setType("*/*");
+//        chooseFile = Intent.createChooser(chooseFile, "Choose File!");
+//        startActivityForResult(chooseFile, 2048);
+//
+//    }
 
     @Override
     protected void onStart() {
