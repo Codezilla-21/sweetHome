@@ -60,6 +60,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.HomeViewHolder
                 intent.putExtra("RentSell", sweet.getRentOfSell());
                 intent.putExtra("Type", sweet.getType());
                 intent.putExtra("ID", sweet.getId());
+                intent.putExtra("userID", sweet.getUserId());
 
                 // PoolBalcony
                 String poolBalconyString="";

@@ -12,9 +12,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
+import com.amazonaws.mobileconnectors.cognitoauth.Auth;
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
@@ -28,11 +30,41 @@ public class homeDetails extends AppCompatActivity {
     int position;
     ImageView prevBtn;
     ImageView nextBtn;
+    TextView sendEmail;
+    ImageView btnImg;
+    RelativeLayout lay;
+    TextView delete;
+    ImageView btnDel;
+    RelativeLayout lay2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_details);
+
+
+
+        sendEmail= findViewById(R.id.sendEmail);
+        btnImg=findViewById(R.id.setInvisible);
+        lay = findViewById(R.id.relativeLayout1);
+
+        delete= findViewById(R.id.delete);
+        btnDel=findViewById(R.id.deleteImg);
+        lay2= findViewById(R.id.relativeLayout8);
+        Intent intent= getIntent();
+        String userId=intent.getExtras().getString("userID");
+        if (Amplify.Auth.getCurrentUser().getUserId().equals(userId)){
+            System.out.println("********************* set email invisible **************");
+            sendEmail.setVisibility(View.GONE);
+            btnImg.setVisibility(View.GONE);
+            lay.setVisibility(View.GONE);
+        }else{
+            System.out.println("********************* set delete invisible **************");
+            delete.setVisibility(View.GONE);
+            btnDel.setVisibility(View.GONE);
+            lay2.setVisibility(View.GONE);
+        }
+
     }
     @Override
     protected void onStart(){
@@ -41,8 +73,8 @@ public class homeDetails extends AppCompatActivity {
         position=0;
 
         // getting extras from reccler view
-        Intent intent= getIntent();
 
+        Intent intent= getIntent();
         ArrayList<String > images = intent.getStringArrayListExtra("Images");
         String Location = intent.getExtras().getString("Address");
         int price = intent.getExtras().getInt("Price");
@@ -92,7 +124,7 @@ public class homeDetails extends AppCompatActivity {
         prevBtn = findViewById(R.id.imgPrevious);
         nextBtn = findViewById(R.id.imgNext);
 
-        prevBtn.setOnClickListener(new View.OnClickListener() {
+        nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -112,7 +144,7 @@ public class homeDetails extends AppCompatActivity {
             }
         });
 
-        nextBtn.setOnClickListener(new View.OnClickListener() {
+        prevBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -125,7 +157,7 @@ public class homeDetails extends AppCompatActivity {
 
 
 
-        TextView sendEmail = findViewById(R.id.sendEmail);
+
         sendEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,7 +167,7 @@ public class homeDetails extends AppCompatActivity {
             }
         });
 
-        TextView delete= findViewById(R.id.delete);
+
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
