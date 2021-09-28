@@ -15,6 +15,7 @@ query GetSweetHouse($id: ID!) {
     moreInfo
     type
     email
+    userID
     createdAt
     updatedAt
   }
@@ -40,6 +41,7 @@ query ListSweetHouses(
       moreInfo
       type
       email
+      userID
       createdAt
       updatedAt
     }

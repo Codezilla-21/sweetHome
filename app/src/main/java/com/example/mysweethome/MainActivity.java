@@ -1,11 +1,17 @@
 package com.example.mysweethome;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ClipData;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,18 +21,24 @@ import android.widget.TextView;
 
 
 import com.amplifyframework.AmplifyException;
+import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.auth.options.AuthSignOutOptions;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.sweetHouse;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
-
     String extras;
+
+
 
     ImageView imageView ;
     BottomNavigationItemView bottom;
@@ -38,6 +50,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Amplify.Auth.fetchAuthSession(
+
+                result -> {
+                    if (result.isSignedIn()){
+                        extras= Amplify.Auth.getCurrentUser().getUsername();
+
+                        TextView userName = findViewById(R.id.textView2);
+                        userName.setText(extras);
+                    }
+                    Log.i("AmplifyQuickstart", result.toString());
+
+                },
+                error -> Log.e("AmplifyQuickstart", error.toString())
+        );
         FloatingActionButton addHome = findViewById(R.id.addHome);
         addHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,9 +108,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-       // String extras = getIntent().getStringExtra("userName");
         Amplify.Auth.fetchAuthSession(
 
                 result -> {
@@ -96,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 },
                 error -> Log.e("AmplifyQuickstart", error.toString())
         );
+
 
         TextView userName = findViewById(R.id.textView2);
         if (extras != null){
@@ -111,12 +135,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        bottom1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent in = new Intent(MainActivity.this, DropDown.class);
-//                startActivity(in);
-//            }
-//        });
-//    }
-}}
+    }
+
+
+}

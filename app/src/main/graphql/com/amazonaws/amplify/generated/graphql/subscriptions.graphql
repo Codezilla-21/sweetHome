@@ -15,6 +15,7 @@ subscription OnCreateSweetHouse {
     moreInfo
     type
     email
+    userID
     createdAt
     updatedAt
   }
@@ -35,6 +36,7 @@ subscription OnUpdateSweetHouse {
     moreInfo
     type
     email
+    userID
     createdAt
     updatedAt
   }
@@ -55,6 +57,7 @@ subscription OnDeleteSweetHouse {
     moreInfo
     type
     email
+    userID
     createdAt
     updatedAt
   }

@@ -12,12 +12,12 @@
         android:textSize="25sp"
         android:textStyle="bold"
         android:fontFamily="@font/architects_daughter"
-        android:textColor="#6A98A1"
-        />
+        android:textColor="#6A98A1"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Use this location?"
+
         android:textColor="#6B453019"
         android:id="@+id/myAddress"/>
     <fragment
