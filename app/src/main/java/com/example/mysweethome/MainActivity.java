@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     BottomNavigationItemView logout;
-    BottomNavigationView home;
+
 
     BottomNavigationItemView bottom;
 
@@ -87,8 +87,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        home = findViewById(R.id.Home);
-        home.setOnClickListener(new View.OnClickListener() {
+
+        BottomNavigationItemView myHome = findViewById(R.id.Home);
+        myHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);

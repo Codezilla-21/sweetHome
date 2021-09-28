@@ -58,10 +58,6 @@
 
 <!--        </TextView>-->
 
-
-
-
-
 <!--    </RelativeLayout>-->
 
 
@@ -78,12 +74,11 @@
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="93dp"
         android:layout_gravity="bottom"
         android:background="#C7B198"
         app:fabCradleMargin="10dp"
-        app:fabCradleRoundedCornerRadius="50dp"
-     >
+        app:fabCradleRoundedCornerRadius="50dp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavView"
@@ -94,8 +89,7 @@
             app:itemIconTint="#C7B198"
             app:itemTextColor="#453019"
             app:labelVisibilityMode="labeled"
-            app:menu="@menu/nav"
-            />
+            app:menu="@menu/nav" />
 
 
     </com.google.android.material.bottomappbar.BottomAppBar>
