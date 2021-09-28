@@ -45,7 +45,7 @@ public class homeDetails extends AppCompatActivity {
 
         ArrayList<String > images = intent.getStringArrayListExtra("Images");
         String Location = intent.getExtras().getString("Address");
-        String price = intent.getExtras().getString("Price");
+        int price = intent.getExtras().getInt("Price");
         String type = intent.getExtras().getString("Type");
         String age = intent.getExtras().getString("Age");
         String room = intent.getExtras().getString("RoomNum");
