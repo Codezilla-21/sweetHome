@@ -51,6 +51,19 @@ public class Login extends AppCompatActivity {
         } catch (AmplifyException error) {
             Log.e("MyAmplifyApp", "Could not initialize Amplify", error);
         }
+        Amplify.Auth.fetchAuthSession(
+                result -> {
+                    if (result.isSignedIn()){
+                        Intent i=new Intent(Login.this,
+                                MainActivity.class);
+                        startActivity(i);
+                    }
+                    Log.i("AmplifyQuickstart", result.toString());
+                },
+                error -> {
+                    Log.e("AmplifyQuickstart", error.toString());
+                }
+        );
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
