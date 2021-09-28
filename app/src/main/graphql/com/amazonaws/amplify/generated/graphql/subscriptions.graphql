@@ -1,0 +1,64 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateSweetHouse {
+  onCreateSweetHouse {
+    id
+    area
+    location
+    numberOfRooms
+    floors
+    price
+    ageOfBuild
+    pool
+    rentOfSell
+    image
+    balcony
+    moreInfo
+    type
+    email
+    userID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateSweetHouse {
+  onUpdateSweetHouse {
+    id
+    area
+    location
+    numberOfRooms
+    floors
+    price
+    ageOfBuild
+    pool
+    rentOfSell
+    image
+    balcony
+    moreInfo
+    type
+    email
+    userID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteSweetHouse {
+  onDeleteSweetHouse {
+    id
+    area
+    location
+    numberOfRooms
+    floors
+    price
+    ageOfBuild
+    pool
+    rentOfSell
+    image
+    balcony
+    moreInfo
+    type
+    email
+    userID
+    createdAt
+    updatedAt
+  }
+}

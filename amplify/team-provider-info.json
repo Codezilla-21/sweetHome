@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-sweethome-dev-115935-authRole",
+      "UnauthRoleArn": "arn:aws:iam::061983991901:role/amplify-sweethome-dev-115935-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::061983991901:role/amplify-sweethome-dev-115935-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-sweethome-dev-115935-deployment",
+      "UnauthRoleName": "amplify-sweethome-dev-115935-unauthRole",
+      "StackName": "amplify-sweethome-dev-115935",
+      "StackId": "arn:aws:cloudformation:us-east-1:061983991901:stack/amplify-sweethome-dev-115935/af699ff0-1c4c-11ec-8e95-120edf13c247",
+      "AmplifyAppId": "dfrlfq055i3ao"
+    },
+    "categories": {
+      "auth": {
+        "sweethomee34edba3": {}
+      }
+    }
+  }
+}

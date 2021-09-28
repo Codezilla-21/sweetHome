@@ -1,0 +1,50 @@
+# this is an auto generated file. This will be overwritten
+query GetSweetHouse($id: ID!) {
+  getSweetHouse(id: $id) {
+    id
+    area
+    location
+    numberOfRooms
+    floors
+    price
+    ageOfBuild
+    pool
+    rentOfSell
+    image
+    balcony
+    moreInfo
+    type
+    email
+    userID
+    createdAt
+    updatedAt
+  }
+}
+query ListSweetHouses(
+  $filter: ModelsweetHouseFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listSweetHouses(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      area
+      location
+      numberOfRooms
+      floors
+      price
+      ageOfBuild
+      pool
+      rentOfSell
+      image
+      balcony
+      moreInfo
+      type
+      email
+      userID
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
