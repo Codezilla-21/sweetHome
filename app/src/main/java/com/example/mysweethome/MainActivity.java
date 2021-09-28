@@ -42,13 +42,13 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.bottomNavView);
         navView.setBackground(null);
 
-        bottom = findViewById(R.id.Account);
 
+        bottom = findViewById(R.id.Account);
         bottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, profilePage.class);
-                intent.putExtra("userName", extras.toString());
+                Intent intent = new Intent(getApplicationContext(), profilePage.class);
+           //     intent.putExtra("userName", extras.toString());
                 startActivity(intent);
             }
         });

@@ -88,33 +88,33 @@ public class profilePage extends AppCompatActivity {
 
 
         // circleImageView = findViewById(R.id.profile_image);
-        imageView = findViewById(R.id.logButton);
-        imageView.setClickable(true);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Amplify.Auth.signOut(
-                        AuthSignOutOptions.builder().globalSignOut(true).build(),
-                        () -> {
-                            Amplify.Auth.fetchAuthSession(
-                                    result -> {
-                                        if (!result.isSignedIn()) {
-                                            Intent goToLogin = new Intent(profilePage.this, Login.class);
-                                            startActivity(goToLogin);
-                                        }
-                                        Log.i("AmplifyQuickstart", result.toString());
-
-                                    },
-                                    error -> Log.e("AmplifyQuickstart", error.toString())
-                            );
-
-                            Log.i("AuthQuickstart", "Signed out globally");
-                        },
-                        error -> Log.e("AuthQuickstart", error.toString())
-                );
-
-            }
-        });
+//        imageView = findViewById(R.id.logButton);
+//        imageView.setClickable(true);
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Amplify.Auth.signOut(
+//                        AuthSignOutOptions.builder().globalSignOut(true).build(),
+//                        () -> {
+//                            Amplify.Auth.fetchAuthSession(
+//                                    result -> {
+//                                        if (!result.isSignedIn()) {
+//                                            Intent goToLogin = new Intent(profilePage.this, Login.class);
+//                                            startActivity(goToLogin);
+//                                        }
+//                                        Log.i("AmplifyQuickstart", result.toString());
+//
+//                                    },
+//                                    error -> Log.e("AmplifyQuickstart", error.toString())
+//                            );
+//
+//                            Log.i("AuthQuickstart", "Signed out globally");
+//                        },
+//                        error -> Log.e("AuthQuickstart", error.toString())
+//                );
+//
+//            }
+//        });
 
 //        textView1.setOnClickListener(new View.OnClickListener() {
 //            @Override
