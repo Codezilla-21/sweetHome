@@ -45,6 +45,7 @@ public class profilePage extends AppCompatActivity {
     TextView textView1;
     ImageView imageView;
     ImageView circleImageView;
+
     BottomNavigationItemView bottom;
     String extras;
     Uri uri;

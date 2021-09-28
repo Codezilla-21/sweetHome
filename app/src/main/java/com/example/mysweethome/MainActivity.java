@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         bottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, profilePage.class);
+                Intent intent = new Intent(MainActivity.this, AddHome.class);
                 intent.putExtra("userName",extras.toString());
                 startActivity(intent);
             }

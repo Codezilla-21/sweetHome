@@ -8,61 +8,61 @@
 
     >
 
-    <RelativeLayout
-        android:layout_width="120dp"
-        android:layout_centerInParent="true"
-        android:background="@drawable/log_out"
-        android:layout_height="50dp"
-        android:layout_marginLeft="265dp"
-        android:layout_marginTop="9dp">
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="120dp"-->
+    <!--        android:layout_centerInParent="true"-->
+    <!--        android:background="@drawable/log_out"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_marginLeft="265dp"-->
+    <!--        android:layout_marginTop="9dp">-->
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/log_out"
-        android:layout_margin="3dp"
-        app:tint="#fff"
+    <!--    <ImageView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:src="@drawable/log_out"-->
+    <!--        android:layout_margin="3dp"-->
+    <!--        app:tint="#fff"-->
 
-        />
+    <!--        />-->
 
-        <RelativeLayout
-            android:layout_width="50dp"
-            android:layout_height="35dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp"
-            android:background="#C7B198"
-            android:padding="5dp"
-            >
-            <ImageView
-                android:id="@+id/logButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/power"
-                app:tint="#fff"
-                />
+    <!--        <RelativeLayout-->
+    <!--            android:layout_width="50dp"-->
+    <!--            android:layout_height="35dp"-->
+    <!--            android:layout_centerVertical="true"-->
+    <!--            android:layout_alignParentRight="true"-->
+    <!--            android:layout_marginRight="5dp"-->
+    <!--            android:background="#C7B198"-->
+    <!--            android:padding="5dp"-->
+    <!--            >-->
+    <!--            <ImageView-->
+    <!--                android:id="@+id/logButton"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:src="@drawable/power"-->
+    <!--                app:tint="#fff"-->
+    <!--                />-->
 
-        </RelativeLayout>
+    <!--        </RelativeLayout>-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="50dp"
-            android:fontFamily="@font/architects_daughter"
-            android:gravity="center"
-            android:text="LogOut"
-            android:textColor="#FF453019"
-            android:textSize="15sp"
-            android:textStyle="bold">
+    <!--        <TextView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginRight="50dp"-->
+    <!--            android:fontFamily="@font/architects_daughter"-->
+    <!--            android:gravity="center"-->
+    <!--            android:text="LogOut"-->
+    <!--            android:textColor="#FF453019"-->
+    <!--            android:textSize="15sp"-->
+    <!--            android:textStyle="bold">-->
 
-        </TextView>
-
-
+    <!--        </TextView>-->
 
 
 
-    </RelativeLayout>
+
+
+    <!--    </RelativeLayout>-->
 
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -78,12 +78,11 @@
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="93dp"
         android:layout_gravity="bottom"
         android:background="#C7B198"
         app:fabCradleMargin="10dp"
-        app:fabCradleRoundedCornerRadius="50dp"
-     >
+        app:fabCradleRoundedCornerRadius="50dp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavView"
@@ -94,18 +93,17 @@
             app:itemIconTint="#C7B198"
             app:itemTextColor="#453019"
             app:labelVisibilityMode="labeled"
-            app:menu="@menu/nav"
-            />
+            app:menu="@menu/nav" />
 
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:src="@drawable/add"
-        android:id="@+id/addHome"
         app:layout_anchor="@id/bottomAppBar"
         app:maxImageSize="50dp"
 
@@ -161,4 +159,3 @@
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
