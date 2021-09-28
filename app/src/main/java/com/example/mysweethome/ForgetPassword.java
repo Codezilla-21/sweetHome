@@ -34,14 +34,16 @@ public class ForgetPassword extends AppCompatActivity {
         System.out.println("******************user "+ getIntent().getStringExtra("userName"));
         TextView continueForget= findViewById(R.id.bt_forget);
         TextView newPassword= findViewById(R.id.newPass);
-        TextView code = findViewById(R.id.bt_signup);
+        TextView code = findViewById(R.id.codeForget);
         continueForget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Amplify.Auth.confirmResetPassword(
                         newPassword.getText().toString(),
                         code.getText().toString(),
-                        () -> Log.i("AuthQuickstart", "New password confirmed"),
+                        () -> {
+                            Log.i("AuthQuickstart", "New password confirmed");
+                        },
                         error -> Log.e("AuthQuickstart", error.toString())
                 );
             }
