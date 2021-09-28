@@ -2,13 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.MySweetHome" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#C7B198</item>
-        <item name="colorPrimaryVariant">#C7B198</item>
+        <item name="colorPrimary">#239065</item>
+        <item name="colorPrimaryVariant">#239065</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/bottom_item</item>
-        <item name="colorSecondaryVariant">@color/bottom_item</item>
-        <item name="colorOnSecondary">@color/bottom_item</item>
+        <item name="colorSecondary">#239065</item>
+        <item name="colorSecondaryVariant">#239065</item>
+        <item name="colorOnSecondary">#239065</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
