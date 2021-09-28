@@ -43,8 +43,14 @@ public class ForgetPassword extends AppCompatActivity {
                         code.getText().toString(),
                         () -> {
                             Log.i("AuthQuickstart", "New password confirmed");
+                            Toast.makeText(ForgetPassword.this, "Confirmed", Toast.LENGTH_LONG).show();
+                            Intent backToLogin = new Intent(ForgetPassword.this,Login.class);
                         },
-                        error -> Log.e("AuthQuickstart", error.toString())
+                        error -> {
+                            Log.e("AuthQuickstart", error.toString());
+                            Toast.makeText(ForgetPassword.this, "Code isn't correct or password does not match requirements", Toast.LENGTH_LONG).show();
+                            Intent backToLogin = new Intent(ForgetPassword.this,Login.class);
+                        }
                 );
             }
         });

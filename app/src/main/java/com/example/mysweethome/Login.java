@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.aws.AWSApiPlugin;
@@ -90,9 +91,16 @@ public class Login extends AppCompatActivity {
         forgetPasswords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, ForgetPassword.class);
-                intent.putExtra("userName",email.getText().toString());
-                startActivity(intent);
+                if (email.getText().toString().equals("")){
+                    Toast.makeText(Login.this, "Enter The User Name", Toast.LENGTH_LONG).show();
+                    System.out.println("************EMAIL VAL IF*****************"+email.getText().toString());
+                }else{
+                    System.out.println("************EMAIL VAL*****************"+email.getText().toString());
+                    Intent intent = new Intent(Login.this, ForgetPassword.class);
+                    intent.putExtra("userName",email.getText().toString());
+                    startActivity(intent);
+                }
+
             }
         });
 
