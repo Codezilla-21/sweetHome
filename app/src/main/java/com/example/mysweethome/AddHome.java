@@ -64,7 +64,7 @@ public class AddHome extends AppCompatActivity {
     EditText info;
     String rentOrSellST="";
     EditText emailContacting;
-  String currentUserId;
+    String currentUserId;
 
     Boolean isImages;
 
@@ -80,7 +80,7 @@ public class AddHome extends AppCompatActivity {
 
                 result -> {
                     if (result.isSignedIn()){
-                      currentUserId= Amplify.Auth.getCurrentUser().getUserId();
+                        currentUserId= Amplify.Auth.getCurrentUser().getUserId();
                     }
                     Log.i("AmplifyQuickstart", result.toString());
 

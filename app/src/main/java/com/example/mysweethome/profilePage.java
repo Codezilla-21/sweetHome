@@ -87,7 +87,7 @@ public class profilePage extends AppCompatActivity {
 //        }
 
 
-       // circleImageView = findViewById(R.id.profile_image);
+        // circleImageView = findViewById(R.id.profile_image);
         imageView = findViewById(R.id.logButton);
         imageView.setClickable(true);
         imageView.setOnClickListener(new View.OnClickListener() {

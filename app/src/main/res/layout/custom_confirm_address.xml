@@ -13,41 +13,20 @@
         android:textStyle="bold"
         android:fontFamily="@font/architects_daughter"
         android:textColor="#239065"
-        ></TextView>
+       />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Use this location?"
         android:id="@+id/myAddress"
         android:textColor="#A144464A"
-        ></TextView>
+        />
     <fragment
         class="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
         android:id="@+id/mapp"
         android:layout_marginTop="20dp"
         android:layout_height="150dp"/>
-
-
-
-    <!--        <Button-->
-    <!--            android:id="@+id/Changed"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_marginRight="20dp"-->
-    <!--            android:text="Change Location"-->
-    <!--            android:textColor="#000"-->
-
-    <!--            ></Button>-->
-
-    <!--        <Button-->
-    <!--            android:id="@+id/selected"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="Select"-->
-    <!--            android:textColor="#000"-->
-    <!--            >-->
-    <!--        </Button>-->
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
@@ -80,12 +59,7 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-
-
     </RelativeLayout>
-
-
-
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
@@ -96,7 +70,6 @@
         android:layout_marginTop="-50dp"
         android:background="@drawable/log_out"
         >
-
 
         <ImageView
             android:layout_width="match_parent"
