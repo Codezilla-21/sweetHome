@@ -124,7 +124,7 @@ public class homeDetails extends AppCompatActivity {
         prevBtn = findViewById(R.id.imgPrevious);
         nextBtn = findViewById(R.id.imgNext);
 
-        nextBtn.setOnClickListener(new View.OnClickListener() {
+        prevBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -144,7 +144,7 @@ public class homeDetails extends AppCompatActivity {
             }
         });
 
-        prevBtn.setOnClickListener(new View.OnClickListener() {
+        nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
