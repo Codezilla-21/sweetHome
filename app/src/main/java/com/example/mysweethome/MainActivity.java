@@ -111,12 +111,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        bottom1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = new Intent(MainActivity.this, DropDown.class);
-                startActivity(in);
-            }
-        });
-    }
-}
+//        bottom1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent in = new Intent(MainActivity.this, DropDown.class);
+//                startActivity(in);
+//            }
+//        });
+//    }
+}}
