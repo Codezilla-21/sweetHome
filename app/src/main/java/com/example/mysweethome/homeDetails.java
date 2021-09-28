@@ -79,34 +79,39 @@ public class homeDetails extends AppCompatActivity {
         String Location = intent.getExtras().getString("Address");
         int price = intent.getExtras().getInt("Price");
         String type = intent.getExtras().getString("Type");
-        String age = intent.getExtras().getString("Age");
-        String room = intent.getExtras().getString("RoomNum");
+        String age = intent.getExtras().getString("Age");// tick
+        String room = intent.getExtras().getString("RoomNum");// tick
         String floor = intent.getExtras().getString("FloorNum");
-        String area = intent.getExtras().getString("Area");
+        String area = intent.getExtras().getString("Area"); // tick
         String rentOrSell = intent.getExtras().getString("RentSell");
         String extras = intent.getExtras().getString("PoolBalcony");
-        String info = intent.getExtras().getString("Info");
+        String info = intent.getExtras().getString("Info");// tick
         String email = intent.getExtras().getString("Email");
         String idItem = intent.getExtras().getString("ID");
 
         TextView infoText = findViewById(R.id.Information);
         if (type.equals("Villa") || type.equals("Apartment")){
-            infoText.setText("Price: "+price+" - "+area+"m^2 - "+room+ " room - "+ floor+" floor(s) - "+"Age of building : "
-                    +age+" year(s) - "+info);
+            infoText.setText("Area: "+area+"m^2 - "+room+ " room - "+ floor+" floor(s) - "+"Age of building : "
+                    +age+" year(s) - "+info+ " - "+ extras);
         }else if (type.equals("Flat")){
             infoText.setText("Price: "+price+" - "+area+"m^2 - "+room+ " room - "+"Age of building : "
-                    +age+" year(s) - "+info);
+                    +age+" year(s) - "+info + " - "+ extras);
         }
 
+
+        // Done
         TextView rS = findViewById(R.id.rentSell);
         if (rentOrSell.equals("Sell")){
-            rS.setText("For Sell - " + extras);
+            rS.setText("For Sell " );
         }else{
-            rS.setText("For Rent - "+extras);
+            rS.setText("For Rent ");
         }
 
+        TextView priceT = findViewById(R.id.price);
+        priceT.setText(String.valueOf(price) + "JOD");
+
         TextView address = findViewById(R.id.address);
-        address.setText(Location);
+        address.setText("Address: "+Location);
 
 
         ImageView imgSwitch = findViewById(R.id.imagesSwitcher);

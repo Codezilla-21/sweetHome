@@ -31,11 +31,38 @@
 
 
     <TextView
-        android:id="@+id/Information"
-        android:layout_width="wrap_content"
+        android:id="@+id/address"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginLeft="195dp"
+        android:layout_marginTop="260dp"
+        android:fontFamily="@font/architects_daughter"
+        android:text="Address"
+        android:textColor="#6A98A1"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+
+    <TextView
+        android:id="@+id/rentSell"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="260dp"
+        android:fontFamily="@font/architects_daughter"
+        android:text="Rent or Sell"
+        android:textColor="#6A98A1"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/Information"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="330dp"
         android:fontFamily="@font/architects_daughter"
         android:text="Information"
         android:textColor="#6A98A1"
@@ -43,28 +70,13 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/rentSell"
+        android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="410dp"
-        android:textColor="#6A98A1"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/architects_daughter"
-        android:text="Rent or Sell" />
-
-    <TextView
-        android:id="@+id/address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="520dp"
-        android:fontFamily="@font/architects_daughter"
-        android:text="Address"
-        android:textColor="#6A98A1"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="15dp"
+        android:text="Price"
+        />
 
 
 
@@ -74,7 +86,7 @@
         android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:layout_marginLeft="270dp"
-        android:layout_marginTop="690dp"
+        android:layout_marginTop="595dp"
         android:background="@drawable/log_out"
         >
 
@@ -107,8 +119,8 @@
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="3dp"
-        android:layout_marginTop="690dp"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="580dp"
         android:background="@drawable/log_out"
         >
 
@@ -142,7 +154,7 @@
         android:id="@+id/imgNext"
         android:layout_width="91dp"
         android:layout_height="47dp"
-        android:layout_marginTop="195dp"
+        android:layout_marginTop="145dp"
         android:layout_marginLeft="300dp"
         android:paddingRight="-70dp"
         android:paddingTop="-100dp"
@@ -153,12 +165,29 @@
         android:id="@+id/imgPrevious"
         android:layout_width="91dp"
         android:layout_height="47dp"
-        android:layout_marginTop="195dp"
+        android:layout_marginTop="145dp"
         android:layout_marginRight="300dp"
         android:paddingLeft="-70dp"
         android:paddingTop="-100dp"
         android:src="@drawable/navigate_before">
 
     </ImageView>
+
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="5dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="180dp"
+        android:background="@drawable/log_out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.507" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
