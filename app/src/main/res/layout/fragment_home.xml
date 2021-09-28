@@ -2,78 +2,102 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="250dp"
     tools:context=".HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="114dp">
+        android:layout_width="347dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp">
 
-        <TextView
-            android:id="@+id/addressTextView"
-            android:layout_width="75dp"
-            android:layout_height="53dp"
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="350dp"
+            android:layout_height="220dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/log_out"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.987"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.057" />
+            app:layout_constraintVertical_bias="0.507">
 
-        <TextView
-            android:id="@+id/priceTextView"
-            android:layout_width="75dp"
-            android:layout_height="53dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.531"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.057" />
 
-        <ImageView
-            android:id="@+id/itemImageView"
-            android:layout_width="81dp"
-            android:layout_height="62dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.022"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.057"
-            tools:src="@drawable/_0905470_removebg_preview" />
+            <ImageView
+                android:layout_width="307dp"
+                android:layout_height="123dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
 
-        <ImageView
-            android:id="@+id/Location"
-            android:layout_width="37dp"
-            android:layout_height="24dp"
-            android:src="@drawable/location"
-            app:layout_anchorGravity="center"
-            tools:layout_editor_absoluteX="127dp"
-            tools:layout_editor_absoluteY="13dp" />
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginBottom="6dp"
+                android:src="@drawable/log_out"
+                app:tint="#fff" />
 
-        <ImageView
-            android:id="@+id/price"
-            android:layout_width="37dp"
-            android:layout_height="24dp"
-            android:src="@drawable/price"
-            app:layout_anchorGravity="center"
-            tools:layout_editor_absoluteX="270dp"
-            tools:layout_editor_absoluteY="16dp" />
+            <ImageView
+                android:id="@+id/price"
+                android:layout_width="37dp"
+                android:layout_height="24dp"
+                android:layout_alignTop="@+id/addressTextView"
+                android:layout_alignBottom="@+id/seeMore"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="147dp"
+                android:layout_marginEnd="282dp"
+                android:layout_marginBottom="19dp"
+                android:src="@drawable/price"
+                app:layout_anchorGravity="center" />
 
-        <Button
-            android:id="@+id/seeMore"
-            android:layout_width="131dp"
-            android:layout_height="38dp"
-            android:text="See More"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.782"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.96" />
+            <TextView
+                android:id="@+id/priceTextView"
+                android:layout_width="113dp"
+                android:layout_height="29dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="168dp"
+                android:layout_marginBottom="29dp" />
+
+            <ImageView
+                android:id="@+id/Location"
+                android:layout_width="38dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="301dp"
+                android:layout_marginBottom="169dp"
+                android:src="@drawable/location"
+                app:layout_anchorGravity="center" />
+
+            <TextView
+                android:id="@+id/addressTextView"
+                android:layout_width="282dp"
+                android:layout_height="127dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="14dp"
+                android:layout_marginBottom="80dp" />
+
+            <Button
+                android:id="@+id/seeMore"
+                android:layout_width="114dp"
+                android:layout_height="38dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="17dp"
+                android:text="See More"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

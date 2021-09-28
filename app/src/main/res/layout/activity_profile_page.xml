@@ -86,30 +86,30 @@
     <!--    </RelativeLayout>-->
 
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="60dp"
-        android:layout_height="51dp"
-        android:layout_marginLeft="135dp"
-        android:layout_marginTop="242dp"
-        android:fontFamily="@font/architects_daughter"
-        android:gravity="center"
-        android:textColor="#6A98A1"
-        android:textSize="12dp"
-        android:textStyle="bold"
-        app:layout_anchor="@+id/textView3"
-        app:layout_anchorGravity="end|bottom" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView3"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="51dp"-->
+<!--        android:layout_marginLeft="135dp"-->
+<!--        android:layout_marginTop="242dp"-->
+<!--        android:fontFamily="@font/architects_daughter"-->
+<!--        android:gravity="center"-->
+<!--        android:textColor="#6A98A1"-->
+<!--        android:textSize="12dp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_anchor="@+id/textView3"-->
+<!--        app:layout_anchorGravity="end|bottom" />-->
 
-    <ImageView
-        android:id="@+id/profile_image"
-        android:layout_width="147dp"
-        android:layout_height="147dp"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="120dp"
-        android:src="@drawable/profile"
+<!--    <ImageView-->
+<!--        android:id="@+id/profile_image"-->
+<!--        android:layout_width="147dp"-->
+<!--        android:layout_height="147dp"-->
+<!--        android:layout_marginLeft="130dp"-->
+<!--        android:layout_marginTop="120dp"-->
+<!--        android:src="@drawable/profile"-->
 
-        app:layout_anchor="@+id/profile_image"
-        app:layout_anchorGravity="center" />
+<!--        app:layout_anchor="@+id/profile_image"-->
+<!--        app:layout_anchorGravity="center" />-->
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -151,48 +151,45 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerOwner"
-        android:layout_width="match_parent"
-        android:layout_height="145dp"
-        android:layout_marginTop="370dp" />
+        android:layout_width="350dp"
+        android:layout_height="470dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="70dp" />
 
 
+    <!--    <RelativeLayout-->
+<!--        android:id="@+id/relativeLayout2"-->
+<!--        android:layout_width="120dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_marginLeft="155dp"-->
+<!--        android:layout_marginTop="350dp"-->
+<!--        android:background="@drawable/log_out"-->
+<!--        >-->
 
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="155dp"
-        android:layout_marginTop="350dp"
-        android:background="@drawable/log_out"
-        >
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:layout_marginStart="3dp"-->
 
+<!--            android:layout_marginEnd="3dp"-->
+<!--            android:layout_marginBottom="3dp"-->
+<!--            android:src="@drawable/log_out"-->
+<!--            app:tint="#fff" />-->
 
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginStart="3dp"
-            android:layout_marginTop="3dp"
-
-            android:layout_marginEnd="3dp"
-            android:layout_marginBottom="3dp"
-            android:src="@drawable/log_out"
-            app:tint="#fff" />
-
-        <TextView
-            android:id="@+id/updateProfile"
-            android:layout_width="164dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/architects_daughter"
-            android:paddingTop="10dp"
-            android:text="Upload Profile Picture"
-            android:textAlignment="center"
-            android:textColor="#FF453019"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/updateProfile"-->
+<!--            android:layout_width="164dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/architects_daughter"-->
+<!--            android:paddingTop="10dp"-->
+<!--            android:text="Upload Profile Picture"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="#FF453019"-->
+<!--            android:textSize="15sp"-->
+<!--            android:textStyle="bold" />-->
+<!--    </RelativeLayout>-->
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
