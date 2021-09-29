@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     BottomNavigationItemView logout;
-    BottomNavigationItemView bottom;
+    BottomNavigationItemView filter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +40,13 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.bottomNavView);
         navView.setBackground(null);
 
+        BottomNavigationItemView bottom;
         bottom = findViewById(R.id.Account);
 
         bottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, profilePage.class);
+                Intent intent = new Intent(getApplicationContext(), profilePage.class);
                 startActivity(intent);
             }
         });
@@ -57,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        filter = findViewById(R.id.Search);
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getApplicationContext(), SpinnerClass.class);
+                startActivity(in);
             }
         });
 

@@ -46,8 +46,8 @@ public class profilePage extends AppCompatActivity {
     ImageView imageView;
     ImageView circleImageView;
     BottomNavigationItemView bottom;
-    String extras;
-    Uri uri;
+//    String extras;
+//    Uri uri;
     String currentUserId;
 //    FloatingActionButton floatingActionButton;
 
@@ -131,8 +131,8 @@ public class profilePage extends AppCompatActivity {
         bottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(profilePage.this, profilePage.class);
-                intent.putExtra("userName", extras.toString());
+                Intent intent = new Intent(getApplicationContext(), profilePage.class);
+//                intent.putExtra("userName", extras.toString());
                 startActivity(intent);
             }
         });
