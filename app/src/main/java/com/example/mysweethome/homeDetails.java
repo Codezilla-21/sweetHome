@@ -12,9 +12,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
+import com.amazonaws.mobileconnectors.cognitoauth.Auth;
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
@@ -28,53 +30,83 @@ public class homeDetails extends AppCompatActivity {
     int position;
     ImageView prevBtn;
     ImageView nextBtn;
+    TextView sendEmail;
+    ImageView btnImg;
+    RelativeLayout lay;
+    TextView delete;
+    ImageView btnDel;
+    RelativeLayout lay2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_details);
+
+
+
+        sendEmail= findViewById(R.id.sendEmail);
+        btnImg=findViewById(R.id.setInvisible);
+        lay = findViewById(R.id.relativeLayout1);
+
+        delete= findViewById(R.id.delete);
+        btnDel=findViewById(R.id.deleteImg);
+        lay2= findViewById(R.id.relativeLayout8);
+        Intent intent= getIntent();
+        String userId=intent.getExtras().getString("userID");
+        if (Amplify.Auth.getCurrentUser().getUserId().equals(userId)){
+            sendEmail.setVisibility(View.GONE);
+            btnImg.setVisibility(View.GONE);
+            lay.setVisibility(View.GONE);
+        }else{
+            delete.setVisibility(View.GONE);
+            btnDel.setVisibility(View.GONE);
+            lay2.setVisibility(View.GONE);
+        }
+
     }
     @Override
     protected void onStart(){
         super.onStart();
 
         position=0;
-
-        // getting extras from reccler view
         Intent intent= getIntent();
-
         ArrayList<String > images = intent.getStringArrayListExtra("Images");
         String Location = intent.getExtras().getString("Address");
         int price = intent.getExtras().getInt("Price");
         String type = intent.getExtras().getString("Type");
-        String age = intent.getExtras().getString("Age");
-        String room = intent.getExtras().getString("RoomNum");
+        String age = intent.getExtras().getString("Age");// tick
+        String room = intent.getExtras().getString("RoomNum");// tick
         String floor = intent.getExtras().getString("FloorNum");
-        String area = intent.getExtras().getString("Area");
+        String area = intent.getExtras().getString("Area"); // tick
         String rentOrSell = intent.getExtras().getString("RentSell");
         String extras = intent.getExtras().getString("PoolBalcony");
-        String info = intent.getExtras().getString("Info");
+        String info = intent.getExtras().getString("Info");// tick
         String email = intent.getExtras().getString("Email");
         String idItem = intent.getExtras().getString("ID");
 
         TextView infoText = findViewById(R.id.Information);
         if (type.equals("Villa") || type.equals("Apartment")){
-            infoText.setText("Price: "+price+" - "+area+"m^2 - "+room+ " room - "+ floor+" floor(s) - "+"Age of building : "
-                    +age+" year(s) - "+info);
+            infoText.setText("Area: "+area+"m^2 - "+room+ " room - "+ floor+" floor(s) - "+"Age of building : "
+                    +age+" year(s) - "+info+ " - "+ extras);
         }else if (type.equals("Flat")){
             infoText.setText("Price: "+price+" - "+area+"m^2 - "+room+ " room - "+"Age of building : "
-                    +age+" year(s) - "+info);
+                    +age+" year(s) - "+info + " - "+ extras);
         }
 
+
+        // Done
         TextView rS = findViewById(R.id.rentSell);
         if (rentOrSell.equals("Sell")){
-            rS.setText("For Sell - " + extras);
+            rS.setText("For Sell " );
         }else{
-            rS.setText("For Rent - "+extras);
+            rS.setText("For Rent ");
         }
 
+        TextView priceT = findViewById(R.id.price);
+        priceT.setText(String.valueOf(price) + "JOD");
+
         TextView address = findViewById(R.id.address);
-        address.setText(Location);
+        address.setText("Address: "+Location);
 
 
         ImageView imgSwitch = findViewById(R.id.imagesSwitcher);
@@ -125,7 +157,7 @@ public class homeDetails extends AppCompatActivity {
 
 
 
-        TextView sendEmail = findViewById(R.id.sendEmail);
+
         sendEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,7 +167,7 @@ public class homeDetails extends AppCompatActivity {
             }
         });
 
-        TextView delete= findViewById(R.id.delete);
+
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

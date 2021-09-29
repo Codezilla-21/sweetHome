@@ -62,6 +62,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        BottomNavigationItemView search = findViewById(R.id.Search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToSearch = new Intent(getApplicationContext(),SpinnerClass.class);
+                startActivity(goToSearch);
+            }
+        });
+
+
 
         logout = findViewById(R.id.logButton);
         logout.setOnClickListener(new View.OnClickListener() {
