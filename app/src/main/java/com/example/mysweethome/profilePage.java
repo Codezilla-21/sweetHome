@@ -27,6 +27,7 @@ import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.sweetHouse;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
@@ -60,6 +61,68 @@ public class profilePage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        FloatingActionButton addHome = findViewById(R.id.addHome);
+        addHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToAddHome = new Intent(getApplicationContext(), AddHome.class);
+                startActivity(goToAddHome);
+            }
+        });
+        BottomNavigationView navView = findViewById(R.id.bottomNavView);
+        navView.setBackground(null);
+
+
+        BottomNavigationItemView myHome = findViewById(R.id.Home);
+        myHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        BottomNavigationItemView search = findViewById(R.id.Search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToSearch = new Intent(getApplicationContext(),SpinnerClass.class);
+                startActivity(goToSearch);
+            }
+        });
+
+        BottomNavigationItemView logout;
+        logout = findViewById(R.id.logButton);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Amplify.Auth.signOut(
+                        AuthSignOutOptions.builder().globalSignOut(true).build(),
+                        () -> {
+                            Amplify.Auth.fetchAuthSession(
+
+                                    result -> {
+                                        if (!result.isSignedIn()) {
+                                            Intent goToLogin = new Intent(getApplicationContext(), Login.class);
+                                            startActivity(goToLogin);
+                                        }
+                                        Log.i("AmplifyQuickstart", result.toString());
+
+                                    },
+                                    error -> Log.e("AmplifyQuickstart", error.toString())
+                            );
+
+
+                            Log.i("AuthQuickstart", "Signed out globally");
+                        },
+                        error -> Log.e("AuthQuickstart", error.toString())
+                );
+
+            }
+        });
+
+
 
     }
 

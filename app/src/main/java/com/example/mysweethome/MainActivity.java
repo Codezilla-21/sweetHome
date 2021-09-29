@@ -39,20 +39,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         BottomNavigationView navView = findViewById(R.id.bottomNavView);
         navView.setBackground(null);
 
 
         bottom = findViewById(R.id.Account);
+
         bottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), profilePage.class);
-           //     intent.putExtra("userName", extras.toString());
+                Intent intent = new Intent(MainActivity.this, profilePage.class);
                 startActivity(intent);
             }
         });
-
 
         BottomNavigationItemView myHome = findViewById(R.id.Home);
         myHome.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +61,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        BottomNavigationItemView search = findViewById(R.id.Search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToSearch = new Intent(getApplicationContext(),SpinnerClass.class);
+                startActivity(goToSearch);
             }
         });
 
@@ -92,17 +102,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        Amplify.Auth.fetchAuthSession(
-
-                result -> {
-                    if (result.isSignedIn()) {
-                        extras = Amplify.Auth.getCurrentUser().getUsername();
-                    }
-                    Log.i("AmplifyQuickstart", result.toString());
-
-                },
-                error -> Log.e("AmplifyQuickstart", error.toString())
-        );
 
 
     }

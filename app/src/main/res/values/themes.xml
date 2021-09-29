@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.MySweetHome" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#239065</item>
+        <item name="colorPrimary">#C844464A</item>
         <item name="colorPrimaryVariant">#239065</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
