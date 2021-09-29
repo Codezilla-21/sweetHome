@@ -40,8 +40,6 @@ public class SpinnerClass extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spinner_class);
-
-
     }
     @Override
     protected void onStart(){

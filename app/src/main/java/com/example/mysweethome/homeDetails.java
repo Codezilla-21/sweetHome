@@ -57,7 +57,7 @@ public class homeDetails extends AppCompatActivity {
             sendEmail.setVisibility(View.GONE);
             btnImg.setVisibility(View.GONE);
             lay.setVisibility(View.GONE);
-        }else{
+        }else if (!Amplify.Auth.getCurrentUser().getUserId().equals(userId)){
             delete.setVisibility(View.GONE);
             btnDel.setVisibility(View.GONE);
             lay2.setVisibility(View.GONE);
@@ -89,7 +89,7 @@ public class homeDetails extends AppCompatActivity {
             infoText.setText("Area: "+area+"m^2 - "+room+ " room - "+ floor+" floor(s) - "+"Age of building : "
                     +age+" year(s) - "+info+ " - "+ extras);
         }else if (type.equals("Flat")){
-            infoText.setText("Price: "+price+" - "+area+"m^2 - "+room+ " room - "+"Age of building : "
+            infoText.setText("Area: "+area+"m^2 - "+room+ " room - "+"Age of building : "
                     +age+" year(s) - "+info + " - "+ extras);
         }
 
@@ -103,10 +103,10 @@ public class homeDetails extends AppCompatActivity {
         }
 
         TextView priceT = findViewById(R.id.price);
-        priceT.setText(String.valueOf(price) + "JOD");
+        priceT.setText("Price: "+String.valueOf(price) + "JOD");
 
         TextView address = findViewById(R.id.address);
-        address.setText("Address: "+Location);
+        address.setText(Location);
 
 
         ImageView imgSwitch = findViewById(R.id.imagesSwitcher);
