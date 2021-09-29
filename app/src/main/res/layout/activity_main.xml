@@ -95,42 +95,45 @@
 
         <TableRow
             android:layout_width="400dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="3dp"
+            android:layout_height="140dp">
 
             <ImageView
                 android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_height="140dp"
                 android:src="@drawable/h1" />
 
             <ImageView
                 android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_height="140dp"
                 android:src="@drawable/h2" />
         </TableRow>
 
-        <TableRow android:layout_width="400dp">
+        <TableRow android:layout_width="400dp"
+            android:layout_height="140dp">
 
             <ImageView
                 android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_height="140dp"
                 android:src="@drawable/h3" />
 
             <ImageView
                 android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_height="140dp"
                 android:src="@drawable/villa4" />
         </TableRow>
 
-        <TableRow android:layout_width="400dp">
+        <TableRow android:layout_width="400dp"
+            android:layout_height="140dp">
 
             <ImageView
                 android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_height="140dp"
                 android:src="@drawable/home2" />
 
             <ImageView
                 android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_height="140dp"
                 android:src="@drawable/home3" />
         </TableRow>
 
@@ -141,7 +144,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="570dp"
+        android:layout_marginTop="670dp"
         android:text="Discover a place you'll love to live."
         android:textColor="#000000"
         android:textSize="18sp"
@@ -156,7 +159,7 @@
         android:layout_height="wrap_content"
         android:text="Search thousand's of apartments and houses with SweetHome."
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="595dp"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
