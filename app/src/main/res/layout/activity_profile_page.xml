@@ -40,22 +40,8 @@
         />
 
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/recyclerOwner"-->
-<!--        android:layout_width="350dp"-->
-<!--        android:layout_height="400dp"-->
-<!--        android:layout_marginLeft="30dp"-->
-<!--        android:layout_marginTop="120dp" />-->
-<!--    <ImageView-->
-<!--        android:id="@+id/imagg"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="221dp"-->
-<!--        android:layout_marginTop="-50dp"-->
-<!--        android:layout_marginLeft="-240dp"-->
-<!--        app:srcCompat="@drawable/cop3" />-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
         android:layout_width="match_parent"
         android:layout_height="550dp"
         >
@@ -75,7 +61,6 @@
                 android:layout_width="350dp"
                 android:layout_height="400dp"
                 android:layout_marginBottom="44dp"
-
                 app:layout_constraintHorizontal_bias="0.409"
                 app:layout_constraintStart_toStartOf="parent" />
         </ScrollView>
@@ -100,3 +85,105 @@
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".profilePage">-->
+
+
+<!--    <com.google.android.material.bottomappbar.BottomAppBar-->
+<!--        android:id="@+id/bottomAppBar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="93dp"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        app:fabCradleMargin="10dp"-->
+<!--        app:fabCradleRoundedCornerRadius="50dp">-->
+
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:id="@+id/bottomNavView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            app:itemIconTint="#000000"-->
+<!--            app:labelVisibilityMode="labeled"-->
+<!--            app:menu="@menu/nav" />-->
+
+
+<!--    </com.google.android.material.bottomappbar.BottomAppBar>-->
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/addHome"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:backgroundTint="@color/white"-->
+<!--        android:src="@drawable/add"-->
+<!--        app:layout_anchor="@id/bottomAppBar"-->
+<!--        app:maxImageSize="50dp"-->
+
+<!--        />-->
+
+
+<!--&lt;!&ndash;    <androidx.recyclerview.widget.RecyclerView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/recyclerOwner"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="350dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="400dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginLeft="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="120dp" />&ndash;&gt;-->
+<!--&lt;!&ndash;    <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/imagg"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="221dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="-50dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginLeft="-240dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:srcCompat="@drawable/cop3" />&ndash;&gt;-->
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_marginLeft="0dp"-->
+<!--        android:layout_marginTop="0dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="550dp"-->
+<!--        >-->
+
+
+<!--        <ScrollView-->
+<!--            android:id="@+id/scrollable"-->
+<!--            android:layout_width="360dp"-->
+<!--            android:layout_height="410dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/imagg">-->
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/recyclerOwner"-->
+<!--                android:layout_width="350dp"-->
+<!--                android:layout_height="400dp"-->
+<!--                android:layout_marginBottom="44dp"-->
+
+<!--                app:layout_constraintHorizontal_bias="0.409"-->
+<!--                app:layout_constraintStart_toStartOf="parent" />-->
+<!--        </ScrollView>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imagg"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="150dp"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/scrollable"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.117"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.261"-->
+<!--            app:srcCompat="@drawable/cop3" />-->
+
+
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+
+
+<!--</androidx.coordinatorlayout.widget.CoordinatorLayout>-->
