@@ -20,12 +20,10 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/image3"
-            android:layout_width="wrap_content"
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/home" />
-
+            app:srcCompat="@drawable/cop3__1_" />
     </LinearLayout>
 
     <EditText
@@ -49,7 +47,7 @@
         android:paddingRight="10dp"
         android:fontFamily="@font/architects_daughter"
         android:text="Enter here the confirmation code "
-        android:textColor="#6A98A1"
+        android:textColor="#239065"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,48 +55,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.403" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="٠dp"
+        tools:layout_editor_absoluteY="٠dp">
 
 
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="140dp"
-        android:layout_marginTop="450dp"
-        android:background="@drawable/log_out"
-        >
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="450dp"
+            android:background="@drawable/log_out">
 
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="3dp"
-            android:src="@drawable/log_out"
-            app:tint="#fff"
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:src="@drawable/log_out"
+                app:tint="#fff"
 
-            />
+                />
 
 
+            <TextView
+                android:id="@+id/confirmation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/architects_daughter"
+                android:paddingTop="10dp"
+                android:text="Confirm"
+                android:textAlignment="center"
+                android:textColor="#44464A"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_anchorGravity="center" />
 
-        <TextView
-            android:id="@+id/confirmation"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/architects_daughter"
-            android:text="Confirm"
-            android:textAlignment="center"
-            android:textColor="#FF453019"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:paddingTop="10dp"
-            app:layout_anchorGravity="center" />
-
-    </RelativeLayout>
+        </RelativeLayout>
 
 
     </LinearLayout>

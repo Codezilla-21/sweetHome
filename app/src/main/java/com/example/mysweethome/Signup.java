@@ -57,6 +57,7 @@ public class Signup extends AppCompatActivity {
 
                                 Intent goToConfirmation = new Intent(Signup.this, ConfirmSignUp.class);
                                 goToConfirmation.putExtra("Name", username.getText().toString());
+                                goToConfirmation.putExtra("Email", email.getText().toString());
                                 startActivity(goToConfirmation);
 
                             },

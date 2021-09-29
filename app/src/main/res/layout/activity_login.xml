@@ -12,11 +12,9 @@
 
     <ImageView
         android:id="@+id/imagg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/home"
-        android:layout_marginLeft="20dp"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="221dp"
+        app:srcCompat="@drawable/cop3__1_" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,7 +23,7 @@
         android:layout_marginTop="-20dp"
         android:fontFamily="@font/architects_daughter"
         android:text="Welcome"
-        android:textColor="#402508"
+        android:textColor="#44464A"
         android:textSize="40sp"
         android:textStyle="bold" />
 
@@ -33,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login To Start Your Journey"
-        android:textColor="#402508"
+        android:textColor="#239065"
         android:textColorHint="#000000"
         android:textSize="18sp" />
 
@@ -51,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"
-            android:textColorHint="#402508">
+            android:textColorHint="#A844464A">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email"
@@ -70,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
-            android:textColorHint="#402508"
+            android:textColorHint="#A844464A"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -95,15 +93,16 @@
         android:textColor="#fff"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:backgroundTint="#C7B198" />
+        app:backgroundTint="#239065" />
 
     <Button
         android:id="@+id/forgetPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00000000"
-        android:text="Forget Password"
-        android:textColor="#402508" />
+        android:text="Forget Password?"
+        android:textColor="#44464A"
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/signup"
@@ -111,7 +110,8 @@
         android:layout_height="wrap_content"
         android:background="#00000000"
         android:text="Don't have an account? SignUp"
-        android:textColor="#402508" />
+        android:textColor="#44464A"
+        android:layout_marginTop="2dp"/>
 
 
 </LinearLayout>

@@ -13,6 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MySweetHome">
+        <activity android:name=".profilePage"></activity>
+        <activity android:name=".radio" />
         <activity android:name=".homeDetails" />
         <activity android:name=".SendEmail" />
         <activity android:name=".ForgetPassword" />
@@ -26,7 +28,6 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".AddHome" />
-        <activity android:name=".profilePage" />
         <activity android:name=".SpinnerClass" />
         <activity android:name=".ConfirmSignUp" />
         <activity android:name=".Signup" />

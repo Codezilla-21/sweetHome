@@ -4,20 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SpinnerClass">
+    tools:context="SpinnerClass">
+
+    <Button
+        android:id="@+id/fitered"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="16dp"
+        android:background="#000"
+        android:text="Filtered"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="#239065" />
+
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp" />
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="16dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recView"
         android:layout_width="match_parent"
-        android:layout_height="589dp"
-        android:layout_marginTop="70dp"
-         />
+        android:layout_height="509dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="140dp"
+        android:layout_marginBottom="15dp" />
+
+    <EditText
+        android:id="@+id/fromPrice"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="45dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#050505"
+        android:text="From" />
+
+    <EditText
+        android:id="@+id/toPrice"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="271dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="number"
+        android:textColor="#050505"
+        android:text="To" />
+
+    <TextView
+        android:id="@+id/priceFilterTextView"
+        android:layout_width="106dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:text="Price       :"
+        android:textSize="22dp"
+        android:textColor="#050505"
+        />
 
 
 </RelativeLayout>
