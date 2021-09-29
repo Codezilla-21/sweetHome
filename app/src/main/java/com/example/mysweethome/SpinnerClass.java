@@ -203,13 +203,26 @@ public class SpinnerClass extends AppCompatActivity {
                     System.out.println("******************************");
                     System.out.println(arr5);
                     allDataFromAWS.setAdapter(new ViewAdapter((ArrayList<sweetHouse>) arr5));
-                }else if (selected.equals(str1) && !toPrice.getText().toString().equals("0") && !fromPrice.getText().toString().equals("0")){
+                }
+                System.out.println("-------------------TO"+ toPrice.getText().toString());
+                System.out.println("-------------------FROM"+ fromPrice.getText());
+                System.out.println("-------------------data"+ allData.get(0).getPrice());
+                System.out.println(selected.equals(str1));
+                System.out.println(toPrice.getText().toString().equals("0"));
+                System.out.println(fromPrice.getText().toString().equals("0"));
+
+
+                if (selected.equals(str1) && (!toPrice.getText().toString().equals("0") || !fromPrice.getText().toString().equals("0"))){
                     System.out.println(str1);
                     List<sweetHouse> arr2= new ArrayList<>();
                     System.out.println("-------------------------ARR2-----------------------------");
                     for (sweetHouse allDatum : allData) {
                         System.out.println(allDatum.getPrice());
                         if (allDatum.getPrice() <= Integer.parseInt(toPrice.getText().toString()) && allDatum.getPrice() >= Integer.parseInt(fromPrice.getText().toString())){
+                            System.out.println("-------------------PRICE");
+                            System.out.println("-------------------PRICE"+ allDatum.getPrice());
+                            System.out.println("-------------------TO"+ toPrice.getText().toString());
+                            System.out.println("-------------------FROM"+ fromPrice.getText());
                             arr2.add(allDatum);
                             System.out.println(allDatum.getId());
                         }}
@@ -217,7 +230,8 @@ public class SpinnerClass extends AppCompatActivity {
                     System.out.println(arr2);
                     allDataFromAWS.setAdapter(new ViewAdapter((ArrayList<sweetHouse>) arr2));
 
-                }else if (selected.equals(str2) && !toPrice.getText().toString().equals("0") && !fromPrice.getText().toString().equals("0")){
+                }
+                if (selected.equals(str2) && (!toPrice.getText().toString().equals("0") || !fromPrice.getText().toString().equals("0"))){
                     System.out.println(str2);
                     List<sweetHouse> arr3 = new ArrayList<>();
                     System.out.println("--------------------ARR3----------------------------------");
@@ -230,7 +244,8 @@ public class SpinnerClass extends AppCompatActivity {
                     System.out.println("******************************");
                     System.out.println(arr3);
                     allDataFromAWS.setAdapter(new ViewAdapter((ArrayList<sweetHouse>) arr3));
-                }else if (selected.equals(str3) && !toPrice.getText().toString().equals("0") && !fromPrice.getText().toString().equals("0") ){
+                }
+                if (selected.equals(str3) && (!toPrice.getText().toString().equals("0") || !fromPrice.getText().toString().equals("0")) ){
                     System.out.println(str3);
                     List<sweetHouse> arr4 = new ArrayList<>();
                     System.out.println("------------------------ARR4------------------------------");
