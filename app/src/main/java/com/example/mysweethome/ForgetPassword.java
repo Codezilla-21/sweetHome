@@ -14,13 +14,10 @@ import android.widget.Toast;
 
 import com.amplifyframework.core.Amplify;
 
-//import com.example.handyopinion.R;
+
 
 public class ForgetPassword extends AppCompatActivity {
 
-//    EditText etEmail;
-//
-//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +28,6 @@ public class ForgetPassword extends AppCompatActivity {
                 result -> Log.i("AuthQuickstart", result.toString()),
                 error -> Log.e("AuthQuickstart", error.toString())
         );
-        System.out.println("******************user "+ getIntent().getStringExtra("userName"));
         TextView continueForget= findViewById(R.id.bt_forget);
         TextView newPassword= findViewById(R.id.newPass);
         TextView code = findViewById(R.id.codeForget);

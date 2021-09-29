@@ -15,10 +15,6 @@ public class SendEmail extends AppCompatActivity {
     EditText editTextTo,editTextSubject,editTextMessage;
 
     TextView send;
-
-   // EditText editTextSubject,editTextMessage;
-//    Button send;
-
     String ownerEmail;
 
     @Override
@@ -62,11 +58,4 @@ public class SendEmail extends AppCompatActivity {
 
 
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.activity_main, menu);
-//        return true;
-//    }
 }

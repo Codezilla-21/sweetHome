@@ -45,14 +45,8 @@ import java.util.ArrayList;
 public class AddHome extends AppCompatActivity {
 
     private String selected;
-    int counter = 0;
-    // private EditText titleText;
     private ArrayList<String> imageUris;
     private static final int PICK_IMAGES_CODE=0;
-    int position  = 0;
-    int PLACE_PICKER_REQUEST=1;
-    RadioGroup radioGroup2;
-    RadioGroup radioGroup3;
     String address;
     Boolean poolB=false;
     Boolean balconyB=false;
@@ -238,7 +232,6 @@ public class AddHome extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent,"Select Images"), PICK_IMAGES_CODE);
-        //  System.out.println("---------------PICK-------------------"+imageUris);
     }
 
     @Override
@@ -264,15 +257,6 @@ public class AddHome extends AppCompatActivity {
                                     imageString,
                                     exampleInputStream,
                                     result -> {
-//                                        Amplify.Storage.downloadFile(
-//                                                imageString,
-//                                                new File(getApplicationContext().getFilesDir() + "/Example Key.jpg"),
-//                                                result2 -> {
-//                                                    circleImageView.setImageBitmap(BitmapFactory.decodeFile(result2.getFile().getPath()));
-//                                                    Log.i("MyAmplifyApp", "Successfully downloaded: " + result2.getFile().getName());
-//                                                },
-//                                                error -> Log.e("MyAmplifyApp", "Download Failure", error)
-//                                        );
                                         Log.i("MyAmplifyApp", "Successfully uploaded: " + result.getKey());
                                     },
                                     storageFailure -> Log.e("MyAmplifyApp", "Upload failed", storageFailure)
@@ -281,7 +265,6 @@ public class AddHome extends AppCompatActivity {
                         } catch (FileNotFoundException error) {
                             Log.e("MyAmplifyApp", "Could not find file to open for input stream.", error);
                         }
-                        // System.out.println("------------------IF FOR----------------"+image);
                     }
 
                     System.out.println("------------------IF----------------"+imageUris);

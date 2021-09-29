@@ -54,12 +54,10 @@ public class homeDetails extends AppCompatActivity {
         Intent intent= getIntent();
         String userId=intent.getExtras().getString("userID");
         if (Amplify.Auth.getCurrentUser().getUserId().equals(userId)){
-            System.out.println("********************* set email invisible **************");
             sendEmail.setVisibility(View.GONE);
             btnImg.setVisibility(View.GONE);
             lay.setVisibility(View.GONE);
         }else{
-            System.out.println("********************* set delete invisible **************");
             delete.setVisibility(View.GONE);
             btnDel.setVisibility(View.GONE);
             lay2.setVisibility(View.GONE);
@@ -71,9 +69,6 @@ public class homeDetails extends AppCompatActivity {
         super.onStart();
 
         position=0;
-
-        // getting extras from reccler view
-
         Intent intent= getIntent();
         ArrayList<String > images = intent.getStringArrayListExtra("Images");
         String Location = intent.getExtras().getString("Address");

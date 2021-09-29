@@ -23,7 +23,7 @@ public class ConfirmSignUp extends AppCompatActivity {
         TextView verificationText = findViewById(R.id.codeVerification);
         TextView confirm = findViewById(R.id.confirmation);
 
-        //EditText username = findViewById(R.id.username);
+
         Intent intent = getIntent();
         String username = intent.getExtras().getString("Name");
 

@@ -56,7 +56,7 @@ public class SpinnerClass extends AppCompatActivity {
 
         List<sweetHouse> allData = new ArrayList<>();
         allDataFromAWS.setLayoutManager(new LinearLayoutManager(this));
-        allDataFromAWS.setAdapter(new ViewAdapter((ArrayList<sweetHouse>) arr1));
+
 
         Intent intent= getIntent();
         int price = intent.getExtras().getInt("Price");
@@ -115,26 +115,33 @@ public class SpinnerClass extends AppCompatActivity {
                     for (sweetHouse allDatum : allData) {
                         arr1.add(allDatum);
                     }
+                    allDataFromAWS.setAdapter(new ViewAdapter((ArrayList<sweetHouse>) allData));
                 }
+                List<sweetHouse> arr2= new ArrayList<>();
                 if(selected.equals(str1) && toPrice != null && fromPrice != null){
                     for (sweetHouse allDatum : allData) {
                         if (allDatum.getPrice() <= Integer.parseInt(toPrice.getText().toString()) && allDatum.getPrice() >= Integer.parseInt(fromPrice.getText().toString())){
-                            arr1.add(allDatum);
+                            arr2.add(allDatum);
                         }
+                        allDataFromAWS.setAdapter(new ViewAdapter((ArrayList<sweetHouse>) arr2));
                     }
                 }
+                List<sweetHouse> arr3 = new ArrayList<>();
                 if(selected.equals(str2) && toPrice != null && fromPrice != null){
                     for (sweetHouse allDatum : allData) {
                         if (allDatum.getPrice() <= Integer.parseInt(toPrice.getText().toString()) && allDatum.getPrice() >= Integer.parseInt(fromPrice.getText().toString())){
-                            arr1.add(allDatum);
+                            arr3.add(allDatum);
                         }
+                        allDataFromAWS.setAdapter(new ViewAdapter((ArrayList<sweetHouse>) arr3));
                     }
                 }
+                List<sweetHouse> arr4 = new ArrayList<>();
                 if(selected.equals(str3) && toPrice != null && fromPrice != null){
                     for (sweetHouse allDatum : allData) {
                         if (allDatum.getPrice() <= Integer.parseInt(toPrice.getText().toString()) && allDatum.getPrice() >= Integer.parseInt(fromPrice.getText().toString())){
                             arr1.add(allDatum);
                         }
+                        allDataFromAWS.setAdapter(new ViewAdapter((ArrayList<sweetHouse>) arr4));
                     }
                 }
             }
