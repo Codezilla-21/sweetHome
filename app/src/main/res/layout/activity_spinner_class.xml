@@ -6,102 +6,103 @@
     android:layout_height="match_parent"
     tools:context="SpinnerClass">
 
+
     <Button
         android:id="@+id/fitered"
         android:layout_width="match_parent"
-        android:layout_height="37dp"
+        android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="16dp"
         android:background="#000"
-        android:text="Filtered"
+        android:text="Filter"
         android:textColor="#fff"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:backgroundTint="#239065" />
+        app:backgroundTint="#239065"
+        app:layout_anchor="@+id/fromPrice"
+        app:layout_anchorGravity="bottom|center" />
 
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="55dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_width="match_parent"
-        android:layout_height="550dp"
-        >
+    <ScrollView
+        android:id="@+id/scrollable"
+        android:layout_width="360dp"
+        android:layout_height="580dp"
+        android:layout_marginTop="170dp">
 
-
-        <ScrollView
-            android:id="@+id/scrollable"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recView"
             android:layout_width="360dp"
-            android:layout_height="410dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-           >
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recView"
-                android:layout_width="match_parent"
-                android:layout_height="410dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="140dp"
-                android:layout_marginBottom="277dp" />
-        </ScrollView>
-
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+            android:layout_height="570dp"
+            android:layout_marginLeft="27dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="44dp"
+            app:layout_constraintHorizontal_bias="0.409"
+            app:layout_constraintStart_toStartOf="parent" />
+    </ScrollView>
 
     <EditText
         android:id="@+id/fromPrice"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-        android:layout_width="126dp"
+        android:layout_width="92dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginStart="138dp"
+        android:layout_marginTop="85dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="number"
-        android:textColor="#050505"
-        android:text="0" />
+        android:text="0"
+        android:textColor="#050505" />
 
     <EditText
         android:id="@+id/toPrice"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-        android:layout_width="126dp"
+        android:layout_width="81dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="271dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="85dp"
         android:layout_marginEnd="16dp"
-        android:ems="10"
         android:gravity="center"
         android:inputType="number"
+        android:text="0"
         android:textColor="#050505"
-        android:text="0"/>
+        app:layout_anchor="@+id/toPrice"
+        app:layout_anchorGravity="end|center"
+      />
 
     <TextView
         android:id="@+id/priceFilterTextView"
         android:layout_width="106dp"
         android:layout_height="36dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
-        android:text="Price Range :"
-        android:textSize="17dp"
+        android:layout_marginTop="90dp"
+        android:text="Price From: "
+        android:textSize="20dp"
         android:textColor="#050505"
         />
+
+    <TextView
+        android:id="@+id/priceFilterTextView1"
+        android:layout_width="48dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="243dp"
+        android:layout_marginTop="90dp"
+        android:text="To: "
+        android:textColor="#050505"
+        android:textSize="20dp" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
     tools:context=".homeDetails">
 
     <RelativeLayout
@@ -51,7 +52,7 @@
         android:layout_width="334dp"
         android:layout_height="111dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="300dp"
         android:fontFamily="@font/architects_daughter"
         android:paddingLeft="13dp"
         android:text="Address"
@@ -64,7 +65,7 @@
         android:layout_width="334dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="245dp"
+        android:layout_marginTop="250dp"
         android:fontFamily="@font/architects_daughter"
         android:paddingLeft="13dp"
         android:text="Rent or Sell"
@@ -78,7 +79,7 @@
         android:layout_width="334dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="420dp"
         android:fontFamily="@font/architects_daughter"
         android:paddingLeft="13dp"
         android:text="Price"
@@ -92,7 +93,7 @@
         android:layout_width="337dp"
         android:layout_height="157dp"
         android:layout_marginLeft="45dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="480dp"
         android:fontFamily="@font/architects_daughter"
         android:text="Information"
         android:textColor="#239065"
@@ -105,7 +106,7 @@
         android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:layout_marginLeft="200dp"
-        android:layout_marginTop="650dp"
+        android:layout_marginTop="680dp"
         android:background="@drawable/log_out"
         >
 
@@ -139,7 +140,7 @@
         android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="650dp"
+        android:layout_marginTop="680dp"
         android:background="@drawable/log_out"
         >
 
@@ -149,6 +150,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/log_out"
             app:tint="#fff"
             />
