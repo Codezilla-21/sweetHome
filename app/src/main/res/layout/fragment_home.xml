@@ -95,6 +95,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="17dp"
                 android:text="See More"
+                app:backgroundTint="#239065"
                 android:textSize="10sp" />
 
         </RelativeLayout>

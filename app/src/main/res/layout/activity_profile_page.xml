@@ -10,14 +10,10 @@
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="93dp"
         android:layout_gravity="bottom"
-        android:background="#C7B198"
         app:fabCradleMargin="10dp"
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"
-        app:fabCradleRoundedCornerRadius="50dp"
-        >
+        app:fabCradleRoundedCornerRadius="50dp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavView"
@@ -25,16 +21,15 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@android:color/transparent"
-            app:itemIconTint="#C7B198"
-            app:itemTextColor="#453019"
+            app:itemIconTint="#000000"
             app:labelVisibilityMode="labeled"
-            app:menu="@menu/nav"
-            />
+            app:menu="@menu/nav" />
 
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"

@@ -4,13 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:layout_marginTop="-45dp"
+        android:layout_marginLeft="-90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.033"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/cop3__1_" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="-80dp"
+            android:paddingLeft="20dp"
+            android:fontFamily="@font/architects_daughter"
+            android:text="Sweet Home"
+            android:textAllCaps="false"
+            android:textColor="#44464A"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.538"
+            android:textAlignment="center"/>
+    </LinearLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="93dp"
         android:layout_gravity="bottom"
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="50dp">
@@ -21,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@android:color/transparent"
-            app:itemIconTint="#090909"
+            app:itemIconTint="#000000"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/nav" />
 
@@ -40,19 +84,64 @@
         />
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="450dp"
-        android:layout_marginTop="55dp"
-        app:srcCompat="@drawable/shatha_s_villaa" />
+    <TableLayout
+        android:layout_width="390dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="150dp"
+        android:stretchColumns="1"
+        app:layout_anchor="@+id/textView4"
+        app:layout_anchorGravity="bottom|center">
+
+        <TableRow
+            android:layout_width="400dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:src="@drawable/h1" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:src="@drawable/h2" />
+        </TableRow>
+
+        <TableRow android:layout_width="400dp">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:src="@drawable/h3" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:src="@drawable/villa4" />
+        </TableRow>
+
+        <TableRow android:layout_width="400dp">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:src="@drawable/home2" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:src="@drawable/home3" />
+        </TableRow>
+
+    </TableLayout>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="520dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="570dp"
         android:text="Discover a place you'll love to live."
         android:textColor="#239065"
         android:textSize="18sp"
@@ -67,7 +156,7 @@
         android:layout_height="wrap_content"
         android:text="Search thousand's of apartments and houses with SweetHome."
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="500dp"
         android:textColor="#239065"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -79,4 +168,3 @@
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
