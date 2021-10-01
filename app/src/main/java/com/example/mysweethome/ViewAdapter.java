@@ -60,6 +60,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.HomeViewHolder
                 intent.putExtra("RentSell", sweet.getRentOfSell());
                 intent.putExtra("Type", sweet.getType());
                 intent.putExtra("ID", sweet.getId());
+                intent.putExtra("userID", sweet.getUserId());
 
                 // PoolBalcony
                 String poolBalconyString="";
@@ -99,20 +100,6 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.HomeViewHolder
      //   ImageView itemImageView = holder.itemView.findViewById(R.id.itemImageView);
         priceTextView.setText(holder.sweet.getPrice().toString());
         addressTextView.setText(holder.sweet.getLocation());
-
-        //TODO: HANDLE VIEWING IMAGES FROM S3 IN FRAGMENT
-//        Amplify.Storage.downloadFile(
-//                holder.sweet.getImage().get(0),
-//                new File(getApplicationContext().getFilesDir() + "/Example Key.jpg"),
-//                result2 -> {
-//                    itemImageView.setImageBitmap(BitmapFactory.decodeFile(result2.getFile().getPath()));
-//                    Log.i("MyAmplifyApp", "Successfully downloaded: " + result2.getFile().getName());
-//                },
-//                error -> Log.e("MyAmplifyApp", "Download Failure", error)
-//        );
-
-      //  itemImageView.setImageBitmap((Bitmap) imagesArray.get(0));
-
     }
 
     @Override

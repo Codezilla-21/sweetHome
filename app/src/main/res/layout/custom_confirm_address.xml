@@ -12,15 +12,15 @@
         android:textSize="25sp"
         android:textStyle="bold"
         android:fontFamily="@font/architects_daughter"
-        android:textColor="#6A98A1"
-        ></TextView>
+        android:textColor="#239065"
+       />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Use this location?"
         android:id="@+id/myAddress"
-        android:textColor="#6B453019"
-        ></TextView>
+        android:textColor="#A144464A"
+        />
     <fragment
         class="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
@@ -28,64 +28,38 @@
         android:layout_marginTop="20dp"
         android:layout_height="150dp"/>
 
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/log_out"
+        >
 
 
-<!--        <Button-->
-<!--            android:id="@+id/Changed"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginRight="20dp"-->
-<!--            android:text="Change Location"-->
-<!--            android:textColor="#000"-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:src="@drawable/log_out"
+            app:tint="#fff"
+            />
 
-<!--            ></Button>-->
+        <TextView
+            android:id="@+id/selected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/architects_daughter"
+            android:paddingTop="10dp"
+            android:text="Select"
+            android:textAlignment="center"
+            android:textColor="#44464A"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-<!--        <Button-->
-<!--            android:id="@+id/selected"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Select"-->
-<!--            android:textColor="#000"-->
-<!--            >-->
-<!--        </Button>-->
-
-        <RelativeLayout
-            android:id="@+id/relativeLayout2"
-            android:layout_width="120dp"
-            android:layout_height="50dp"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="240dp"
-            android:layout_marginTop="9dp"
-            android:background="@drawable/log_out"
-            >
-
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="3dp"
-                android:src="@drawable/log_out"
-                app:tint="#fff"
-                />
-
-            <TextView
-                android:id="@+id/selected"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/architects_daughter"
-                android:paddingTop="10dp"
-                android:text="Select"
-                android:textAlignment="center"
-                android:textColor="#FF453019"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-
-
-        </RelativeLayout>
-
-
-
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
@@ -96,7 +70,6 @@
         android:layout_marginTop="-50dp"
         android:background="@drawable/log_out"
         >
-
 
         <ImageView
             android:layout_width="match_parent"
@@ -114,7 +87,7 @@
             android:paddingTop="10dp"
             android:text="Change "
             android:textAlignment="center"
-            android:textColor="#FF453019"
+            android:textColor="#44464A"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -125,11 +98,3 @@
 
 
 </LinearLayout>
-
-
-
-
-
-
-
-

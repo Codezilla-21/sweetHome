@@ -106,7 +106,6 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 if (email.getText().toString().equals("")){
                     Toast.makeText(Login.this, "Enter The User Name", Toast.LENGTH_LONG).show();
-                    System.out.println("************EMAIL VAL IF*****************"+email.getText().toString());
                 }else{
                     System.out.println("************EMAIL VAL*****************"+email.getText().toString());
                     Intent intent = new Intent(Login.this, ForgetPassword.class);

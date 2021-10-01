@@ -12,7 +12,7 @@
         android:layout_height="25dp"
         android:fontFamily="@font/architects_daughter"
         android:text="Area"
-        android:textColor="#FF453019"
+        android:textColor="#44464A"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,7 +78,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.678" />
-  
+
     <EditText
         android:id="@+id/ageOfBuild"
         android:layout_width="172dp"
@@ -98,19 +98,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Location"
+        android:fontFamily="@font/architects_daughter"
+        app:backgroundTint="#239065"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.017" />
+        app:layout_constraintVertical_bias="0.019" />
 
     <Button
         android:id="@+id/upload"
         android:layout_width="130dp"
         android:layout_height="50dp"
         android:text="Add Image"
+        android:fontFamily="@font/architects_daughter"
         android:visibility="visible"
+        app:backgroundTint="#239065"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.755"
@@ -123,7 +127,9 @@
         android:layout_width="130dp"
         android:layout_height="50dp"
         android:text="Add"
+        android:fontFamily="@font/architects_daughter"
         android:visibility="visible"
+        app:backgroundTint="#239065"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.193"
@@ -150,7 +156,7 @@
         android:layout_height="23dp"
         android:fontFamily="@font/architects_daughter"
         android:text="Price"
-        android:textColor="#FF453019"
+        android:textColor="#44464A"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -166,7 +172,7 @@
         android:layout_height="27dp"
         android:fontFamily="@font/architects_daughter"
         android:text="# Of Rooms"
-        android:textColor="#FF453019"
+        android:textColor="#44464A"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -182,7 +188,7 @@
         android:layout_height="28dp"
         android:fontFamily="@font/architects_daughter"
         android:text="Build Age"
-        android:textColor="#FF453019"
+        android:textColor="#44464A"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -198,7 +204,7 @@
         android:layout_height="31dp"
         android:fontFamily="@font/architects_daughter"
         android:text="Information"
-        android:textColor="#FF453019"
+        android:textColor="#44464A"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -214,7 +220,7 @@
         android:layout_height="26dp"
         android:fontFamily="@font/architects_daughter"
         android:text="Email"
-        android:textColor="#FF453019"
+        android:textColor="#44464A"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -230,15 +236,15 @@
         android:layout_height="29dp"
         android:fontFamily="@font/architects_daughter"
         android:text="Balcony"
-        android:textColor="#FF453019"
+        android:textColor="#44464A"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.901" />
+        app:layout_constraintVertical_bias="0.866" />
 
     <RadioButton
         android:id="@+id/isPool"
@@ -246,15 +252,15 @@
         android:layout_height="29dp"
         android:fontFamily="@font/architects_daughter"
         android:text="Pool"
-        android:textColor="#FF453019"
+        android:textColor="#44464A"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.856" />
+        app:layout_constraintVertical_bias="0.827" />
 
     <EditText
         android:id="@+id/floor"
@@ -275,7 +281,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/architects_daughter"
         android:text="Floor"
-        android:textColor="#FF453019"
+        android:textColor="#44464A"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -306,7 +312,7 @@
         app:layout_constraintHorizontal_bias="0.802"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.896">
+        app:layout_constraintVertical_bias="0.874">
 
         <RadioButton
             android:id="@+id/addForRent"
@@ -314,17 +320,17 @@
             android:layout_height="29dp"
             android:fontFamily="@font/architects_daughter"
             android:text="For Rent"
-            android:textColor="#FF453019"
+            android:textColor="#44464A"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/addForSell"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="23dp"
             android:fontFamily="@font/architects_daughter"
             android:text="For Sell"
-            android:textColor="#FF453019"
+            android:textColor="#44464A"
             android:textSize="20sp"
             android:textStyle="bold" />
     </RadioGroup>

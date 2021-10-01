@@ -48,16 +48,6 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-//                .findFragmentById(R.id.map);
-//        mapFragment.getMapAsync(this);
-//        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION)
-//                != PackageManager.PERMISSION_GRANTED) {
-//
-//            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
-//                    LOCATION_REQUEST_CODE);
-//        }
-
         try {
             SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                     .findFragmentById(R.id.map);
@@ -68,15 +58,12 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
                 ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
                         LOCATION_REQUEST_CODE);
             }
-            System.out.println("**************************TRY****************");
         } catch (Exception e) {
-            System.out.println("----------------------------------------");
-            System.out.println("----------------------------------------");
+
             e.printStackTrace();
         }
 
         save = findViewById(R.id.saveAddress);
-        System.out.println("*********************ONCREATE MAP*******************");
     }
 
     @Override
@@ -106,22 +93,6 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
     @Override
     protected void onStart(){
         super.onStart();
-
-
-//        save.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                SharedPreferences nameShare = PreferenceManager.getDefaultSharedPreferences(Map.this);
-//                SharedPreferences.Editor sharedPrefEdit = nameShare.edit();
-//                sharedPrefEdit.putString("Address",addressSaving);
-//                SharedPreferences bool = PreferenceManager.getDefaultSharedPreferences(Map.this);
-//                SharedPreferences.Editor sharedPrefEdit2 = bool.edit();
-//                sharedPrefEdit.apply();
-//
-//                Intent addHome = new Intent(Map.this, AddHome.class);
-//                startActivity(addHome);
-//            }
-//        });
     }
 
     @Override
@@ -134,13 +105,6 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
 
                     if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        // TODO: Consider calling
-                        //    ActivityCompat#requestPermissions
-                        // here to request the missing permissions, and then overriding
-                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                        //                                          int[] grantResults)
-                        // to handle the case where the user grants the permission. See the documentation
-                        // for ActivityCompat#requestPermissions for more details.
                         ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
                                 LOCATION_REQUEST_CODE);
                     }
@@ -171,11 +135,9 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
                         }
                     });
-                    System.out.println("*********************ONREQUEST MAP*******************");
 
                 } else {
                     System.out.println("PERMISSION FOR LOCATION ACCESS DENIED");
-                    System.out.println("*********************REQUEST DENIED MAP*******************");
                 }
                 return;
             }
@@ -218,8 +180,6 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
             args.putString("address", address);
             dialogFragment.setArguments(args);
             dialogFragment.show(ft, "dialog");
-            System.out.println("********************************************************");
-            System.out.println("********************************************************");
             System.out.println("Adress: "+address);
             System.out.println("City: "+city);
             System.out.println("State: "+state);
@@ -227,7 +187,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
             System.out.println("Latitude: "+latLng.latitude);
             System.out.println("Longitude: "+latLng.longitude);
 
-            addressSaving="Adress: "+address+"City: "+city+"State: "+state+"Country: "+country+"Latitude: "+latLng.latitude+" - Longitude: "+latLng.longitude;
+            addressSaving="Adress: "+address+"City: "+city+"State: "+state+"Country: "+country;
             return address;
         } catch (IOException e) {
             e.printStackTrace();

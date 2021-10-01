@@ -4,82 +4,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
     tools:context=".homeDetails">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="28dp"
+        android:background="@drawable/log_out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginTop="240dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.507">
+
+
+        <ImageView
+            android:layout_width="307dp"
+            android:layout_height="123dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="6dp"
+            android:src="@drawable/log_out"
+            app:tint="#fff" />
+    </RelativeLayout>
+
+
+
 
     <ImageView
         android:id="@+id/imagesSwitcher"
         android:layout_width="match_parent"
         android:layout_height="191dp" />
 
-    <!--    <Button-->
-    <!--        android:id="@+id/imgPrevious"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="Previous"-->
-    <!--        android:layout_marginLeft="5dp"-->
-    <!--        android:layout_marginTop="310dp"-->
-    <!--        android:layout_below="@+id/imagesSwitcher"/>-->
-    <!--    <Button-->
-    <!--        android:id="@+id/imgNext"-->
-    <!--        android:layout_alignParentEnd="true"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="Next"-->
-    <!--        android:layout_marginLeft="300dp"-->
-    <!--        android:layout_marginTop="310dp"-->
-    <!--        android:layout_below="@+id/imagesSwitcher"/>-->
-
 
     <TextView
-        android:id="@+id/Information"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:id="@+id/address"
+        android:layout_width="334dp"
+        android:layout_height="111dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="300dp"
         android:fontFamily="@font/architects_daughter"
-        android:text="Information"
-        android:textColor="#6A98A1"
+        android:paddingLeft="13dp"
+        android:text="Address"
+        android:textColor="#239065"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/rentSell"
-        android:layout_width="wrap_content"
+        android:layout_width="334dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="410dp"
-        android:textColor="#6A98A1"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="250dp"
         android:fontFamily="@font/architects_daughter"
-        android:text="Rent or Sell" />
-
-    <TextView
-        android:id="@+id/address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="520dp"
-        android:fontFamily="@font/architects_daughter"
-        android:text="Address"
-        android:textColor="#6A98A1"
+        android:paddingLeft="13dp"
+        android:text="Rent or Sell"
+        android:textColor="#239065"
         android:textSize="18sp"
         android:textStyle="bold" />
 
 
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="334dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="420dp"
+        android:fontFamily="@font/architects_daughter"
+        android:paddingLeft="13dp"
+        android:text="Price"
+        android:textColor="#239065"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/Information"
+        android:layout_width="337dp"
+        android:layout_height="157dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="480dp"
+        android:fontFamily="@font/architects_daughter"
+        android:text="Information"
+        android:textColor="#239065"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="270dp"
-        android:layout_marginTop="690dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="680dp"
         android:background="@drawable/log_out"
         >
 
 
         <ImageView
+            android:id="@+id/setInvisible"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
@@ -93,9 +126,9 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/architects_daughter"
             android:paddingTop="10dp"
-            android:text="Email Owner "
+            android:text=" Email Owner "
             android:textAlignment="center"
-            android:textColor="#FF453019"
+            android:textColor="#C844464A"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -106,16 +139,18 @@
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="3dp"
-        android:layout_marginTop="690dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="680dp"
         android:background="@drawable/log_out"
         >
 
 
         <ImageView
+            android:id="@+id/deleteImg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/log_out"
             app:tint="#fff"
             />
@@ -126,9 +161,9 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/architects_daughter"
             android:paddingTop="10dp"
-            android:text="Delete "
+            android:text=" Delete "
             android:textAlignment="center"
-            android:textColor="#FF453019"
+            android:textColor="#C844464A"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -140,7 +175,7 @@
         android:id="@+id/imgNext"
         android:layout_width="91dp"
         android:layout_height="47dp"
-        android:layout_marginTop="195dp"
+        android:layout_marginTop="130dp"
         android:layout_marginLeft="300dp"
         android:paddingRight="-70dp"
         android:paddingTop="-100dp"
@@ -151,12 +186,13 @@
         android:id="@+id/imgPrevious"
         android:layout_width="91dp"
         android:layout_height="47dp"
-        android:layout_marginTop="195dp"
+        android:layout_marginTop="130dp"
         android:layout_marginRight="300dp"
         android:paddingLeft="-70dp"
         android:paddingTop="-100dp"
         android:src="@drawable/navigate_before">
 
     </ImageView>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
